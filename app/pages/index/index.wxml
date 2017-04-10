@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="section section_gap swiper_box">
+        <swiper class="swiper" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+            <view wx:for="{{images}}">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image"/>
+                </swiper-item>
+            </view>
+        </swiper>
+    </view>
+
+    <view class="section index-nav bb11">
+        <view wx:for="{{navs}}">
+            <view class="l-c-c" catchtap="go" data-type="{{item.text}}">
+                <image src="{{item.image}}" class="slide-image"/>
+                <text class="">{{item.text}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="text">
+        <text class="b">待收货处方</text>
+        <view>
+            <text class="mr10">更多</text><image class="widgets__info-img" src="/image/arrowright.png" mode="aspectFill" />
+        </view>
+    </view>
+
+    <view wx:for="{{items}}">
+        <view class="item f14 bgwh g11 bb11">
+            <view class="fx fdr fjcsb p10 bb12">
+                <view><text class="mr20">{{item.date}}</text><text>处方号: {{item.prescriptionId}}</text></view>
+                <text class="g12">{{item.prescriptionState}}</text>
+            </view>
+            <view class="fx fdc p10">
+                <view class="fx fdr fjcsb faic">
+                    <view><text  class="mr20">医疗机构</text><text>{{item.orgName}}</text></view>
+                    <image src="{{item.image}}" class="QRC-image mr10"/>
+                </view>
+            </view>
+            <view class="pl10"><text  class="mr20">煎配方式</text><text>{{item.decoctType}}</text></view>
+            <view class="p10"><text  class="mr20">处方类型</text><text>{{item.otcType}}</text></view>
+        </view>
+    </view>
+</view>

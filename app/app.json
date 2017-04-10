@@ -1,0 +1,46 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/list/index",
+        "pages/component/index",
+        "pages/i/index",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#3cb9bb",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "智慧健康",
+        "backgroundColor": "#f2f2f2",
+        "backgroundTextStyle": "light",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#9e9e9e",
+        "selectedColor": "#27b1b4",
+        "backgroundColor": "#f6f6f6",
+        "borderStyle": "white",
+        "list": [{
+            "pagePath": "pages/index/index",
+            "text": "首页",
+            "iconPath": "image/home.png",
+            "selectedIconPath": "image/home-selected.png"
+        }, {
+            "pagePath": "pages/list/index",
+            "text": "咨询服务",
+            "iconPath": "image/consultation.png",
+            "selectedIconPath": "image/consultation-selected.png"
+        }, {
+            "pagePath": "pages/component/index",
+            "text": "个人中心",
+            "iconPath": "image/personal.png",
+            "selectedIconPath": "image/personal-selected.png"
+        }, {
+            "pagePath": "pages/i/index",
+            "text": "帮助中心",
+            "iconPath": "image/help.png",
+            "selectedIconPath": "image/help-selected.png"
+        }],
+        "position": "bottom"
+    },
+    "debug": true
+}
