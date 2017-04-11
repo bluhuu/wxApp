@@ -20,7 +20,7 @@ Page({
                 id: 'form',
                 name: '家族成员',
                 img:'../../image/personal-13.png',
-                open: true,
+                open: false,
                 pages: ['张学友', '刘丝丝', '白骨精']
             }, {
                 id: 'feedback',
@@ -33,7 +33,7 @@ Page({
     },
     widgetsToggle: function (e) {
         var id = e.currentTarget.id, list = this.data.list;
-        
+
         for (var i = 0, len = list.length; i < len; ++i) {
             if (list[i].id == id) {
                 list[i].open = !list[i].open;
@@ -44,6 +44,24 @@ Page({
         this.setData({
             list: list
         });
+    },
+    memberedit:function (e) {
+        console.log("eeeeeeeeeeeeee:");
+        console.log(e);
+        console.log(this);
+        wx.showModal({
+            title: '提示',
+            content: '这是一个模态弹窗',
+            success: function(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定');
+                } else if (res.cancel) {
+                    console.log('用户点击取消');
+                }
+            }
+        });
+
+
     },
     onLoad: function() {
         var that = this;

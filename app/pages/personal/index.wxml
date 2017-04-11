@@ -22,7 +22,7 @@
                         <block wx:for-items="{{item.pages}}" wx:for-item="page">
                             <view class="family-member fx fjcsb p10 pl20 pr20 f14">
                                 <text class="member-name">{{page}}</text>
-                                <view><text class="member-edit mr20">编辑</text><text class="member-lookup">查看</text></view>
+                                <view><text class="member-edit mr20" id="member-edit-ID" bindtap="memberedit">编辑</text><text class="member-lookup">查看</text></view>
                             </view>
                         </block>
                         <view style="text-align:center;"><image style="height:50rpx;width:50rpx;padding:15rpx;" src="/image/personal-21.png" mode="aspectFill" /></view>

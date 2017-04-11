@@ -2,7 +2,7 @@ var app = getApp();
 Page({
     data: {
         userInfo: {},
-        source: 'https://github.com/aidenzou/SmallApp'
+        source: '智慧健康'
     },
     bindViewTap: function() {
         wx.navigateTo({
