@@ -2,37 +2,36 @@ var app = getApp();
 Page({
     data: {
         userInfo: {},
+        user:{
+            userName:'赵山河',
+            userGender:'男',
+            userPhone:'13770679518'
+        },
         list: [
             {
                 id: 'view',
-                name: '视图容器',
+                name: '我的资料',
+                img:'../../image/personal-11.png',
                 open: false,
                 pages: ['view', 'scroll-view', 'swiper']
             }, {
                 id: 'content',
-                name: '基础内容',
+                name: '我的咨询',
+                img:'../../image/personal-12.png',
                 open: false,
                 pages: ['text', 'icon', 'progress']
             }, {
                 id: 'form',
-                name: '表单组件',
+                name: '家族成员',
+                img:'../../image/personal-13.png',
                 open: false,
                 pages: ['button', 'checkbox', 'form', 'input', 'label', 'picker', 'radio', 'slider', 'switch']
             }, {
                 id: 'feedback',
-                name: '操作反馈',
+                name: '我的处方',
+                img:'../../image/personal-14.png',
                 open: false,
                 pages: ['action-sheet', 'modal', 'toast', 'loading']
-            }, {
-                id: 'nav',
-                name: '导航',
-                open: false,
-                pages: ['navigator']
-            }, {
-                id: 'media',
-                name: '媒体组件',
-                open: false,
-                pages: ['image', 'audio', 'video', 'map', 'canvas']
             }
         ]
     },

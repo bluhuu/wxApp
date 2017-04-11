@@ -1,35 +1,22 @@
+@import "/style/hh.wxss";
 .index {
-    background-color: #FBF9FE;
+    background-color: #f2f2f2;
     font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
     flex: 1;
     min-height: 100%;
     font-size: 32rpx;
 }
-
-.head {
-    padding: 80rpx;
-    line-height: 1;
-}
-
-.body {
-    padding-left: 30rpx;
-    padding-right: 30rpx;
-    overflow: hidden;
-}
-
-.title {
-    font-size: 52rpx;
-}
-
-.desc {
+.head { padding: 15rpx; line-height: 1; font-size: 32rpx;color: #888888;margin-bottom: 20rpx;}
+.userifo view{height: 50rpx;line-height: 50rpx;width: 200rpx;}
+.userinfo-avatar { width: 128rpx; height: 128rpx; border-radius: 50%; }
+.userName { font-size: 32rpx; }
+.userPhone {
     margin-top: 10rpx;
     color: #888888;
-    font-size: 28rpx;
 }
 
+.body { overflow: hidden; }
 .widgets__item {
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
     background-color: #FFFFFF;
     overflow: hidden;
     border-radius: 4rpx;
@@ -57,6 +44,10 @@
     width: 32rpx;
     height: 32rpx;
     transition: transform .4s;
+}
+.widgets-img{
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .widgets__list {

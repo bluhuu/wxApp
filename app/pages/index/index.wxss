@@ -1,5 +1,5 @@
 @import "/style/hh.wxss";
-.container { background-color: #F2f2f2; }
+.container { background-color: #f2f2f2; }
 /*轮播*/
 .swiper_box { height: 187.5px; }
 swiper.swiper { height: 100%; }
@@ -47,5 +47,3 @@ view.text image { width: 12rpx; height: 21rpx; }
 
 .item{ margin-bottom: 7px; display: flex; flex-flow: column wrap; }
 .QRC-image { height: 50rpx; width: 50rpx; display: inline-block; overflow: hidden; }
-.g11{color: #6c6c6c} .g12 {color: #ffa127}
-.bb11{border-bottom: 1px solid #d4d4d4;}.bb12{border-bottom: 1px solid #e8e8e8;}

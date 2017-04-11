@@ -40,7 +40,7 @@
                 <text class="g12">{{item.prescriptionState}}</text>
             </view>
             <view class="fx fdc p10">
-                <view class="fx fdr fjcsb faic">
+                <view class="fx fdr fjcsb faice">
                     <view><text class="mr20">医疗机构</text><text>{{item.orgName}}</text></view>
                     <image src="{{item.image}}" class="QRC-image mr10" />
                 </view>

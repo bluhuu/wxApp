@@ -67,9 +67,18 @@ a{text-decoration:none;cursor: pointer;color: #333;} a:visited{color: #333} a:ho
 .float_two, .float_three, .float_four, .float_five, .float_six{float:left;}
 .inline_two, .float_two{width:49.9%;} .inline_three, .float_three{width:33.3%;} .inline_four, .float_four{width:24.9%;} .inline_five, .float_five{width:19.9%;} .inline_six, .float_six{width:16.6%;}
 .inline_fix{display:inline-block; width:100%; height:0; overflow:hidden;}
-.distribute_Col{text-align:justify; text-justify:distribute-all-lines; -moz-text-align-last:justify; text-align-last:justify;}
-.fx{display: flex;} .fdr{flex-direction: row;} .fdc{flex-direction: column;} .fjcsb{justify-content:space-between}
-.faic{align-items:center;}
+.distribute_Col{text-align:justify; text-justify:distribute-all-lines; text-align-last:justify;}
+.fx{display: flex;} .fdr{flex-direction: row;} .fdc{flex-direction: column;}
+.faice{align-items:center;} .faifs{align-items: flex-start;} .faife{align-items:flex-end;} .faibl{align-items: baseline;} .faist{align-items: stretch;}
+.fjcsb{justify-content:space-between} .fjcce{justify-content: center;} .fjcfs{justify-content: flex-start;} .fjcfe{justify-content: flex-end;} .fjcsa{justify-content: space-around;}
+.facce{align-content: center;} .facfs{align-content: flex-start;} .facfe{align-content: flex-end;} .facst{align-content: stretch;} .facsb{align-content: space-between; } .facsa{align-content: space-around;}
 /*@media screen and (min-width: 600px) { .wrap_scroll { margin-left: calc(100vw - 100%); } }*/
 table{table-layout:fixed; border-collapse:collapse; border-spacing:0; width:100%;} th,td{ padding:5;} th{text-align: center!important;}
 .bsb{ box-sizing:border-box; } .bsc{ box-sizing: content-box; }
+.h100{height: 100%;}
+
+/*project*/
+.g11{color: #6c6c6c} .g12 {color: #ffa127}
+.bb11{border-bottom: 1px solid #d4d4d4;}.bt11{border-top: 1px solid #d4d4d4;}
+.bb12{border-bottom: 1px solid #e8e8e8;}.bt12{border-top: 1px solid #e8e8e8;}
+.bb11{border-bottom: 1px solid #d8d8d8;}.bt11{border-top: 1px solid #d8d8d8;}
