@@ -2,11 +2,7 @@ var app = getApp();
 Page({
     data: {
         userInfo: {},
-        user:{
-            userName:'赵山河',
-            userGender:'男',
-            userPhone:'13770679518'
-        },
+        user:{ userName:'潘长江', userGender:'男', userPhone:'13770679518' },
         list: [
             {
                 id: 'view',
@@ -24,8 +20,8 @@ Page({
                 id: 'form',
                 name: '家族成员',
                 img:'../../image/personal-13.png',
-                open: false,
-                pages: ['button', 'checkbox', 'form', 'input', 'label', 'picker', 'radio', 'slider', 'switch']
+                open: true,
+                pages: ['张学友', '刘丝丝', '白骨精']
             }, {
                 id: 'feedback',
                 name: '我的处方',
@@ -37,6 +33,7 @@ Page({
     },
     widgetsToggle: function (e) {
         var id = e.currentTarget.id, list = this.data.list;
+        
         for (var i = 0, len = list.length; i < len; ++i) {
             if (list[i].id == id) {
                 list[i].open = !list[i].open;
