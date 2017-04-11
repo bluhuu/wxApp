@@ -24,8 +24,10 @@ swiper.swiper { height: 100%; }
     padding-bottom: 10rpx;
     flex-direction: column;
 }
-.index-nav image { width: 38px; height: 38px; }
+
+.index-nav .nav-image { width: 38px; height: 38px; }
 .index-nav text { font-size: .8em; padding-top: .3em; }
+.index-nav .additionImage { width: 26px; height: 11px; left:50px;top:4px;}
 
 view.text {
     display: flex;

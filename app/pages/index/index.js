@@ -29,19 +29,41 @@ Page({
             text: '健康档案'
         }, {
             image: '../../image/nav-05.png',
-            text: '我要问诊'
+            additionImage: '../../image/building.png',
+            text: '我要问诊',
+            addition:true
         }, {
             image: '../../image/nav-06.png',
-            text: '健康商城'
+            additionImage: '../../image/building.png',
+            text: '健康商城',
+            addition:true
         }, {
             image: '../../image/nav-07.png',
-            text: '健康知识'
+            additionImage: '../../image/building.png',
+            text: '健康知识',
+            addition:true
         }, {
             image: '../../image/nav-08.png',
             text: '即将上线'
         }],
         // item
         items: [{
+                date: '2016-2-16',
+                prescriptionId:'TCF0023',
+                prescriptionState:'煎制中',
+                orgName:'仙林社区卫生服务中心',
+                decoctType:'代煎',
+                otcType:'普通处方',
+                image: '../../image/QRCode.png'
+            },{
+                date: '2016-2-16',
+                prescriptionId:'TCF0023',
+                prescriptionState:'煎制中',
+                orgName:'仙林社区卫生服务中心',
+                decoctType:'代煎',
+                otcType:'普通处方',
+                image: '../../image/QRCode.png'
+            },{
                 date: '2016-2-16',
                 prescriptionId:'TCF0023',
                 prescriptionState:'煎制中',

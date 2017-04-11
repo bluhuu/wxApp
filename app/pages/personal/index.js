@@ -1,5 +1,7 @@
+var app = getApp();
 Page({
     data: {
+        userInfo: {},
         list: [
             {
                 id: 'view',
@@ -45,6 +47,14 @@ Page({
         }
         this.setData({
             list: list
+        });
+    },
+    onLoad: function() {
+        var that = this;
+        app.getUserInfo(function(userInfo) {
+            that.setData({
+                userInfo: userInfo
+            });
         });
     }
 });

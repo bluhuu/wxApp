@@ -1,9 +1,9 @@
 {
     "pages": [
+        "pages/personal/index",
         "pages/index/index",
         "pages/list/index",
-        "pages/component/index",
-        "pages/i/index",
+        "pages/help/index",
         "pages/logs/logs"
     ],
     "window": {
@@ -30,12 +30,12 @@
             "iconPath": "image/consultation.png",
             "selectedIconPath": "image/consultation-selected.png"
         }, {
-            "pagePath": "pages/component/index",
+            "pagePath": "pages/personal/index",
             "text": "个人中心",
             "iconPath": "image/personal.png",
             "selectedIconPath": "image/personal-selected.png"
         }, {
-            "pagePath": "pages/i/index",
+            "pagePath": "pages/help/index",
             "text": "帮助中心",
             "iconPath": "image/help.png",
             "selectedIconPath": "image/help-selected.png"
