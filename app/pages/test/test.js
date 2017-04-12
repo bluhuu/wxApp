@@ -1,49 +1,47 @@
+// pages/index/Component/FormM/FormM.js
 Page({
-  data: {
-    animationData: {}
-  },
-  onShow: function(){
-    var animation = wx.createAnimation({
-      duration: 1000,
-        timingFunction: 'ease',
-    })
+ //初始化数据
+ data: {
+  array: ['大中国', '美国', '巴西', '小日本'],
+  index: 0,
+  date: '2016-12-20',
+  time: '11:19',
+  allValue:''
+ },
+ //表单提交按钮
+ formSubmit: function(e) {
+  console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  this.setData({
+   allValue:e.detail.value
+  })
+ },
+ //表单重置按钮
+ formReset: function(e) {
+  console.log('form发生了reset事件，携带数据为：', e.detail.value)
+  this.setData({
+   allValue:''
+  })
+ },
+ //---------------------与选择器相关的方法
+ //地区选择
+ bindPickerChange: function(e) {
+  console.log('picker发送选择改变，携带值为', e.detail.value)
+  this.setData({
+   index: e.detail.value
+  })
+ },
+ //日期选择
+ bindDateChange: function(e) {
+  this.setData({
+   date: e.detail.value
+  })
+ },
+ //时间选择
+ bindTimeChange: function(e) {
+  this.setData({
+   time: e.detail.value
+  })
+ },
 
-    this.animation = animation
 
-    animation.scale(2,2).rotate(45).step()
-
-    this.setData({
-      animationData:animation.export()
-    })
-
-    setTimeout(function() {
-      animation.translate(30).step()
-      this.setData({
-        animationData:animation.export()
-      })
-    }.bind(this), 1000)
-  },
-  rotateAndScale: function () {
-    // 旋转同时放大
-    this.animation.rotate(45).scale(2, 2).step()
-    this.setData({
-      animationData: this.animation.export()
-    })
-  },
-  rotateThenScale: function () {
-    // 先旋转后放大
-    this.animation.rotate(45).step()
-    this.animation.scale(2, 2).step()
-    this.setData({
-      animationData: this.animation.export()
-    })
-  },
-  rotateAndScaleThenTranslate: function () {
-    // 先旋转同时放大，然后平移
-    this.animation.rotate(45).scale(2, 2).step()
-    this.animation.translate(100, 100).step({ duration: 1000 })
-    this.setData({
-      animationData: this.animation.export()
-    })
-  }
 })
