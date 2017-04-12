@@ -1,0 +1,33 @@
+/*导航 nav*/
+.top-bar {
+    height: 72rpx;
+    background: #43b8eb;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.top-bar-item {
+    display: inline-block;
+    width: 150rpx;
+    color: #a1edff;
+    text-align: center;
+    flex: 1 1 auto;
+    line-height: 72rpx;
+    font-size: 28rpx;
+}
+.top-bar-item>image{
+    vertical-align: text-bottom;
+    width: 30rpx;
+    height: 30rpx;
+    margin-left:5rpx;
+}
+.top-bar-active {
+    /*color: #fff;*/
+    /*font-size: 32rpx;*/
+}
+.top-bar-active>image{
+    transform: rotate(180deg);
+}
