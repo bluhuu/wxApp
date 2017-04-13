@@ -15,8 +15,8 @@
 .posts-list {
     position: relative;
     overflow: hidden;
-    padding: 0 30rpx;
-    border-bottom: 1rpx solid #80bd01;
+    padding: 5rpx 20rpx 10rpx 10rpx;
+    border-bottom: 1rpx solid #e5e5e5;
 }
 
 .posts-list-info {
@@ -123,8 +123,8 @@
     /*position: absolute;*/
     /*top: 0;*/
     /*right: 0;*/
-    width: 84px;
-    height: 24px;
+    /*width: 84px;*/
+    /*height: 24px;*/
     /*background-color: inherit;*/
 }
 
@@ -142,7 +142,7 @@
     width: 25px;
     height: 100%;
     border: 1px solid transparent;
-	border-radius: 4px;
+	border-radius: 2px;
 	border-color: #ccc;
 	box-sizing: border-box;
 }

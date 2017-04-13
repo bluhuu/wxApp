@@ -29,6 +29,63 @@ var productList=[
         isOTC:""
     },
     {
+        ProductName:"【本草纲目】 小儿咳喘灵颗粒",
+        productSpec:"10g*10袋",
+        manufacturer:"李时珍医药集团有限公司",
+        productStyle:"冲剂",
+        productId:"",
+        uomName:"盒",
+        isBasicMedicine:"",
+        saleUnit:"10",
+        bundle:"中/大包装",
+        certificateNo:"",
+        poPrice:"4.60",
+        salePrice:"10.00",
+        qtyMsg:"",
+        nearValDate:"",
+        isPromotion:"",
+        isInsurance:"",
+        isOTC:""
+    },
+    {
+        ProductName:"【本草纲目】 小儿咳喘灵颗粒",
+        productSpec:"10g*10袋",
+        manufacturer:"李时珍医药集团有限公司",
+        productStyle:"冲剂",
+        productId:"",
+        uomName:"盒",
+        isBasicMedicine:"",
+        saleUnit:"10",
+        bundle:"中/大包装",
+        certificateNo:"",
+        poPrice:"4.60",
+        salePrice:"10.00",
+        qtyMsg:"",
+        nearValDate:"",
+        isPromotion:"",
+        isInsurance:"",
+        isOTC:""
+    },
+    {
+        ProductName:"【本草纲目】 小儿咳喘灵颗粒",
+        productSpec:"10g*10袋",
+        manufacturer:"李时珍医药集团有限公司",
+        productStyle:"冲剂",
+        productId:"",
+        uomName:"盒",
+        isBasicMedicine:"",
+        saleUnit:"10",
+        bundle:"中/大包装",
+        certificateNo:"",
+        poPrice:"4.60",
+        salePrice:"10.00",
+        qtyMsg:"",
+        nearValDate:"",
+        isPromotion:"",
+        isInsurance:"",
+        isOTC:""
+    },
+    {
         ProductName:"【绿叶】 小儿咳喘灵颗粒",
         productSpec:"10g*10袋",
         manufacturer:"李时珍医药集团有限公司",
@@ -142,14 +199,11 @@ Page({
         var limit = that.data.limit;
         var ApiUrl = Api.topics + '?tab=' + tab + '&page=' + page + '&limit=' + limit;
 
-        that.setData({
-            hidden: false
-        });
+        that.setData({ hidden: false });
 
         if (page == 1) {
-            that.setData({
-                postsList: []
-            });
+            that.setData({ postsList: [] });
+            that.setData({ productList: [] });
         }
 
         Api.fetchGet(ApiUrl, (err, res) => {
@@ -158,14 +212,16 @@ Page({
                 postsList: that.data.postsList.concat(res.data.map(function(item) {
                     item.last_reply_at = util.getDateDiff(new Date(item.last_reply_at));
                     return item;
-                }))
+                })),
+                productList:that.data.productList.concat(productList)
             });
 
             setTimeout(function() {
                 that.setData({
                     hidden: true
                 });
-            }, 300);
+            }, 100);
+            console.log(that.data.productList);
         })
     },
 

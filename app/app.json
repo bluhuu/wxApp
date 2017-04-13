@@ -43,7 +43,7 @@
             "iconPath": "image/help.png",
             "selectedIconPath": "image/help-selected.png"
         }, {
-            "pagePath": "pages/test/test",
+            "pagePath": "pages/search/search",
             "text": "test",
             "iconPath": "image/help.png",
             "selectedIconPath": "image/help-selected.png"

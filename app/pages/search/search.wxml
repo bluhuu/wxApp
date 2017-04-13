@@ -4,5 +4,5 @@
 
 <view class="page topics">
   <template is="nav" data="{{ navList, activeIndex }}"/>
-  <template is="list" data="{{ postsList, hidden }}"/>
+  <template is="list" data="{{ productList, hidden }}"/>
 </view>
