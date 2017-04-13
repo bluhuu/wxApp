@@ -8,12 +8,92 @@ var navList = [
     { id: "ask", title: "筛选" }
 ];
 
+var productList=[
+    {
+        ProductName:"【本草纲目】 小儿咳喘灵颗粒",
+        productSpec:"10g*10袋",
+        manufacturer:"李时珍医药集团有限公司",
+        productStyle:"冲剂",
+        productId:"",
+        uomName:"盒",
+        isBasicMedicine:"",
+        saleUnit:"10",
+        bundle:"中/大包装",
+        certificateNo:"",
+        poPrice:"4.60",
+        salePrice:"10.00",
+        qtyMsg:"",
+        nearValDate:"",
+        isPromotion:"",
+        isInsurance:"",
+        isOTC:""
+    },
+    {
+        ProductName:"【绿叶】 小儿咳喘灵颗粒",
+        productSpec:"10g*10袋",
+        manufacturer:"李时珍医药集团有限公司",
+        productStyle:"冲剂",
+        productId:"",
+        uomName:"盒",
+        isBasicMedicine:"",
+        saleUnit:"10",
+        bundle:"中/大包装",
+        certificateNo:"",
+        poPrice:"4.60",
+        salePrice:"10.00",
+        qtyMsg:"",
+        nearValDate:"",
+        isPromotion:"",
+        isInsurance:"",
+        isOTC:""
+    },
+    {
+        ProductName:"【葵花】 小儿咳喘灵颗粒",
+        productSpec:"10g*10袋",
+        manufacturer:"李时珍医药集团有限公司",
+        productStyle:"冲剂",
+        productId:"",
+        uomName:"盒",
+        isBasicMedicine:"",
+        saleUnit:"10",
+        bundle:"中/大包装",
+        certificateNo:"",
+        poPrice:"4.60",
+        salePrice:"10.00",
+        qtyMsg:"",
+        nearValDate:"",
+        isPromotion:"",
+        isInsurance:"",
+        isOTC:""
+    },
+    {
+        ProductName:"【远大黄石】 小儿咳喘灵颗粒",
+        productSpec:"10g*10袋",
+        manufacturer:"李时珍医药集团有限公司",
+        productStyle:"冲剂",
+        productId:"",
+        uomName:"盒",
+        isBasicMedicine:"",
+        saleUnit:"10",
+        bundle:"中/大包装",
+        certificateNo:"",
+        poPrice:"4.60",
+        salePrice:"10.00",
+        qtyMsg:"",
+        nearValDate:"",
+        isPromotion:"",
+        isInsurance:"",
+        isOTC:""
+    }
+];
+
 Page({
     data: {
         activeIndex: -1,
         navList: navList,
         title: '话题列表',
         postsList: [],
+        productList:[],
         hidden: false,
         page: 1,
         limit: 20,
