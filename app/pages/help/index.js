@@ -1,4 +1,4 @@
-var app = getApp();
+const App = getApp()
 Page({
     data: {
         userInfo: {},
@@ -10,11 +10,24 @@ Page({
         });
     },
     onLoad: function() {
-        var that = this;
-        app.getUserInfo(function(userInfo) {
-            that.setData({
+        this.getUserInfo()
+    },
+    getUserInfo() {
+        const userInfo = App.globalData.userInfo
+
+        if (userInfo) {
+            this.setData({
                 userInfo: userInfo
-            });
-        });
+            })
+            return
+        }
+
+        App.getUserInfo()
+        .then(data => {
+            console.log(data)
+            this.setData({
+                userInfo: data
+            })
+        })
     }
 });

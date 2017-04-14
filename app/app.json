@@ -1,12 +1,14 @@
 {
     "pages": [
+        "pages/index/index",
+        "pages/start/index",
         "pages/search/search",
         "pages/test/test",
         "pages/personal/index",
-        "pages/index/index",
         "pages/list/index",
         "pages/help/index",
         "pages/logs/logs",
+        "pages/login/index",
         "pages/navigator/navigator"
     ],
     "window": {
