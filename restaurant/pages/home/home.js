@@ -113,6 +113,7 @@ Page({
     },
     //展示食品详情弹窗
     imageClick: function(e) {
+        console.log(e);
         var dataset = e.currentTarget.dataset;
         var appInstance = getApp();
         var t_foodList = appInstance.globalData.foodList;
