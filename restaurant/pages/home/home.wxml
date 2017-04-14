@@ -31,7 +31,7 @@
       <view class="fooditem" wx:for="{{foodList}}">
 
         <view class="fooditem-l" >
-          <image mode="scaleToFill" src="{{foodList[index*2].icon}}" data-index="{{index*2}}" bindtap="imageClick"></image>
+          <image mode="scaleToFill" src="{{foodList[index*2].icon}}" data-index="{{index*2}}-zz-yy-zzy" bindtap="imageClick"></image>
           <view class="foodtitle">{{foodList[index*2].title}}</view>
           <view class="fooditem-handle">
             <span class="fooditem-jia" data-index="{{index*2}}" bindtap="addClick" >+</span>
@@ -41,7 +41,7 @@
           </view>
         </view>
         <view class="fooditem-r" >
-          <image mode="scaleToFill" src="{{foodList[index*2+1].icon}}" data-index="{{index*2 + 1}}" bindtap="imageClick"></image>
+          <image mode="scaleToFill" src="{{foodList[index*2+1].icon}}" data-index="{{index*2 + 1}}-zz-yy-zzy" bindtap="imageClick"></image>
           <view class="foodtitle">{{foodList[index*2+1].title}}</view>
           <view class="fooditem-handle">
             <span class="fooditem-jia" data-index="{{index*2 + 1}}" bindtap="addClick">+</span>
@@ -50,7 +50,7 @@
             <span class="fooditem-cost">￥{{foodList[index*2+1].cost}}</span>
           </view>
         </view>
-        
+
       </view>
     </scroll-view>
   </view>
@@ -83,5 +83,3 @@
   </view>
 
 </view>
-
-

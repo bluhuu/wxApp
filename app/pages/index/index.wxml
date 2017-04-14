@@ -1,9 +1,7 @@
 <!--index.wxml-->
 <view class="container">
     <view class="section section_gap swiper_box">
-        <swiper class="swiper" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
-            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
-            bindchange="swiperchange">
+        <swiper class="swiper" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
             <view wx:for="{{images}}">
                 <swiper-item>
                     <image src="{{item}}" class="slide-image" />

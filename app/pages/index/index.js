@@ -9,11 +9,11 @@ Page({
             '../../image/slibe01.png',
             '../../image/slibe01.png',
         ],
-        indicatorDots: true,
-        vertical: false,
-        autoplay: true,
-        interval: 3000,
-        duration: 1200,
+        indicatorDots: true,    //是否显示面板指示点
+        vertical: false,        //是否可以纵向滑动
+        autoplay: true,         //是否自动切换
+        interval: 3000,         //自动切换时间间隔
+        duration: 1200,         //滑动动画时长
         // nav
         navs: [{
             image: '../../image/nav-01.png',
