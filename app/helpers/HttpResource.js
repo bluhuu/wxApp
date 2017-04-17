@@ -4,10 +4,10 @@ import WxResource from 'WxResource'
 class HttpResource {
 	constructor(url, paramDefaults, actions, options) {
 		Object.assign(this, {
-			url, 
-			paramDefaults, 
-			actions, 
-			options, 
+			url,
+			paramDefaults,
+			actions,
+			options,
 		})
 	}
 
@@ -37,14 +37,14 @@ class HttpResource {
             request: (request) => {
                 request.header = request.header || {}
                 request.requestTimestamp = new Date().getTime()
-                if (request.url.indexOf('/api') !== -1 && wx.getStorageSync('token')) {
-                    request.header.Authorization = 'Bearer ' + wx.getStorageSync('token')
+                if (request.url.indexOf('/elink_scm_purchase') !== -1 && wx.getStorageSync('token')) {
+                    request.header.Cookie = 'Cookie ' + wx.getStorageSync('token')
                 }
                 wx.showToast({
-                    title: '加载中', 
-                    icon: 'loading', 
-                    duration: 10000, 
-                    mask: !0, 
+                    title: '加载中',
+                    icon: 'loading',
+                    duration: 10000,
+                    mask: !0,
                 })
                 return request
             },

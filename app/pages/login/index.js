@@ -22,9 +22,9 @@ Page({
     },
 	showModal() {
 		App.WxService.showModal({
-            title: '友情提示', 
-            content: '获取用户登录状态失败，请重新登录', 
-            showCancel: !1, 
+            title: '友情提示',
+            content: '获取用户登录状态失败，请重新登录',
+            showCancel: !1,
         })
 	},
 	wechatDecryptData() {
@@ -38,11 +38,11 @@ Page({
 		})
 		.then(data => {
 			return App.HttpService.wechatDecryptData({
-				encryptedData: data.encryptedData, 
-				iv: data.iv, 
-				rawData: data.rawData, 
-				signature: data.signature, 
-				code: code, 
+				encryptedData: data.encryptedData,
+				iv: data.iv,
+				rawData: data.rawData,
+				signature: data.signature,
+				code: code,
 			})
 		})
 		.then(data => {
@@ -91,8 +91,8 @@ Page({
 	signIn(cb) {
 		if (App.WxService.getStorageSync('token')) return
 		App.HttpService.signIn({
-			username: 'admin', 
-			password: '123456', 
+			user: 'demo1',
+			password: '123',
 		})
 		.then(data => {
 			console.log(data)

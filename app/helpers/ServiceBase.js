@@ -27,13 +27,13 @@ class ServiceBase {
         // 发起请求所支持的方法
         this.instanceSource = {
             method: [
-                'OPTIONS', 
-                'GET', 
-                'HEAD', 
-                'POST', 
-                'PUT', 
-                'DELETE', 
-                'TRACE', 
+                'OPTIONS',
+                'GET',
+                'HEAD',
+                'POST',
+                'PUT',
+                'DELETE',
+                'TRACE',
                 'CONNECT',
             ]
         }
@@ -43,7 +43,7 @@ class ServiceBase {
      * 遍历对象构造方法，方法名以小写字母+后缀名
      */
     __initMethods() {
-        for(let key in this.instanceSource) {   
+        for(let key in this.instanceSource) {
             this.instanceSource[key].forEach((method, index) => {
                 this[method.toLowerCase() + this.suffix] = (...args) => this.__defaultRequest(method, ...args)
             })
@@ -74,11 +74,11 @@ class ServiceBase {
 
         // 请求参数配置
         const $$config = {
-            url: $$url, 
-            data: params, 
-            header: $$header, 
-            method: method, 
-            dataType: dataType, 
+            url: $$url,
+            data: params,
+            header: $$header,
+            method: method,
+            dataType: dataType,
         }
 
         let requestInterceptors = []
@@ -152,9 +152,9 @@ class ServiceBase {
      */
     setHeaders() {
         return {
-        	// 'Accept': 'application/json', 
-        	// 'Content-type': 'application/json', 
-            'Authorization': 'Bearer ' + wx.getStorageSync('token'), 
+        	// 'Accept': 'application/json',
+        	// 'Content-type': 'application/json',
+            'Cookie': 'seesionId=' + wx.getStorageSync('token'),
         }
     }
 
@@ -166,14 +166,14 @@ class ServiceBase {
             request: (request) => {
                 request.header = request.header || {}
                 request.requestTimestamp = new Date().getTime()
-                if (request.url.indexOf('/api') !== -1 && wx.getStorageSync('token')) {
-                    request.header.Authorization = 'Bearer ' + wx.getStorageSync('token')
+                if (request.url.indexOf('/elink_scm_purchase') !== -1 && wx.getStorageSync('token')) {
+                    request.header.Authorization = 'Cookie ' + wx.getStorageSync('token')
                 }
                 wx.showToast({
-                    title: '加载中', 
-                    icon: 'loading', 
-                    duration: 10000, 
-                    mask: !0, 
+                    title: '加载中',
+                    icon: 'loading',
+                    duration: 10000,
+                    mask: !0,
                 })
                 return request
             },

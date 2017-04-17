@@ -1,14 +1,14 @@
 {
     "pages": [
+        "pages/search/search",
+        "pages/login/index",
         "pages/index/index",
         "pages/start/index",
-        "pages/search/search",
         "pages/test/test",
         "pages/personal/index",
         "pages/list/index",
         "pages/help/index",
         "pages/logs/logs",
-        "pages/login/index",
         "pages/navigator/navigator"
     ],
     "window": {
@@ -40,7 +40,7 @@
             "iconPath": "image/personal.png",
             "selectedIconPath": "image/personal-selected.png"
         }, {
-            "pagePath": "pages/help/index",
+            "pagePath": "pages/login/index",
             "text": "帮助中心",
             "iconPath": "image/help.png",
             "selectedIconPath": "image/help-selected.png"

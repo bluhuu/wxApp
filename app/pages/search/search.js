@@ -1,6 +1,7 @@
+const App = getApp()
+
 var Api = require('../../utils/api.js');
 var util = require('../../utils/util.js');
-
 var navList = [
     { id: "all", title: "时间", img: "/image/s-ArrowDown.png" },
     { id: "good", title: "价格", img: "/image/s-ArrowDown.png" },
@@ -159,6 +160,7 @@ Page({
 
     onLoad: function() {
         this.getData();
+
     },
 
     onPullDownRefresh: function() {
@@ -174,6 +176,9 @@ Page({
 
     // 点击获取对应分类的数据
     onTapTag: function(e) {
+        this.goods = App.HttpResource('/mOrderAction/query.do/:id', {id: '@id'});
+        let gg = this.goods.queryAsync();
+        console.log(gg);
         var that = this;
         var tab = e.currentTarget.id;
         var index = e.currentTarget.dataset.index == this.data.activeIndex ? -1 : e.currentTarget.dataset.index;
