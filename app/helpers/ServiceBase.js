@@ -154,7 +154,7 @@ class ServiceBase {
         return {
         	// 'Accept': 'application/json',
         	// 'Content-type': 'application/json',
-            'Cookie': 'JSESSIONID=' + wx.getStorageSync('token'),
+            'Cookie': 'JSESSIONID=' + wx.getStorageSync('token') + ';',
         }
     }
 
@@ -167,7 +167,7 @@ class ServiceBase {
                 request.header = request.header || {}
                 request.requestTimestamp = new Date().getTime()
                 if (request.url.indexOf('/elink_scm_purchase') !== -1 && wx.getStorageSync('token')) {
-                    request.header.Authorization = 'Cookie ' + wx.getStorageSync('token')
+                    request.header.Cookie = 'JSESSIONID=' + wx.getStorageSync('token') + ";"
                 }
                 wx.showToast({
                     title: '加载中',

@@ -96,8 +96,8 @@ Page({
 		})
 		.then(data => {
 			console.log(data)
-			if (data.meta.code == 0) {
-				App.WxService.setStorageSync('token', data.data.token)
+			if (data.success) {
+				App.WxService.setStorageSync('token', data.sessionId)
 				cb()
 			}
 		})
