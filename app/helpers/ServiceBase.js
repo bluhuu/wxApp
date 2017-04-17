@@ -154,7 +154,7 @@ class ServiceBase {
         return {
         	// 'Accept': 'application/json',
         	// 'Content-type': 'application/json',
-            'Cookie': 'seesionId=' + wx.getStorageSync('token'),
+            'Cookie': 'JSESSIONID=' + wx.getStorageSync('token'),
         }
     }
 
