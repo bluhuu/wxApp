@@ -1,268 +1,105 @@
 const App = getApp()
 
-var Api = require('../../utils/api.js');
-var util = require('../../utils/util.js');
-var navList = [
-    { id: "all", title: "时间", img: "/image/s-ArrowDown.png" },
-    { id: "good", title: "价格", img: "/image/s-ArrowDown.png" },
-    { id: "share", title: "销量", img: "/image/s-ArrowDown.png" },
-    { id: "ask", title: "筛选" }
-];
-
-var productList=[
-    {
-        ProductName:"【本草纲目】 小儿咳喘灵颗粒",
-        productSpec:"10g*10袋",
-        manufacturer:"李时珍医药集团有限公司",
-        productStyle:"冲剂",
-        productId:"",
-        uomName:"盒",
-        isBasicMedicine:"",
-        saleUnit:"10",
-        bundle:"中/大包装",
-        certificateNo:"",
-        poPrice:"4.60",
-        salePrice:"10.00",
-        qtyMsg:"",
-        nearValDate:"",
-        isPromotion:"",
-        isInsurance:"",
-        isOTC:""
-    },
-    {
-        ProductName:"【本草纲目】 小儿咳喘灵颗粒",
-        productSpec:"10g*10袋",
-        manufacturer:"李时珍医药集团有限公司",
-        productStyle:"冲剂",
-        productId:"",
-        uomName:"盒",
-        isBasicMedicine:"",
-        saleUnit:"10",
-        bundle:"中/大包装",
-        certificateNo:"",
-        poPrice:"4.60",
-        salePrice:"10.00",
-        qtyMsg:"",
-        nearValDate:"",
-        isPromotion:"",
-        isInsurance:"",
-        isOTC:""
-    },
-    {
-        ProductName:"【本草纲目】 小儿咳喘灵颗粒",
-        productSpec:"10g*10袋",
-        manufacturer:"李时珍医药集团有限公司",
-        productStyle:"冲剂",
-        productId:"",
-        uomName:"盒",
-        isBasicMedicine:"",
-        saleUnit:"10",
-        bundle:"中/大包装",
-        certificateNo:"",
-        poPrice:"4.60",
-        salePrice:"10.00",
-        qtyMsg:"",
-        nearValDate:"",
-        isPromotion:"",
-        isInsurance:"",
-        isOTC:""
-    },
-    {
-        ProductName:"【本草纲目】 小儿咳喘灵颗粒",
-        productSpec:"10g*10袋",
-        manufacturer:"李时珍医药集团有限公司",
-        productStyle:"冲剂",
-        productId:"",
-        uomName:"盒",
-        isBasicMedicine:"",
-        saleUnit:"10",
-        bundle:"中/大包装",
-        certificateNo:"",
-        poPrice:"4.60",
-        salePrice:"10.00",
-        qtyMsg:"",
-        nearValDate:"",
-        isPromotion:"",
-        isInsurance:"",
-        isOTC:""
-    },
-    {
-        ProductName:"【绿叶】 小儿咳喘灵颗粒",
-        productSpec:"10g*10袋",
-        manufacturer:"李时珍医药集团有限公司",
-        productStyle:"冲剂",
-        productId:"",
-        uomName:"盒",
-        isBasicMedicine:"",
-        saleUnit:"10",
-        bundle:"中/大包装",
-        certificateNo:"",
-        poPrice:"4.60",
-        salePrice:"10.00",
-        qtyMsg:"",
-        nearValDate:"",
-        isPromotion:"",
-        isInsurance:"",
-        isOTC:""
-    },
-    {
-        ProductName:"【葵花】 小儿咳喘灵颗粒",
-        productSpec:"10g*10袋",
-        manufacturer:"李时珍医药集团有限公司",
-        productStyle:"冲剂",
-        productId:"",
-        uomName:"盒",
-        isBasicMedicine:"",
-        saleUnit:"10",
-        bundle:"中/大包装",
-        certificateNo:"",
-        poPrice:"4.60",
-        salePrice:"10.00",
-        qtyMsg:"",
-        nearValDate:"",
-        isPromotion:"",
-        isInsurance:"",
-        isOTC:""
-    },
-    {
-        ProductName:"【远大黄石】 小儿咳喘灵颗粒",
-        productSpec:"10g*10袋",
-        manufacturer:"李时珍医药集团有限公司",
-        productStyle:"冲剂",
-        productId:"",
-        uomName:"盒",
-        isBasicMedicine:"",
-        saleUnit:"10",
-        bundle:"中/大包装",
-        certificateNo:"",
-        poPrice:"4.60",
-        salePrice:"10.00",
-        qtyMsg:"",
-        nearValDate:"",
-        isPromotion:"",
-        isInsurance:"",
-        isOTC:""
-    }
-];
-
 Page({
     data: {
-        activeIndex: -1,
-        navList: navList,
-        title: '商品列表',
-        postsList: [],
-        productList:[],
-        hidden: false,
-        page: 1,
-        limit: 5,
-        tab: 'all'
+        activeIndex: 0,
+        navList: [],
+        productList: {},
+        prompt: {
+            hidden: !0,
+            icon: '../../../assets/images/iconfont-order-default.png',
+            title: '您还没有相关的订单',
+            text: '可以去看看有哪些想买的',
+        },
     },
-
-    onLoad: function() {
-        this.products = App.HttpResource('/mProductAction/query.do/:id', {id: '@id'});
-        this.orders = App.HttpResource('/mOrderAction/query.do/:id', {id: '@id'});
-        this.purchases = App.HttpResource('/mPurchaseAction/query.do/:id', {id: '@id'});
-        this.getData();
-
+    onLoad() {
+        // this.order = App.HttpResource('/order/:id', {id: '@id'})
+        this.productList = App.HttpResource('/mProductAction/query.do/:id', { id: '@id' });
+        this.setData({
+            navList: [{
+                    id: "all",
+                    title: "时间",
+                    img: "/image/s-ArrowDown.png"
+                },
+                {
+                    id: "good",
+                    title: "价格",
+                    img: "/image/s-ArrowDown.png"
+                },
+                {
+                    id: "share",
+                    title: "销量",
+                    img: "/image/s-ArrowDown.png"
+                },
+                {
+                    id: "ask",
+                    title: "筛选"
+                }
+            ]
+        })
+        this.onPullDownRefresh()
     },
-    onShow:function() {
-        // let gg = this.goods.queryAsync();
-        console.log("gg",this.goods.queryAsync());
-    },
-    onPullDownRefresh: function() {
-        this.getData();
-        console.log('下拉刷新', new Date());
-    },
-
-
-    onReachBottom: function() {
-        this.lower();
-        console.log('上拉刷新', new Date());
-    },
-
-    // 点击获取对应分类的数据
-    onTapTag: function(e) {
-
-        var that = this;
-        var tab = e.currentTarget.id;
-        var index = e.currentTarget.dataset.index == this.data.activeIndex ? -1 : e.currentTarget.dataset.index;
-        that.setData({
-            activeIndex: index,
-            tab: tab,
-            page: 1
-        });
-        if (tab !== 'all') {
-            that.getData({
-                tab: tab
-            });
-        } else {
-            that.getData();
-        }
-    },
-
-    //获取文章列表数据
-    getData: function() {
-        var that = this;
-        var tab = that.data.tab;
-        var page = that.data.page;
-        var limit = that.data.limit;
-        var ApiUrl = Api.topics + '?tab=' + tab + '&page=' + page + '&limit=' + limit;
-
-        that.setData({ hidden: false });
-
-        if (page == 1) {
-            that.setData({ postsList: [] });
-            that.setData({ productList: [] });
-        }
-
-        Api.fetchGet(ApiUrl, (err, res) => {
-            //更新数据
-            that.setData({
-                postsList: that.data.postsList.concat(res.data.map(function(item) {
-                    item.last_reply_at = util.getDateDiff(new Date(item.last_reply_at));
-                    return item;
-                })),
-                productList:that.data.productList.concat(productList)
-            });
-
-            setTimeout(function() {
-                that.setData({
-                    hidden: true
-                });
-            }, 100);
-            console.log(that.data.productList);
+    initData() {
+        const productList = this.data.productList
+        const params = productList && productList.params
+        const type = params && params.type || 'all'
+        this.setData({
+            productList: {
+                items: [],
+                params: { start: 0, limit: 10, type: type, },
+                paginate: {}
+            }
         })
     },
-
-    // 滑动底部加载
-    lower: function() {
-        console.log('滑动底部加载', new Date());
-        var that = this;
-        that.setData({
-            page: that.data.page + 1
-        });
-        console.log("gg",this.goods.queryAsync({
-            limit:that.data.limit,
-            start:that.data.page
-        }));
-        if (that.data.tab !== 'all') {
-            this.getData({
-                tab: that.data.tab,
-                page: that.data.page
-            });
-        } else {
-            this.getData({
-                page: that.data.page
-            });
-        }
-    },
-    bindKeyInput(e) {
-        const id = e.currentTarget.dataset.id
-        const total = Math.abs(e.detail.value)
-        console.log(e);
-        // if (total < 0 || total > 100) return
-        // this.putCartByUser(id, {
-        //     total: total
+    navigateTo(e) {
+        console.log(e)
+        // App.WxService.navigateTo('/pages/order/detail/index', {
+        //     id: e.currentTarget.dataset.id
         // })
-    }
+    },
+    getList() {
+        let that = this;
+        const productList = this.data.productList
+        const params = productList.params
+        // App.HttpService.getOrderList(params)
+        this.productList.queryAsync(params)
+            .then(data => {
+                console.log(data)
+                if (data.rows && data.rows.length > 0) {
+                    productList.items = [...productList.items, ...data.rows]
+                    this.setData({
+                        productList: productList,
+                        'productList.params.start': that.data.productList.params.start + that.data.productList.params.limit,
+                        'prompt.hidden': productList.items.length,
+                    })
+                } else {
+                    wx.showToast({
+                        title: '已到底部',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                }
+            })
+    },
+    onPullDownRefresh() {
+        console.info('onPullDownRefresh')
+        this.initData()
+        this.getList()
+        wx.stopPullDownRefresh()
+    },
+    onReachBottom() {
+        console.info('onReachBottom')
+        // if (!this.data.productList.paginate.hasNext) return
+        this.getList()
+    },
+    onTapTag(e) {
+        const type = e.currentTarget.dataset.type
+        const index = e.currentTarget.dataset.index
+        this.initData()
+        this.setData({
+            activeIndex: index,
+            'productList.params.type': type,
+        })
+        this.getList()
+    },
 })

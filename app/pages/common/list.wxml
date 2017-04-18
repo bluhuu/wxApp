@@ -1,8 +1,8 @@
 <!--列表list组件 -->
 <template name="list">
-    <scroll-view class="scroll-posts-list f14"  scroll-y="true" style="height:100%"  bindscrolltolower="lower">
+    <scroll-view class="scroll-posts-list f14"  scroll-y="true" style="height:100%"  bindscrolltolower="getList">
         <view class="postslist">
-            <block wx:for="{{productList}}"  wx:key="">
+            <block wx:for="{{productList.items}}"  wx:key="">
                 <view class="posts-list fx fdr" style="padding-top:10rpx;padding-bottom:20rpx;">
                     <view style="align-self:center;">
                         <image style="width:40rpx;height:40rpx; margin-right:10rpx;" src="/image/s-selected.png" />
@@ -113,7 +113,4 @@
             </block>
         </view>
     </scroll-view>
-
-    <loading class="loading" hidden="{{hidden}}"><text class="loading-font">加载中...</text></loading>
-
 </template>
