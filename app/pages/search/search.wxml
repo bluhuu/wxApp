@@ -22,8 +22,12 @@
             </view>
 
             <view style="flex:1" class="g14">
-                <view style="margin-bottom:.5em;">
+                <view style="margin-bottom:.5em;" class="fx fdr fjcsb">
                     <text class="b g13" style="font-size:1.35em;">{{item.name}}</text>
+                    <view class="fx0 rel mr15" style="align-self:center;top:10rpx;right:10rpx;">
+                        <image  style="width:53rpx;height:53rpx;" src="/images/s-cart.png" />
+                        <text class="icart-num abs" style="top:-10rpx;left:25rpx;">99+</text>
+                    </view>
                 </view>
                 <view>
                     <text>生产厂家</text><text>：{{item.manufacturer}}</text>
@@ -32,16 +36,16 @@
                     <view>
                         <text>商品规格</text><text>：{{item.productSpec}}</text>
                     </view>
-                    <view>
+                    <!-- <view>
                         <text>单位：</text><text>{{item.uomName}}</text>
-                    </view>
+                    </view> -->
                 </view>
                 <view class="fx fdr fjcsb">
-                    <view>
+                    <!-- <view>
                         <text>参考零售价：</text><text class="g15">{{item.salePrice}}</text><text>元</text>
-                    </view>
+                    </view> -->
                     <view>
-                        <text>采购单价：</text><text class="g16">{{item.poPrice}}</text><text>元</text>
+                        <text>采购价格：</text><text class="g16">{{item.poPrice}}</text><text>元</text>
                     </view>
                 </view>
                 <view class="quantity-wrapper fx fjcsb faice">
@@ -53,7 +57,7 @@
                                 <!-- <view class="quantity-increase bg12" bindtap="increase"></view> -->
                             </view>
                         </view>
-                        <view class="">
+                        <view class="ml5">
                             <text>x</text>
                             <text>{{item.saleUnit}}{{item.uomName}}</text>
                         </view>
@@ -61,9 +65,9 @@
                     <view class="g17">
                         <text>小计：</text><text>￥</text>
                     </view>
-                    <view class="fx faice">
+                    <!-- <view class="fx faice">
                         <button size="mini" class="b wh bg11">加入进货单</button>
-                    </view>
+                    </view> -->
                 </view>
             </view>
         </view>

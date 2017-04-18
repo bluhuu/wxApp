@@ -129,8 +129,8 @@
 }
 
 .quantity-wrapper .customize-qua {
-	width: 34px;
-    height: 24px;
+	/*width: 34px;
+    height: 24px;*/
     box-sizing: border-box;
 }
 
@@ -150,7 +150,8 @@
 .quantity {
 	-webkit-appearance: none;
     text-align: center;
-    width: 34px;
+    width: 186rpx;
+    height: 68rpx;
     vertical-align: top;
     font-size: 14px;
     line-height: 24px;
@@ -194,4 +195,11 @@
 .quantity {
 	border-radius: 0;
 	margin-left: -1px;
+}
+.icart-num{
+    background-color: #ea0411;
+    color: #fff;
+    /*border: 1px solid #000;
+    border-right: 14rpx solid #ea0411;*/
+    border-radius: 5rpx solid #ea0411;
 }
