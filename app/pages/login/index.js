@@ -89,6 +89,7 @@ Page({
 		})
 	},
 	signIn(cb) {
+        console.log("cb",cb);
 		if (App.WxService.getStorageSync('token')) return
 		App.HttpService.signIn({
 			user: 'demo1',
@@ -102,4 +103,15 @@ Page({
 			}
 		})
 	},
+    formSubmit: function(e) {
+        if (App.WxService.getStorageSync('token')) return
+        App.HttpService.signIn(e.detail.value)
+        .then(data => {
+            console.log(data)
+            if (data.success) {
+                App.WxService.setStorageSync('token', data.sessionId)
+            }
+            wx.switchTab({url:"/pages/index/index"})
+        })
+    }
 })

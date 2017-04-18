@@ -54,11 +54,9 @@ class HttpResource {
             },
             response: (response) => {
                 response.responseTimestamp = new Date().getTime()
-                if(response.statusCode === 401) {
+                if(response.data.msg === "会话超时或未登录！") {
                     wx.removeStorageSync('token')
-                    wx.redirectTo({
-                        url: '/pages/login/index'
-                    })
+                    wx.redirectTo({ url: '/pages/login/index' })
                 }
                 wx.hideToast()
                 return response

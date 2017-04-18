@@ -149,20 +149,26 @@ Page({
     data: {
         activeIndex: -1,
         navList: navList,
-        title: '话题列表',
+        title: '商品列表',
         postsList: [],
         productList:[],
         hidden: false,
         page: 1,
-        limit: 20,
+        limit: 5,
         tab: 'all'
     },
 
     onLoad: function() {
+        this.products = App.HttpResource('/mProductAction/query.do/:id', {id: '@id'});
+        this.orders = App.HttpResource('/mOrderAction/query.do/:id', {id: '@id'});
+        this.purchases = App.HttpResource('/mPurchaseAction/query.do/:id', {id: '@id'});
         this.getData();
 
     },
-
+    onShow:function() {
+        // let gg = this.goods.queryAsync();
+        console.log("gg",this.goods.queryAsync());
+    },
     onPullDownRefresh: function() {
         this.getData();
         console.log('下拉刷新', new Date());
@@ -176,9 +182,7 @@ Page({
 
     // 点击获取对应分类的数据
     onTapTag: function(e) {
-        this.goods = App.HttpResource('/mOrderAction/query.do/:id', {id: '@id'});
-        let gg = this.goods.queryAsync();
-        console.log(gg);
+
         var that = this;
         var tab = e.currentTarget.id;
         var index = e.currentTarget.dataset.index == this.data.activeIndex ? -1 : e.currentTarget.dataset.index;
@@ -237,6 +241,10 @@ Page({
         that.setData({
             page: that.data.page + 1
         });
+        console.log("gg",this.goods.queryAsync({
+            limit:that.data.limit,
+            start:that.data.page
+        }));
         if (that.data.tab !== 'all') {
             this.getData({
                 tab: that.data.tab,
@@ -251,26 +259,10 @@ Page({
     bindKeyInput(e) {
         const id = e.currentTarget.dataset.id
         const total = Math.abs(e.detail.value)
-        if (total < 0 || total > 100) return
-        this.putCartByUser(id, {
-            total: total
-        })
-    },
-    decrease(e) {
-        const id = e.currentTarget.dataset.id
-        const total = Math.abs(e.currentTarget.dataset.total)
-        if (total == 1) return
-        this.putCartByUser(id, {
-            total: total - 1
-        })
-    },
-    increase(e) {
-        const id = e.currentTarget.dataset.id
-        const total = Math.abs(e.currentTarget.dataset.total)
-        if (total == 100) return
-        this.putCartByUser(id, {
-            total: total + 1
-        })
+        console.log(e);
+        // if (total < 0 || total > 100) return
+        // this.putCartByUser(id, {
+        //     total: total
+        // })
     }
-
 })

@@ -22,17 +22,17 @@ class Service {
     __initDefaults() {
     	// 缓存非异步方法
         this.noPromiseMethods = [
-			'stopRecord', 
-			'pauseVoice', 
-			'stopVoice', 
-			'pauseBackgroundAudio', 
-			'stopBackgroundAudio', 
-			'showNavigationBarLoading', 
-			'hideNavigationBarLoading', 
-			'createAnimation', 
-			'createContext', 
-			'hideKeyboard', 
-			'stopPullDownRefresh', 
+			'stopRecord',
+			'pauseVoice',
+			'stopVoice',
+			'pauseBackgroundAudio',
+			'stopBackgroundAudio',
+			'showNavigationBarLoading',
+			'hideNavigationBarLoading',
+			'createAnimation',
+			'createContext',
+			'hideKeyboard',
+			'stopPullDownRefresh',
 		]
 
 		// 缓存wx接口方法名
@@ -45,7 +45,7 @@ class Service {
      * 遍历wx方法对象，判断是否为异步方法，是则构造promise
      */
     __initMethods() {
-        for(let key in this.instanceSource) { 
+        for(let key in this.instanceSource) {
 			this.instanceSource[key].forEach((method, index) => {
 				this[method] = (...args) => {
 					// 判断是否为非异步方法或以 wx.on 开头，或以 Sync 结尾的方法

@@ -79,3 +79,10 @@
 	text-align: center;
 	margin: 10px 0;
 }
+
+.weui-label{
+    display: block;
+    text-align:justify; text-justify:distribute-all-lines; text-align-last:justify;
+    width: 100rpx;
+    margin-right: 20rpx;
+}

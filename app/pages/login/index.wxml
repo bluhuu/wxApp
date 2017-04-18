@@ -1,16 +1,32 @@
 <view class="login-container">
 	<view class="login" wx:if="{{ !logged }}">
 		<view class="app-info">
-			<image class="app-logo" src="http://placekitten.com/64/64" />
+			<image class="app-logo" src="/images/icon/type.png" />
 			<text class="app-name">智慧健康</text>
 		</view>
-		<view class="alert">
-			<view class="alert-title">网页由该chcit开发，请确认授权以下信息</view>
-			<view class="alert-desc">
-				<view class="alert-text">获得你的公开信息（昵称、头像等）</view>
-			</view>
-		</view>
-		<button class="weui-btn" type="primary" bindtap="login">确认登录</button>
+        <form class="weui-cells weui-cells_form" bindsubmit="formSubmit" bindreset="formReset">
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <label class="weui-label">用户名</label>
+                </view>
+                <view class="weui-cell__hd">
+                    <input class="weui-input" name="user" type="text" placeholder="请输入用户名" auto-focus value="demo1"/>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <label class="weui-label">密码</label>
+                </view>
+                <view class="weui-cell__hd">
+                    <input class="weui-input" name="password" type="text" placeholder="请输入密码" password value="123"/>
+                    <!-- <input name="password" type="text" placeholder="请输入密码" password /> -->
+                </view>
+            </view>
+          <view class="btn-area">
+            <button formType="submit" type="primary" class="weui-btn">确认登录</button>
+            <!-- <button formType="reset">Reset</button> -->
+          </view>
+        </form>
 	</view>
 	<view class="logged" wx:else>
 		<image class="logged-icon" src="../../assets/images/iconfont-weixin.png" />

@@ -9,7 +9,8 @@
         "pages/list/index",
         "pages/help/index",
         "pages/logs/logs",
-        "pages/navigator/navigator"
+        "pages/navigator/navigator",
+        "pages/user/index"
     ],
     "window": {
         "navigationBarBackgroundColor": "#3cb9bb",
@@ -35,12 +36,12 @@
             "iconPath": "image/consultation.png",
             "selectedIconPath": "image/consultation-selected.png"
         }, {
-            "pagePath": "pages/personal/index",
+            "pagePath": "pages/user/index",
             "text": "个人中心",
             "iconPath": "image/personal.png",
             "selectedIconPath": "image/personal-selected.png"
         }, {
-            "pagePath": "pages/login/index",
+            "pagePath": "pages/help/index",
             "text": "帮助中心",
             "iconPath": "image/help.png",
             "selectedIconPath": "image/help-selected.png"
