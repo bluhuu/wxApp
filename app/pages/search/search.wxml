@@ -14,14 +14,16 @@
 <template is="prompt" data="{{ prompt }}" />
 
 <view class="scroll-list">
-    <block wx:for="{{productList.items}}" wx:key="">
-        <view class="posts-list fx fdr" style="padding-top:10rpx;padding-bottom:20rpx;">
-            <view style="align-self:center;">
+    <block wx:for="{{productList.items}}" wx:key="eai_Product_ID">
+        <view class="posts-list fx fdr" style="padding-top:10rpx;padding-bottom:20rpx;font-size:28rpx;">
+
+            <view style="align-self:center;" hidden>
                 <image style="width:40rpx;height:40rpx; margin-right:10rpx;" src="/image/s-selected.png" />
             </view>
+
             <view style="flex:1" class="g14">
                 <view style="margin-bottom:.5em;">
-                    <text class="b g13" style="font-size:1.1em;">{{item.ProductName}}</text>
+                    <text class="b g13" style="font-size:1.35em;">{{item.name}}</text>
                 </view>
                 <view>
                     <text>生产厂家</text><text>：{{item.manufacturer}}</text>
@@ -34,7 +36,7 @@
                         <text>单位：</text><text>{{item.uomName}}</text>
                     </view>
                 </view>
-                <view class="fx fdr fjcsb" style="margin-top:.8em;margin-bottom:.8em;">
+                <view class="fx fdr fjcsb">
                     <view>
                         <text>参考零售价：</text><text class="g15">{{item.salePrice}}</text><text>元</text>
                     </view>
@@ -46,9 +48,9 @@
                     <view class="fx q-unit faice">
                         <view>
                             <view class="customize-qua">
-                                <view class="quantity-decrease bg12" bindtap="decrease"></view>
+                                <!-- <view class="quantity-decrease bg12" bindtap="decrease"></view> -->
                                 <input class="quantity" type="number" value="1" bindinput="bindKeyInput" />
-                                <view class="quantity-increase bg12" bindtap="increase"></view>
+                                <!-- <view class="quantity-increase bg12" bindtap="increase"></view> -->
                             </view>
                         </view>
                         <view class="">

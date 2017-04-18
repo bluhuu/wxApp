@@ -71,12 +71,7 @@ Page({
                         productList: productList,
                         'productList.params.start': that.data.productList.params.start + that.data.productList.params.limit,
                         'prompt.hidden': productList.items.length,
-                    })
-                } else {
-                    wx.showToast({
-                        title: '已到底部',
-                        icon: 'success',
-                        duration: 2000
+                        'productList.total': data.total
                     })
                 }
             })
@@ -89,7 +84,10 @@ Page({
     },
     onReachBottom() {
         console.info('onReachBottom')
-        // if (!this.data.productList.paginate.hasNext) return
+        if(this.data.productList.total && this.data.productList.params.start>this.data.productList.total){
+            wx.showToast({ title: '已到底部', icon: 'success', duration: 2000 })
+            return
+        }
         this.getList()
     },
     onTapTag(e) {

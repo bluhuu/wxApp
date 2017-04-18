@@ -85,4 +85,5 @@
     text-align:justify; text-justify:distribute-all-lines; text-align-last:justify;
     width: 100rpx;
     margin-right: 20rpx;
+    font-size: 32rpx;
 }

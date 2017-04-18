@@ -7,7 +7,7 @@
 
 /*列表 list*/
 
-.scroll-posts-list {
+.scroll-list {
     overflow: hidden;
     margin-top: 72rpx;
 }
@@ -15,7 +15,7 @@
 .posts-list {
     position: relative;
     overflow: hidden;
-    padding: 5rpx 20rpx 10rpx 10rpx;
+    padding: 5rpx 18rpx 10rpx 18rpx;
     border-bottom: 1rpx solid #e5e5e5;
 }
 
@@ -129,7 +129,7 @@
 }
 
 .quantity-wrapper .customize-qua {
-	width: 84px;
+	width: 34px;
     height: 24px;
     box-sizing: border-box;
 }
