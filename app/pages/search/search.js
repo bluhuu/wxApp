@@ -1,4 +1,4 @@
-const App = getApp()
+ const App = getApp()
 
 Page({
     data: {
@@ -18,18 +18,19 @@ Page({
         this.setData({
             navList: [{
                     id: "all",
-                    title: "时间",
-                    img: "/image/s-ArrowDown.png"
+                    title: "默认"
+                },{
+                    id: "all",
+                    title: "时间"
                 },
                 {
                     id: "good",
                     title: "价格",
-                    img: "/image/s-ArrowDown.png"
+                    img: ["/images/s-ArrowUp.png","/images/s-ArrowDown.png"]
                 },
                 {
                     id: "share",
-                    title: "销量",
-                    img: "/image/s-ArrowDown.png"
+                    title: "销量"
                 },
                 {
                     id: "ask",
