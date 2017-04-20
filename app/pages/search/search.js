@@ -47,7 +47,7 @@ Page({
         this.setData({
             productList: {
                 items: [],
-                params: { start: 0, limit: 10, type: type, },
+                params: { start: 0, limit: 10, type: type, name:""},
                 paginate: {}
             }
         })
@@ -95,13 +95,23 @@ Page({
         const type = e.currentTarget.dataset.type
         const index = e.currentTarget.dataset.index
         this.initData()
-        this.setData({
-            activeIndex: index,
-            'productList.params.type': type,
-        })
+        this.setData({ activeIndex: index, 'productList.params.type': type, })
         this.getList()
     },
     searchfocus(e){
+        console.log(e);
+    },
+    searchconfirm(e){
+        if(e.detail.value){
+            this.initData()
+            this.setData({ 'productList.params.name':e.detail.value, })
+            this.getList()
+        }else{
+            this.initData()
+            this.getList()
+        }
+    },
+    addCart(e){
         console.log(e);
     }
 })

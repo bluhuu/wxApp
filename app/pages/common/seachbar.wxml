@@ -2,6 +2,6 @@
 <template name="seachbar">
         <view class="search-bar">
             <text class="search-ico"></text>
-            <input class="search-txt" placeholder-class="search-txt-plc" bindfocus="searchfocus" placeholder="请输入关键词搜索" type="text" />
+            <input class="search-txt" placeholder-class="search-txt-plc" placeholder="请输入关键词搜索" type="text" value="{{productList.params.name}}" bindfocus="searchfocus" bindconfirm="searchconfirm"  />
         </view>
 </template>

@@ -1,18 +1,9 @@
-<!-- topics.wxml  -->
-<!-- <import src="../common/nav.wxml"/>
-<import src="../common/list.wxml"/>
-
-<view class="page topics">
-  <template is="nav" data="{{ navList, activeIndex }}"/>
-  <template is="list" data="{{ productList, hidden }}"/>
-</view> -->
-
 <import src="../common/navbar.wxml" />
 <import src="../common/seachbar.wxml" />
 <import src="../common/prompt.wxml" />
 
 <view class="top-bar fx fdc">
-    <template is="seachbar" />
+    <template is="seachbar" data="{{ productList}}" />
     <template is="navbar" data="{{ navList, activeIndex }}" />
 </view>
 <view class="col-bar">
@@ -26,7 +17,7 @@
 
 <view class="scroll-list">
     <block wx:for="{{productList.items}}" wx:key="eai_Product_ID">
-        <view class="posts-list fx fdr f28" style="padding-top:10rpx;padding-bottom:20rpx;">
+        <form class="posts-list fx fdr f28" style="padding-top:10rpx;padding-bottom:20rpx;">
 
             <view style="align-self:center;" hidden>
                 <image style="width:40rpx;height:40rpx; margin-right:10rpx;" src="/image/s-selected.png" />
@@ -35,7 +26,7 @@
             <view style="flex:1" class="g14">
                 <view style="margin-bottom:.5em;padding-right:70rpx;" class="rel">
                     <text class="b g13 f38" style="line-height:46rpx;">{{item.name}}</text>
-                    <view class="abs" style="top:10rpx;right:20rpx;">
+                    <view class="abs" style="top:10rpx;right:20rpx;" catchtap="addCart">
                         <image  style="width:53rpx;height:53rpx;" src="/images/s-cart.png" />
                         <view class="icart-num abs">
                             <text>99</text> <text class="icart-num-sup">+</text>
@@ -71,8 +62,8 @@
                             </view>
                         </view>
                         <view class="ml30 f23">
-                            <text>x</text>
-                            <text>{{item.saleUnit}}{{item.uomName}}10盒</text>
+                            <text></text>
+                            <text>{{item.saleUnit}}{{item.uomName}}盒</text>
                         </view>
                     </view>
                     <view class="g17">
@@ -83,6 +74,6 @@
                     </view> -->
                 </view>
             </view>
-        </view>
+        </form>
     </block>
 </view>
