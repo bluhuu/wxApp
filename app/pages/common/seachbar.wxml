@@ -1,0 +1,7 @@
+<!--导航nav组件 -->
+<template name="seachbar">
+        <view class="search-bar">
+            <text class="search-ico"></text>
+            <input class="search-txt" placeholder-class="search-txt-plc" bindfocus="searchfocus" placeholder="请输入关键词搜索" type="text" />
+        </view>
+</template>

@@ -7,10 +7,14 @@
   <template is="list" data="{{ productList, hidden }}"/>
 </view> -->
 
-<import src="../common/nav.wxml" />
+<import src="../common/navbar.wxml" />
+<import src="../common/seachbar.wxml" />
 <import src="../common/prompt.wxml" />
 
-<template is="nav" data="{{ navList, activeIndex }}" />
+<view class="top-bar fx fdc">
+    <template is="seachbar" />
+    <template is="navbar" data="{{ navList, activeIndex }}" />
+</view>
 <view class="col-bar">
     <view>
         <image style="width:47rpx;height:45rpx; margin-left:34rpx; margin-right:28rpx;" src="/images/b-cart.png" />

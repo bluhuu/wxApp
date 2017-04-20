@@ -101,4 +101,7 @@ Page({
         })
         this.getList()
     },
+    searchfocus(e){
+        console.log(e);
+    }
 })

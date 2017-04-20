@@ -1,9 +1,5 @@
 <!--导航nav组件 -->
-<template name="nav">
-    <view class="top-bar fx fdc">
-        <view class="search-bar">
-            <text class="search-ico"></text><input class="search-txt" placeholder-class="search-txt-plc" bindfocus="viewSearch" placeholder="请输入关键词搜索" type="text" />
-        </view>
+<template name="navbar">
         <view class="nav-bar">
             <block wx:for="{{navList}}" wx:key="">
                 <view id="{{item.id}}" data-index="{{index}}" class="nav-bar-item {{index == activeIndex ? 'nav-bar-active' : ''}}" catchtap="onTapTag">
@@ -15,5 +11,4 @@
                 </view>
             </block>
         </view>
-    </view>
 </template>
