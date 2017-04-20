@@ -10,7 +10,7 @@
 
 .scroll-list {
     overflow: hidden;
-    margin-top: 145rpx;
+    margin-top: 73rpx;
     margin-bottom: 90rpx;
 }
 
@@ -164,6 +164,24 @@
 	border-radius: 0;
 	margin-left: -1px;
 }
+.icart-numsup{
+    top:-0rpx;
+    left:36rpx;
+
+    display: block;
+
+    height: 25rpx;
+    width: 25rpx;
+    /*padding-right: 5rpx;
+    padding-left: 4rpx;*/
+
+    color: #fff;
+    border-radius: 12rpx;
+    background-color: #ea0411;
+    text-align: center;
+    font: Arial;
+    font-size: 20rpx;
+}
 .icart-num{
     top:-0rpx;
     left:36rpx;
@@ -181,6 +199,7 @@
     font: Arial;
     font-size: 20rpx;
 }
+.icart-numsup>.icart-num-sup,
 .icart-num>.icart-num-sup{
     position: relative;
     top:-6rpx;

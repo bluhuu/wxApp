@@ -1,7 +1,14 @@
 <!--导航nav组件 -->
 <template name="seachbar">
-        <view class="search-bar">
-            <text class="search-ico"></text>
-            <input class="search-txt" placeholder-class="search-txt-plc" placeholder="请输入关键词搜索" type="text" value="{{productList.params.name}}" bindfocus="searchfocus" bindconfirm="searchconfirm"  />
-        </view>
+        <form bindsubmit="formSubmit">
+            <view class="search-bar">
+                <view>
+                    <text class="search-ico"></text>
+                    <input class="search-txt" placeholder-class="search-txt-plc" placeholder="请输入关键词搜索" type="text" name="searchvalue" value="{{productList.params.name}}" bindfocus="searchfocus" bindconfirm="searchconfirm"  />
+                    <!-- <text class="search-close"></text> -->
+                    <image catchtap="searchclose" class="{{productList.params.name.length>0?'dn':''}} search-close"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB/UlEQVRYR+2W8TFEMRDGdytwKkAF6MBXAVcBVwEqcCpABajAaeD2SqACOkAFMd9NYp4nm+Sem/GP/evN5O3ub7/sJlH5Y9M/zi//AIMUMLM9ETkUkZGI8PtJRN5F5BEAv5ttJQAzm4rIaUzsJSHIFMBNC0UTQKz4QUS2W4LGf15FZFxTpApgZkciclupuqQGShBFgFi5DUyeoLglLkQRYD6fv6rq1gqye78+AdjPLboAZnYSpe/63ceOvypAnYvIQZyS7m8TAHd9PxfAqX4GYOzAMfYyiZnNMgBZFbIAZsZuf3GqvAMwyUCk5Kzy2PHdAcDp+DIPICd/168P0ZKc/hxLqlMF4IFzUWm+BLHNqsysVHkKdQmAsdcCwCAcr4WZsek4rjVbK0CS/SQ2Xm3bCHcO4LpFAZ5+PHo96++515h9/6ViLQC85d6c7F7DtUBsAuDJWO4BrjqzfAPgrNBwCYIy89bsGq9qKvvNSidhrrF413OOfwTqROWY8RzhO6FrP+TnYu0yyp1otU7PrS+Vyy3UAEYhhIWq7g7JSp8QwrOqHvT3PsVreQ8Mhqglr25BojQzTkV6jrWK4creNAW5LPGSmoYQjlR1o/9PCOFDVdk3fBN+u3Q86uoWeI7x+OUyO57J3mvvv5WbsFXr3/w3WIHfJB3cA+tK+g/QVeATVETpIaSj60QAAAAASUVORK5CYII="></image>
+                </view>
+                <button formType="submit" size="mini" classs="searchbtn" style="margin-left:13rpx; padding-left:25rpx;padding-right:25rpx;background-color:#3cb9bb;color:#fff;border-radius:10rpx;border-color:#3cb9bb;">搜索</button>
+            </view>
+        </form>
 </template>

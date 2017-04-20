@@ -4,8 +4,8 @@ class Tools{
 
 	/**
 	 * 返回文件后缀
-	 * @param  {Object} file 
-	 * @return {String}      
+	 * @param  {Object} file
+	 * @return {String}
 	 */
 	getFilenameExt(file) {
 	    const types = file.name.split('.')
@@ -14,9 +14,9 @@ class Tools{
 
 	/**
 	 * 返回指定范围内的一个整数
-	 * @param  {Number} min 
-	 * @param  {Number} max 
-	 * @return {String}      
+	 * @param  {Number} min
+	 * @param  {Number} max
+	 * @return {String}
 	 */
 	rand(min, max) {
 	    return Math.floor(Math.random() * (max - min + 1) + min)
@@ -24,26 +24,26 @@ class Tools{
 
 	/**
 	 * 生成字符串组合
-	 * @param  {Number} size 
-	 * @return {String}      
+	 * @param  {Number} size
+	 * @return {String}
 	 */
 	randString(size) {
 	    let result  = ''
 	    let allChar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-	    
+
 	    size = size || 1
 
 	    while (size--) {
 	        result += allChar.charAt(this.rand(0, allChar.length - 1))
 	    }
-	    
+
 	    return result
 	}
 
 	/**
 	 * 生成文件名
-	 * @param  {Object} file 
-	 * @return {String}      
+	 * @param  {Object} file
+	 * @return {String}
 	 */
 	randFilename(file) {
 		return this.randString(this.rand(10, 100)) + Date.parse(new Date()) + '.' + this.getFilenameExt(file)
@@ -51,8 +51,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为字符串
-	 * @param  {String}  value 
-	 * @return {Boolean}       
+	 * @param  {String}  value
+	 * @return {Boolean}
 	 */
 	isString(value) {
 		return typeof value === 'string'
@@ -60,8 +60,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为函数
-	 * @param  {Function}  value 
-	 * @return {Boolean}     
+	 * @param  {Function}  value
+	 * @return {Boolean}
 	 */
 	isFunction(value) {
 		return this.type(value) === 'function'
@@ -69,8 +69,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为数组
-	 * @param  {Array}  value 
-	 * @return {Boolean}       
+	 * @param  {Array}  value
+	 * @return {Boolean}
 	 */
 	isArray(value) {
 		return Array.isArray(value)
@@ -78,8 +78,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为对象
-	 * @param  {Obejct}  value 
-	 * @return {Boolean}       
+	 * @param  {Obejct}  value
+	 * @return {Boolean}
 	 */
 	isObject(value) {
 		return value !== null && typeof value === 'object'
@@ -87,8 +87,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为数值
-	 * @param  {Number}  value 
-	 * @return {Boolean}       
+	 * @param  {Number}  value
+	 * @return {Boolean}
 	 */
 	isNumber(value) {
 		return typeof value === 'number'
@@ -96,8 +96,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为日期
-	 * @param  {Date}  value 
-	 * @return {Boolean}       
+	 * @param  {Date}  value
+	 * @return {Boolean}
 	 */
 	isDate(value) {
 		return this.type(value) === '[object Date]'
@@ -105,8 +105,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为正则表达式
-	 * @param  {RegExp}  value 
-	 * @return {Boolean}       
+	 * @param  {RegExp}  value
+	 * @return {Boolean}
 	 */
 	isRegExp(value) {
 		return this.type(value) === '[object RegExp]'
@@ -114,8 +114,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为File对象
-	 * @param  {Object}  obj 
-	 * @return {Boolean}     
+	 * @param  {Object}  obj
+	 * @return {Boolean}
 	 */
 	isFile(obj) {
 		return this.type(obj) === '[object File]'
@@ -123,8 +123,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为FormData对象
-	 * @param  {Object}  obj 
-	 * @return {Boolean}     
+	 * @param  {Object}  obj
+	 * @return {Boolean}
 	 */
 	isFormData(obj) {
 		return this.type(obj) === '[object FormData]'
@@ -132,8 +132,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为Blob对象
-	 * @param  {Object}  obj 
-	 * @return {Boolean}     
+	 * @param  {Object}  obj
+	 * @return {Boolean}
 	 */
 	isBlob(obj) {
 		return this.type(obj) === '[object Blob]'
@@ -141,8 +141,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为布尔值
-	 * @param  {boolean}  value 
-	 * @return {Boolean}       
+	 * @param  {boolean}  value
+	 * @return {Boolean}
 	 */
 	isBoolean(value) {
 		return typeof value === 'boolean'
@@ -150,8 +150,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为Promise对象
-	 * @param  {Function}  obj 
-	 * @return {Boolean}     
+	 * @param  {Function}  obj
+	 * @return {Boolean}
 	 */
 	isPromiseLike(obj) {
 		return obj && this.isFunction(obj.then)
@@ -159,8 +159,8 @@ class Tools{
 
 	/**
 	 * 判断数组类型
-	 * @param  {Array}  value 
-	 * @return {Boolean}       
+	 * @param  {Array}  value
+	 * @return {Boolean}
 	 */
 	isTypedArray(value) {
 		const TYPED_ARRAY_REGEXP = /^\[object (?:Uint8|Uint8Clamped|Uint16|Uint32|Int8|Int16|Int32|Float32|Float64)Array\]$/
@@ -169,8 +169,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为ArrayBuffer对象
-	 * @param  {Object}  obj 
-	 * @return {Boolean}     
+	 * @param  {Object}  obj
+	 * @return {Boolean}
 	 */
 	isArrayBuffer(obj) {
 		return this.type(obj) === '[object ArrayBuffer]'
@@ -178,8 +178,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为defined
-	 * @param  {undefined}  value 
-	 * @return {Boolean}       
+	 * @param  {undefined}  value
+	 * @return {Boolean}
 	 */
 	isDefined(value) {
 		return typeof value !== 'undefined'
@@ -187,8 +187,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为undefined
-	 * @param  {undefined}  value 
-	 * @return {Boolean}       
+	 * @param  {undefined}  value
+	 * @return {Boolean}
 	 */
 	isUndefined(value) {
 		return typeof value === 'undefined'
@@ -196,8 +196,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为null
-	 * @param  {Null}  value 
-	 * @return {Boolean}       
+	 * @param  {Null}  value
+	 * @return {Boolean}
 	 */
 	isNull(value) {
 		return value === null
@@ -205,8 +205,8 @@ class Tools{
 
 	/**
 	 * 判断某个元素是否为有限数
-	 * @param  {Number}  value 
-	 * @return {Boolean}       
+	 * @param  {Number}  value
+	 * @return {Boolean}
 	 */
 	isFinite(value) {
       return typeof value == 'number' && isFinite(value)
@@ -214,8 +214,8 @@ class Tools{
 
     /**
      * 判断某个元素是否为自然数
-     * @param  {Number}  value 
-     * @return {Boolean}       
+     * @param  {Number}  value
+     * @return {Boolean}
      */
     isNaN(value) {
       return this.isNumber(value) && value != +value
@@ -223,8 +223,8 @@ class Tools{
 
     /**
      * 判断某个元素是否为错误类型
-     * @param  {Object}  value 
-     * @return {Boolean}       
+     * @param  {Object}  value
+     * @return {Boolean}
      */
     isError(value) {
     	return this.type(value) === '[object Error]'
@@ -232,8 +232,8 @@ class Tools{
 
 	/**
 	 * 删除字符串左右两端的空格
-	 * @param  {String} str 
-	 * @return {String}     
+	 * @param  {String} str
+	 * @return {String}
 	 */
 	trim(str) {
 		return this.isString(str) ? str.trim() : str
@@ -241,8 +241,8 @@ class Tools{
 
 	/**
 	 * 字符串转义
-	 * @param  {String} str 
-	 * @return {String}     
+	 * @param  {String} str
+	 * @return {String}
 	 */
 	escapeForRegexp(str) {
 		return str.replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, '\\$1').replace(/\x08/g, '\\x08')
@@ -251,7 +251,7 @@ class Tools{
 	/**
 	 * 字符串转对象
 	 * @param  {String} str 'key1,key2,...'
-	 * @return {Object} in the form of {key1:true, key2:true, ...}    
+	 * @return {Object} in the form of {key1:true, key2:true, ...}
 	 */
 	makeMap(str) {
 		let obj = {}, items = str.split(',')
@@ -263,9 +263,9 @@ class Tools{
 
 	/**
 	 * 判断数组中是否含有指定元素
-	 * @param  {Array} arr 
-	 * @param  {Objext} obj 
-	 * @return {Array}     
+	 * @param  {Array} arr
+	 * @param  {Objext} obj
+	 * @return {Array}
 	 */
 	includes(arr, obj) {
 		return Array.prototype.indexOf.call(arr, obj) != -1
@@ -273,9 +273,9 @@ class Tools{
 
 	/**
 	 * 数组删除指定的元素，并返回元素的索引值
-	 * @param  {Array} array 
-	 * @param  {String} value 
-	 * @return {Number}       
+	 * @param  {Array} array
+	 * @param  {String} value
+	 * @return {Number}
 	 */
 	arrayRemove(array, value) {
 		let index = array.indexOf(value)
@@ -287,8 +287,8 @@ class Tools{
 
 	/**
 	 * 日期增加分钟
-	 * @param  {Date} date    
-	 * @param  {Number} minutes 
+	 * @param  {Date} date
+	 * @param  {Number} minutes
 	 * @return {Date}
 	 */
 	addDateMinutes(date, minutes) {
@@ -299,9 +299,9 @@ class Tools{
 
 	/**
 	 * 对象解析出JSON字符串
-	 * @param  {Object} obj    
-	 * @param  {Number} pretty 
-	 * @return {Object}        
+	 * @param  {Object} obj
+	 * @param  {Number} pretty
+	 * @return {Object}
 	 */
 	toJson(obj, pretty) {
 		if (this.isUndefined(obj)) return undefined
@@ -313,8 +313,8 @@ class Tools{
 
 	/**
 	 * JSON字符串解析成对象
-	 * @param  {String} json 
-	 * @return {Object}      
+	 * @param  {String} json
+	 * @return {Object}
 	 */
 	fromJson(json) {
 		return this.isString(json) ? JSON.parse(json) : json
@@ -399,8 +399,8 @@ class Tools{
 
 	/**
 	 * 判断对象是否为空
-	 * @param  {Object}  obj 
-	 * @return {Boolean}     
+	 * @param  {Object}  obj
+	 * @return {Boolean}
 	 */
 	isEmptyObject(obj) {
 		for (let i in obj)
@@ -410,8 +410,8 @@ class Tools{
 
 	/**
 	 * 判断对象的类型
-	 * @param  {Object} obj 
-	 * @return {String}     
+	 * @param  {Object} obj
+	 * @return {String}
 	 */
 	type(obj) {
 		const toString = Object.prototype.toString
@@ -425,8 +425,8 @@ class Tools{
 
 	/**
 	 * 合并对象并返回一个新的对象，目标对象自身也会改变
-	 * @param  {Array} args 
-	 * @return {Object}     
+	 * @param  {Array} args
+	 * @return {Object}
 	 */
 	merge(...args) {
 		return Object.assign(...args)
@@ -434,8 +434,8 @@ class Tools{
 
 	/**
 	 * 拷贝对象并返回一个新的对象
-	 * @param  {Object} obj 
-	 * @return {Object}     
+	 * @param  {Object} obj
+	 * @return {Object}
 	 */
 	clone(obj) {
 	    if (typeof obj !== 'object' || !obj) {
@@ -452,9 +452,9 @@ class Tools{
 
 	/**
 	 * 删除对象上的指定属性并返回一个新的对象
-	 * @param  {Object} obj  
-	 * @param  {Array} keys 
-	 * @return {[type]}      
+	 * @param  {Object} obj
+	 * @param  {Array} keys
+	 * @return {[type]}
 	 */
 	omit(obj, keys) {
 	    let o = this.clone(obj)
@@ -466,9 +466,9 @@ class Tools{
 
 	/**
 	 * 返回一个新数组，数组中的元素为指定属性的值
-	 * @param  {Array} arr 
-	 * @param  {String} key 
-	 * @return {Array}     
+	 * @param  {Array} arr
+	 * @param  {String} key
+	 * @return {Array}
 	 */
 	pluck(arr, key) {
 	    if (typeof arr !== 'object' || arr.length === 0) {
@@ -482,8 +482,8 @@ class Tools{
 
 	/**
 	 * 返回序列化的值
-	 * @param  {String} value 
-	 * @return {String} 
+	 * @param  {String} value
+	 * @return {String}
 	 */
 	serializeValue(value) {
 		if (this.isObject(value)) return this.isDate(value) ? value.toISOString() : this.toJson(value)
@@ -492,9 +492,9 @@ class Tools{
 
 	/**
 	 * 编码URI
-	 * @param  {String} value 
-	 * @param  {String} pctEncodeSpaces 
-	 * @return {String} 
+	 * @param  {String} value
+	 * @param  {String} pctEncodeSpaces
+	 * @return {String}
 	 */
 	encodeUriQuery(value, pctEncodeSpaces) {
 		return encodeURIComponent(value)
@@ -508,8 +508,8 @@ class Tools{
 
 	/**
 	 * 对象序列化
-	 * @param  {Object} obj 
-	 * @return {String} 
+	 * @param  {Object} obj
+	 * @return {String}
 	 */
 	paramSerializer(obj) {
 		if (!obj) return ''
@@ -531,9 +531,9 @@ class Tools{
 
     /**
 	 * 拼接URL
-	 * @param  {String} obj 
-	 * @param  {Object} obj 
-	 * @return {String} 
+	 * @param  {String} obj
+	 * @param  {Object} obj
+	 * @return {String}
 	 */
     buildUrl(url, obj) {
     	const serializedParams = this.paramSerializer(obj)
@@ -541,6 +541,26 @@ class Tools{
 			url += ((url.indexOf('?') == -1) ? '?' : '&') + serializedParams
 		}
 		return url
+    }
+
+    changeTwoDecimal(x) {
+        var f_x = parseFloat(x);
+        if (isNaN(f_x)) {
+            // alert('function:changeTwoDecimal->parameter error');
+            // return false;
+            return x;
+        }
+        var f_x = Math.round(x * 100) / 100;
+        var s_x = f_x.toString();
+        var pos_decimal = s_x.indexOf('.');
+        if (pos_decimal < 0) {
+            pos_decimal = s_x.length;
+            s_x += '.';
+        }
+        while (s_x.length <= pos_decimal + 2) {
+            s_x += '0';
+        }
+        return s_x;
     }
 }
 

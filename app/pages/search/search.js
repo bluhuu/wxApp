@@ -68,6 +68,14 @@ Page({
                 console.log(data)
                 if (data.rows && data.rows.length > 0) {
                     productList.items = [...productList.items, ...data.rows]
+                    //在product的绑定数量
+                    productList.items = productList.items.map((value,index,array)=>{
+                        if(!value.qty){
+                            value.qty=1
+                            value.memberPriceStr=App.Tools.changeTwoDecimal(value.memberPrice)
+                        }
+                        return value
+                    })//
                     this.setData({
                         productList: productList,
                         'productList.params.start': that.data.productList.params.start + that.data.productList.params.limit,
@@ -91,6 +99,16 @@ Page({
         }
         this.getList()
     },
+    bindKeyInput(e){
+        console.log(e);
+        let array = this.data.productList.items.map((val,indx,arr)=>{
+            if(val.s_Product_ID === e.currentTarget.dataset.s_product_id){
+                val.qty=e.detail.value
+            }
+            return val
+        })
+        this.setData({ 'productList.items':array })
+    },
     onTapTag(e) {
         const type = e.currentTarget.dataset.type
         const index = e.currentTarget.dataset.index
@@ -111,7 +129,39 @@ Page({
             this.getList()
         }
     },
-    addCart(e){
+    formSubmit(e){
         console.log(e);
+        if(e.detail.value.searchvalue){
+            this.initData()
+            this.setData({ 'productList.params.name':e.detail.value.searchvalue, })
+            this.getList()
+        }else{
+            this.initData()
+            this.getList()
+        }
+    },
+    searchclose(e){
+        this.setData({ 'productList.params.name':"", })
+    },
+    addCart(e){
+        let that = this
+        console.log(e);
+        App.HttpService.addCart({ S_Product_ID:e.currentTarget.dataset.s_product_id, qty:e.currentTarget.dataset.qty })
+        .then(data=>{
+            if(data.success){
+                let array = that.data.productList.items.map((val,indx,arr)=>{
+                    if(val.s_Product_ID === e.currentTarget.dataset.s_product_id){
+                        val.cartQty=data.data.qty
+                        val.cartId=data.data.cartId
+                        val.cartTotalPrice=App.Tools.changeTwoDecimal(data.data.qty*val.memberPrice)
+                    }
+                    return val
+                })
+                that.setData({ 'productList.items':array })
+                wx.showToast({ title: '添加成功', icon: 'success', duration: 2000 })
+            }else{
+                wx.showModal({ title: '增加失败', content: data.msg, success: function(res) {} })
+            }
+        })
     }
 })

@@ -14,7 +14,7 @@ class Service extends ServiceBase {
 			classify    : '/classify',
 			goods       : '/goods',
 			search      : '/goods/search/all',
-			cart        : '/cart',
+			cart        : '/mPurchaseAction/addCart.do',
 			address     : '/address',
 			order       : '/order',
         }
@@ -64,10 +64,8 @@ class Service extends ServiceBase {
 		return this.getRequest(this.$$path.cart)
 	}
 
-	addCartByUser(goods) {
-		return this.postRequest(this.$$path.cart, {
-			goods: goods,
-		})
+	addCart(params) {
+		return this.getRequest(this.$$path.cart,params)
 	}
 
 	putCartByUser(id, params) {
