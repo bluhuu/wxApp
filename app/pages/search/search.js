@@ -109,6 +109,9 @@ Page({
         })
         this.setData({ 'productList.items':array })
     },
+    searchinput(e){
+        this.setData({ 'productList.params.name':e.detail.value, })
+    },
     onTapTag(e) {
         const type = e.currentTarget.dataset.type
         const index = e.currentTarget.dataset.index
