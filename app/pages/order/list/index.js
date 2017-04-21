@@ -20,9 +20,9 @@ Page({
     },
     navigateTo(e) {
         console.log(e)
-        App.WxService.navigateTo('/pages/order/detail/index', {
-            id: e.currentTarget.dataset.id
-        })
+        // App.WxService.navigateTo('/pages/order/detail/index', {
+        //     id: e.currentTarget.dataset.id
+        // })
     },
     getList() {
         const order = this.data.order
@@ -33,6 +33,13 @@ Page({
             console.log(data)
             if (data.rows && data.rows.length > 0) {
                 order.items = [...order.items, ...data.rows]
+                //在product的绑定页面表格中的数量
+                order.items = order.items.map((value,index,array)=>{
+                    if(!!value.orderAmt){
+                        value.orderAmtStr=App.Tools.changeTwoDecimal(value.orderAmt)
+                    }
+                    return value
+                })//
                 this.setData({
                     order: order,
                     'prompt.hidden': order.items.length,
@@ -46,6 +53,7 @@ Page({
         console.info('onPullDownRefresh')
         this.initData()
         this.getList()
+        wx.stopPullDownRefresh()
     },
     onReachBottom() {
         console.info('onReachBottom')

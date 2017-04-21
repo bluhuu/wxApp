@@ -2,12 +2,16 @@
 
 .scroll-list {
     overflow: hidden;
+    margin-top: 96rpx;
 }
 
 .topbar {
     margin-top: 0;
     background: #fff;
     border-bottom: 1px solid #e6e6e6;
+    position: fixed;
+    top:-1rpx;
+    width: 100%;
 }
 
 .topbar-item {
@@ -29,4 +33,23 @@ swiper-item image {
     width: 100%;
     display: inline-block;
     overflow: hidden;
+}
+.orderitems{
+    margin-bottom: 20rpx;
+    background-color: #ffffff;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    border-bottom: 1px solid #e7e8e8;
+}
+.item_hd{
+    border-bottom: 1px solid #f1f1f1;
+    line-height: 76rpx;
+}
+.item_bd{
+    border-bottom: 1px solid #f1f1f1;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+.item_ft{
+    line-height: 66rpx;
 }

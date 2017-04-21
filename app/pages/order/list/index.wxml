@@ -5,22 +5,15 @@
 <template is="prompt" data="{{ prompt }}"/>
 
 <view class="scroll-list">
-    <view class="weui-form-preview" wx:if="{{ !!order.paginate.total }}" wx:for="{{ order.items }}" wx:key="" bindtap="navigateTo" data-id="{{ item._id }}">
-        <view class="weui-form-preview__hd">
-            <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">订单总价</view>
-                <view class="weui-form-preview__value_in-hd">¥ {{ item.totalAmount }}</view>
-            </view>
+    <view class="orderitems" wx:if="{{ !!order.total }}" wx:for="{{ order.items }}" wx:key="" bindtap="navigateTo" data-id="{{ item.orderId }}">
+        <view class="item_hd fdr fjcsb f28">
+            <text class="g19">订单号：{{item.orderId}}</text>
+            <text class="g16">{{item.docStatusName}}</text>
         </view>
-        <view class="weui-form-preview__bd">
-            <view class="weui-form-preview__item" wx:for="{{ item.items }}" wx:key="">
-                <view class="weui-form-preview__label">{{ item.goods.name }}</view>
-                <view class="weui-form-preview__value">x{{ item.meta.total }} ¥ {{ item.meta.totalAmount }}</view>
-            </view>
+        <view class="item_bd fdr fjcsb">
+            <text class="pr30 f32">{{item.line.product.name}} {{item.line.product.productSpec}}</text>
+            <text class="g19 nowrap f30">x {{item.line.qty}}</text>
         </view>
-        <view class="weui-form-preview__ft">
-            <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">联系商家</navigator>
-            <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">再来一单</navigator>
-        </view>
+        <view class="item_ft fdr fjcfe faice f28"><text class="">总价：</text><text class="g17 tr f30" style="min-width:4em;">￥{{item.orderAmtStr}}</text></view>
     </view>
 </view>

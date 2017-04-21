@@ -10,7 +10,7 @@
 @import 'assets/styles/prompt.wxss';
 @import 'assets/styles/skyvow.wxss';
 
-@import "./style/layout.wxss";
+@import "assets/styles/layout.wxss";
 
 .container {
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;

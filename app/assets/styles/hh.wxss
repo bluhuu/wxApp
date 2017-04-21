@@ -37,6 +37,7 @@ a{text-decoration:none;cursor: pointer;color: #333;} a:visited{color: #333} a:ho
 .f23{font-size: 23rpx;}
 .f28{font-size: 28rpx;}
 .f30{font-size: 30rpx;}
+.f32{font-size: 32rpx;}
 .f33{font-size: 33rpx;}
 .f34{font-size: 34rpx;}
 .f35{font-size: 35rpx;}
@@ -72,7 +73,7 @@ a{text-decoration:none;cursor: pointer;color: #333;} a:visited{color: #333} a:ho
 .inline_fix{display:inline-block; width:100%; height:0; overflow:hidden;}
 .distribute_Col{text-align:justify; text-justify:distribute-all-lines; text-align-last:justify;}
 /*flex*/
-.fx{display: flex;} .fdr{flex-direction: row;} .fdc{flex-direction: column;}
+.fx{display: flex;} .fdr{display: flex;flex-direction: row;} .fdc{display: flex; flex-direction: column;}
 /*flex-wrap: nowrap | wrap | wrap-reverse;*/
 .fww{flex-wrap: wrap;} .fwnw{flex-wrap: nowrap;}
 /*flex align-items*/
@@ -96,6 +97,7 @@ table{table-layout:fixed; border-collapse:collapse; border-spacing:0; width:100%
 .g16 {color: #fb7426;}
 .g17 {color: #df182d;}
 .g18 {color: #3cb9bb;}
+.g19 {color: #6e6e6e}
 
 .bg11{background-color: #368fe1;}
 .bg12{background-color: #f5f5f5;}

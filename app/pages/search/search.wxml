@@ -65,7 +65,7 @@
                         </view>
                         <view class="ml30 f23">
                             <text></text>
-                            <text>{{item.saleUnit}}{{item.uomName}}盒</text>
+                            <text>{{item.saleUnit}}{{item.uomName}}</text>
                         </view>
                     </view>
                     <view wx:if="{{!!item.cartQty}}" class="g17">
