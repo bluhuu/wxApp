@@ -2,7 +2,7 @@
 <template name="seachbar">
         <form bindsubmit="formSubmit">
             <view class="search-bar">
-                <view>
+                <view class="rel">
                     <text class="search-ico"></text>
                     <input class="search-txt" placeholder-class="search-txt-plc" placeholder="请输入关键词搜索" type="text" name="searchvalue" value="{{productList.params.name}}" bindinput="searchinput" bindfocus="searchfocus" bindconfirm="searchconfirm"  />
                     <!-- <text class="search-close"></text> -->

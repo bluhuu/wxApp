@@ -5,11 +5,12 @@
     height: 100%;
     overflow: hidden;
 }
-
+page { background-color: #f2f2f2; }
 /*列表 list*/
 
 .scroll-list {
     overflow: hidden;
+    background-color: #ffffff;
     margin-top: 73rpx;
     margin-bottom: 90rpx;
 }

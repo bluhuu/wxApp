@@ -24,7 +24,7 @@
             </view>
 
             <view style="flex:1" class="g14">
-                <view style="margin-bottom:.5em;padding-right:70rpx;" class="rel">
+                <view style="margin-bottom:.5em;padding-right:90rpx;" class="rel">
                     <text class="b g13 f38" style="line-height:46rpx;">{{item.name}}</text>
                     <view class="abs" style="top:10rpx;right:20rpx;" data-S_Product_ID="{{item.s_Product_ID}}" data-qty="{{item.qty}}" catchtap="addCart">
                         <image  style="width:53rpx;height:53rpx;" src="/images/s-cart.png" />

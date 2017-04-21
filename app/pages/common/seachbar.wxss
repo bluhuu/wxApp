@@ -31,7 +31,7 @@
     height: 50rpx;
     position: absolute;
     z-index: 2;
-    right:135rpx;
+    right:10rpx;
     margin-top: 5rpx;
 }
 .search-txt {
@@ -56,3 +56,4 @@
 .dn{
     display: none;
 }
+.rel{position: relative;}
