@@ -5,7 +5,7 @@
             <block wx:for="{{productList.items}}"  wx:key="">
                 <view class="posts-list fx fdr" style="padding-top:10rpx;padding-bottom:20rpx;">
                     <view style="align-self:center;">
-                        <image style="width:40rpx;height:40rpx; margin-right:10rpx;" src="/image/s-selected.png" />
+                        <image style="width:40rpx;height:40rpx; margin-right:10rpx;" src="/assets/images/s-selected.png" />
                     </view>
                     <view style="flex:1" class="g14">
                         <view style="margin-bottom:.5em;">
@@ -83,28 +83,28 @@
                         </view>
                         <view class="bar-info">
                             <view class="bar-info-item">
-                                <image class="bar-info-item-icon" src="/images/icon/reply.png"></image>
+                                <image class="bar-info-item-icon" src="/assets/images/icon/reply.png"></image>
                                 <view class="bar-info-item-number">{{item.reply_count}}</view>
                             </view>
                             <view class="bar-info-item">
-                                <image class="bar-info-item-icon" src="/images/icon/visit.png"></image>
+                                <image class="bar-info-item-icon" src="/assets/images/icon/visit.png"></image>
                                 <view class="bar-info-item-number">{{item.visit_count}}</view>
                             </view>
 
                             <view class="bar-info-item2"  wx:if="{{item.tab === 'good'}}">
-                                <image class="bar-info-item-icon" src="/images/icon/type.png"></image>
+                                <image class="bar-info-item-icon" src="/assets/images/icon/type.png"></image>
                                 <view class="bar-info-item-number">精华</view>
                             </view>
                             <view class="bar-info-item2"  wx:if="{{item.tab === 'share'}}">
-                                <image class="bar-info-item-icon" src="/images/icon/type.png"></image>
+                                <image class="bar-info-item-icon" src="/assets/images/icon/type.png"></image>
                                 <view class="bar-info-item-number">分享</view>
                             </view>
                             <view class="bar-info-item2"  wx:if="{{item.tab === 'ask'}}">
-                                <image class="bar-info-item-icon" src="/images/icon/type.png"></image>
+                                <image class="bar-info-item-icon" src="/assets/images/icon/type.png"></image>
                                 <view class="bar-info-item-number">问答</view>
                             </view>
                             <view class="bar-info-item2"  wx:if="{{item.tab === 'job'}}">
-                                <image class="bar-info-item-icon" src="/images/icon/type.png"></image>
+                                <image class="bar-info-item-icon" src="/assets/images/icon/type.png"></image>
                                 <view class="bar-info-item-number">招聘</view>
                             </view>
                         </view>

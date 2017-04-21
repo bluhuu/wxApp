@@ -26,7 +26,7 @@ Page({
                 {
                     id: "good",
                     title: "价格",
-                    img: ["/images/s-ArrowUp.png","/images/s-ArrowDown.png"]
+                    img: ["/assets/images/s-ArrowUp.png","/assets/images/s-ArrowDown.png"]
                 },
                 {
                     id: "share",

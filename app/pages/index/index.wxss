@@ -1,4 +1,4 @@
-@import "/style/hh.wxss";
+@import "/assets/styles/hh.wxss";
 .container { background-color: #f2f2f2; }
 /*轮播*/
 .swiper_box { height: 187.5px; }

@@ -7,25 +7,25 @@ Page({
             {
                 id: 'view',
                 name: '我的资料',
-                img:'../../image/personal-11.png',
+                img:'../../assets/images/personal-11.png',
                 open: false,
                 pages: ['view', 'scroll-view', 'swiper']
             }, {
                 id: 'content',
                 name: '我的咨询',
-                img:'../../image/personal-12.png',
+                img:'../../assets/images/personal-12.png',
                 open: false,
                 pages: ['text', 'icon', 'progress']
             }, {
                 id: 'form',
                 name: '家族成员',
-                img:'../../image/personal-13.png',
+                img:'../../assets/images/personal-13.png',
                 open: false,
                 pages: ['张学友', '刘丝丝', '白骨精']
             }, {
                 id: 'feedback',
                 name: '我的处方',
-                img:'../../image/personal-14.png',
+                img:'../../assets/images/personal-14.png',
                 open: false,
                 pages: ['action-sheet', 'modal', 'toast', 'loading']
             }

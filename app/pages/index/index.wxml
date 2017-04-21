@@ -26,7 +26,7 @@
         <text class="b">待收货处方</text>
         <view>
             <text class="mr10">更多</text>
-            <image class="widgets__info-img" src="/image/arrowright.png"
+            <image class="widgets__info-img" src="/assets/images/arrowright.png"
                 mode="aspectFill" />
         </view>
     </view>

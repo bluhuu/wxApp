@@ -16,7 +16,7 @@
                 <view class="widgets__item bb11">
                     <view id="{{item.id}}" class="widgets__info fjcsb {{item.open ? 'widgets__info_show' : ''}}" bindtap="widgetsToggle">
                         <view class="fx faice"><image class="widgets-img mr10" src="{{item.img}}" mode="aspectFit" /><text class="widgets__info-name">{{item.name}}</text></view>
-                        <image class="widgets__info-img" src="/image/arrowright.png" mode="aspectFill" />
+                        <image class="widgets__info-img" src="/assets/images/arrowright.png" mode="aspectFill" />
                     </view>
                     <view class="widgets__list {{item.open ? 'widgets__list_show' : ''}}">
                         <block wx:for-items="{{item.pages}}" wx:for-item="page">
@@ -25,7 +25,7 @@
                                 <view><text class="member-edit mr20" id="member-edit-ID" bindtap="memberedit">编辑</text><text class="member-lookup">查看</text></view>
                             </view>
                         </block>
-                        <view style="text-align:center;"><image style="height:50rpx;width:50rpx;padding:15rpx;" src="/image/personal-21.png" mode="aspectFill" /></view>
+                        <view style="text-align:center;"><image style="height:50rpx;width:50rpx;padding:15rpx;" src="/assets/images/personal-21.png" mode="aspectFill" /></view>
                     </view>
                 </view>
             </block>

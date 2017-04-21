@@ -1,4 +1,4 @@
-@import "/style/hh.wxss";
+@import "/assets/styles/hh.wxss";
 
 .scroll-list {
     overflow: hidden;

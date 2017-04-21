@@ -29,28 +29,28 @@
         "list": [{
             "pagePath": "pages/index/index",
             "text": "首页",
-            "iconPath": "image/home.png",
-            "selectedIconPath": "image/home-selected.png"
+            "iconPath": "assets/images/home.png",
+            "selectedIconPath": "assets/images/home-selected.png"
         }, {
             "pagePath": "pages/logs/logs",
             "text": "咨询服务",
-            "iconPath": "image/consultation.png",
-            "selectedIconPath": "image/consultation-selected.png"
+            "iconPath": "assets/images/consultation.png",
+            "selectedIconPath": "assets/images/consultation-selected.png"
         }, {
             "pagePath": "pages/user/index",
             "text": "个人中心",
-            "iconPath": "image/personal.png",
-            "selectedIconPath": "image/personal-selected.png"
+            "iconPath": "assets/images/personal.png",
+            "selectedIconPath": "assets/images/personal-selected.png"
         }, {
             "pagePath": "pages/help/index",
             "text": "帮助中心",
-            "iconPath": "image/help.png",
-            "selectedIconPath": "image/help-selected.png"
+            "iconPath": "assets/images/help.png",
+            "selectedIconPath": "assets/images/help-selected.png"
         }, {
             "pagePath": "pages/order/list/index",
             "text": "test",
-            "iconPath": "image/help.png",
-            "selectedIconPath": "image/help-selected.png"
+            "iconPath": "assets/images/help.png",
+            "selectedIconPath": "assets/images/help-selected.png"
         }],
         "position": "bottom"
     },
