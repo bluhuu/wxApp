@@ -1,0 +1,32 @@
+@import "/style/hh.wxss";
+
+.scroll-list {
+    overflow: hidden;
+}
+
+.topbar {
+    margin-top: 0;
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.topbar-item {
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.topbar-item.active {
+    color: #3cb9bb;
+    border-bottom: 4px solid #3cb9bb;
+}
+
+.swiper_box {
+    width: 100%;
+}
+
+swiper-item image {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+}

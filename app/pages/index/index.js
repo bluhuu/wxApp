@@ -17,10 +17,12 @@ Page({
         // nav
         navs: [{
             image: '../../image/nav-01.png',
-            text: '处方查询'
+            text: '商品查询',
+            path: '../search/search'
         }, {
             image: '../../image/nav-02.png',
-            text: '家庭成员'
+            text: '我的订单',
+            path: '../order/list/index'
         }, {
             image: '../../image/nav-03.png',
             text: '咨询服务'
@@ -103,8 +105,10 @@ Page({
         });
     },
     go: function(event) {
+        console.log(event);
         wx.navigateTo({
-            url: '../list/index?type=' + event.currentTarget.dataset.type
+            url: event.currentTarget.dataset.path,
+            fail:()=>{ wx.switchTab({url: event.currentTarget.dataset.path,}) }
         });
     }
 });

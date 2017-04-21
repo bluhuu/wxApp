@@ -68,7 +68,7 @@ Page({
                 console.log(data)
                 if (data.rows && data.rows.length > 0) {
                     productList.items = [...productList.items, ...data.rows]
-                    //在product的绑定数量
+                    //在product的绑定页面表格中的数量
                     productList.items = productList.items.map((value,index,array)=>{
                         if(!value.qty){
                             value.qty=1

@@ -12,7 +12,7 @@
 
     <view class="section index-nav bb11">
         <view wx:for="{{navs}}">
-            <view class="l-c-c rel" catchtap="go" data-type="{{item.text}}">
+            <view class="l-c-c rel" catchtap="go" data-type="{{item.text}}" data-path="{{item.path}}">
                 <image src="{{item.image}}" class="nav-image" />
                 <text class="">{{item.text}}</text>
                 <block wx:if="{{item.addition}}">
