@@ -7,10 +7,8 @@ Page({
         },
     },
     onLoad(option) {
-        this.order = App.HttpResource('/order/:id', {id: '@id'})
-        this.setData({
-            id: option.id
-        })
+        this.order = App.HttpResource('/mOrderAction/query.do?orderId=:id', {id: '@id'})
+        this.setData({ id: option.id })
     },
     onShow() {
         this.getOrderDetail(this.data.id)
@@ -20,9 +18,9 @@ Page({
         this.order.getAsync({id: id})
         .then(data => {
             console.log(data)
-            if (data.meta.code == 0) {
+            if (data.total) {
                 this.setData({
-                    'order.item': data.data
+                    'order.item': data.rows
                 })
             }
         })

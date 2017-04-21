@@ -20,9 +20,9 @@ Page({
     },
     navigateTo(e) {
         console.log(e)
-        // App.WxService.navigateTo('/pages/order/detail/index', {
-        //     id: e.currentTarget.dataset.id
-        // })
+        App.WxService.navigateTo('/pages/order/detail/index', {
+            id: e.currentTarget.dataset.id
+        })
     },
     getList() {
         const order = this.data.order

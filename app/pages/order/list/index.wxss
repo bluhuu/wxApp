@@ -47,8 +47,8 @@ swiper-item image {
 }
 .item_bd{
     border-bottom: 1px solid #f1f1f1;
-    padding-top: 20rpx;
-    padding-bottom: 20rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
 }
 .item_ft{
     line-height: 66rpx;
