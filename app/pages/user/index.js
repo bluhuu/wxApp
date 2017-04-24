@@ -1,5 +1,4 @@
 const App = getApp()
- console.log(1223);
 Page({
      data: {
          userInfo: {},
@@ -37,7 +36,6 @@ Page({
          ]
      },
      onLoad() {
-         console.log(1111);
          this.getUserInfo()
          this.getStorageInfo()
      },

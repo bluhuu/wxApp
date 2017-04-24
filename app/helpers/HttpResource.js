@@ -40,7 +40,6 @@ class HttpResource {
                 if (request.url.indexOf('/elink_scm_purchase') !== -1 && wx.getStorageSync('token')) {
                     request.header.Cookie = 'JSESSIONID=' + wx.getStorageSync('token') + ";"
                 }
-                console.log("001")
                 wx.showToast({
                     title: '加载中',
                     icon: 'loading',
