@@ -16,6 +16,7 @@
         <view class="posts-list fx fdr f28" style="padding-top:10rpx;padding-bottom:20rpx;">
 
             <view style="align-self:flex-start; width:53rpx;height:53rpx; margin-right:25rpx;" class="{{item.selected ? 'selected' : 'unselected'}}" data-cartId="{{item.cartId}}" catchtap="selected">
+                                <image style="width:53rpx;height:53rpx; margin-right:10rpx;" src="{{item.selected ? '/assets/images/s-selected.png' : '/assets/images/s-noselected.png'}}" />
             </view>
 
             <view style="flex:1" class="g14">

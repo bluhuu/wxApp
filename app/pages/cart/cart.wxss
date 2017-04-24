@@ -243,12 +243,12 @@ page { background-color: #f2f2f2; }
     width: 100%;
 }
 .unselected{
-    background-image: url('/assets/images/s-noselected.png');
-    background-repeat: no-repeat;
-    background-size: contain;
+    /*background-image: url('/assets/images/s-noselected.png');*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: contain;*/
 }
 .selected{
-    background-image: url('/assets/images/s-selected.png');
-    background-repeat: no-repeat;
-    background-size: contain;
+    /*background-image: url('/assets/images/s-selected.png');*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: contain;*/
 }
