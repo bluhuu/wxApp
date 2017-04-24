@@ -10,7 +10,7 @@
                     <label class="weui-label">用户名</label>
                 </view>
                 <view class="weui-cell__hd">
-                    <input class="weui-input" name="user" type="text" placeholder="请输入用户名" auto-focus value="demo1"/>
+                    <input class="weui-input" name="user" type="text" placeholder="请输入用户名" auto-focus value="zxy"/>
                 </view>
             </view>
             <view class="weui-cell">

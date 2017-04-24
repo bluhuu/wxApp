@@ -1,18 +1,23 @@
-<view class="oderstatus">
-    <view><text>状态：</text>{{order.item[0].docStatusName}}</view>
-    <view><text>订单编号：</text>{{order.item[0].orderId}}</view>
-    <view><text>下单时间：</text>{{order.item[0].dateOrder}}</view>
+<view class="oderstatus bgwh p20 mb20 f28">
+    <view><text class="g20 dib" style="width:168rpx;">状态：</text>{{order.item.docStatusName}}</view>
+    <view><text class="g20 dib" style="width:168rpx;">订单编号：</text>{{order.item.orderId}}</view>
+    <view><text class="g20 dib" style="width:168rpx;">下单时间：</text>{{order.item.dateOrderStr}}</view>
 </view>
-<view class="oderlines">
-    <view wx:for="{{order.item[0].lines}}">
+<view class="oderlines bgwh p20 f28 mb20">
+    <view class="item-line bb12" wx:for="{{order.item.lines}}">
         <view><text>{{item.product.name}}</text></view>
-        <view class="fdr fjcsb"><text>￥{{item.price}}</text><text>x{{item.qty}}</text></view>
+        <view class="fdr fjcsb mt10">
+            <text class="g17 f32"><text class="f25">￥</text>{{item.priceStr}}</text>
+            <view style="min-width:110rpx;" class="fdr fjcfe g14">
+                <!-- <text>{{item.qty}} </text> -->
+                <text>{{item.qty}} {{item.product.uomName}}</text>
+            </view>
+        </view>
     </view>
-    <view><text>共计 {{order.item[0].qty}} 件商品</text></view>
+    <view class="tr g14 pt20"><text>共计 <text class="f32 g33">{{order.item.qty}}</text> 件商品</text></view>
 </view>
-<view>
-    <view><text>订单总额</text><text>￥{{order.item[0].orderAmt}}</text></view>
-    <view><text>收货地址</text><text>￥{{order.item[0].orderAmt}}</text></view>
-    <view><text>收货人</text><text>￥{{order.item[0].orderAmt}}</text></view>
-    <view><text>发票信息</text><text>￥{{order.item[0].orderAmt}}</text></view>
+<view class="bgwh p20 mb20 f28">
+    <view><tex class="g20 dib" style="width:168rpx;"t>订单总额：</tex><text class="f32 g17">￥{{order.item.orderAmtStr}}</text></view>
+    <view><text class="g20 dib" style="width:168rpx;">收货人：</text><text>{{order.item.receivePerson}}</text></view>
+    <view><text class="g20 dib" style="width:168rpx;">收货地址：</text><text>{{order.item.receiveAddr}}</text></view>
 </view>

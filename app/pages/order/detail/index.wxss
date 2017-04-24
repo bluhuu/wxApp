@@ -1,1 +1,8 @@
 @import "/assets/styles/hh.wxss";
+
+.item-line{
+    padding-bottom: 20rpx;
+}
+.item-line + .item-line {
+    padding-top: 20rpx;
+}

@@ -11,10 +11,15 @@
             <text class="g16">{{item.docStatusName}}</text>
         </view>
         <view wx:for="{{item.lines}}" wx:for-item="i" class="item_bd fdr fjcsb">
-            <!-- <text>{{i}}</text> -->
             <text class="pr30 f32">{{i.product.name}} {{i.product.productSpec}}</text>
-            <text class="g19 nowrap f30">x {{i.qty}}</text>
+            <view style="min-width:110rpx;" class="fdr fjcfe">
+                <!-- <text class="g19 nowrap f30">x {{i.qty}}</text> -->
+                <text class="g19 nowrap f30">{{i.qty}} {{i.product.uomName}}</text>
+            </view>
         </view>
-        <view class="item_ft fdr fjcfe faice f28"><text class="">总价：</text><text class="g17 tr f30" style="min-width:4em;">￥{{item.orderAmtStr}}</text></view>
+        <view class="item_ft fdr fjcfe faice f28">
+            <text class="">总价：</text>
+            <text class="g17 tr f30" style="min-width:4em;">￥{{item.orderAmtStr}}</text>
+        </view>
     </view>
 </view>

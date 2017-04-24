@@ -19,9 +19,26 @@ Page({
         .then(data => {
             console.log(data)
             if (data.total) {
-                this.setData({
-                    'order.item': data.rows
+                let item=data.rows[0]
+                //在product的绑定页面表格中的数量
+                if(item.orderAmt){
+                    item.orderAmtStr = App.Tools.changeTwoDecimal(item.orderAmt)
+                }
+                if(item.dateOrder){
+                    item.dateOrderStr = App.Tools.formatDate(App.Tools.parseDate(item.dateOrder, 'yyyy-MM-dd HH:mm:ss'))
+                }
+                item.lines = item.lines.map((value,index,array)=>{
+                    if(!!value.price){
+                        value.priceStr=App.Tools.changeTwoDecimal(value.price)
+                    }
+                    return value
+                })//
+                let total = 0;
+                item.lines.forEach((value,index,array)=>{
+                    total =total + value.qty;
                 })
+                item.qty=total;
+                this.setData({ 'order.item': item })
             }
         })
     },
