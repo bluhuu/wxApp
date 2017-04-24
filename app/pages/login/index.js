@@ -92,7 +92,7 @@ Page({
         console.log("cb",cb);
 		if (App.WxService.getStorageSync('token')) return
 		App.HttpService.signIn({
-			user: 'demo1',
+			user: 'zxy',
 			password: '123',
 		})
 		.then(data => {

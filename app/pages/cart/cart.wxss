@@ -1,0 +1,244 @@
+@import "/assets/styles/hh.wxss";
+@import "../common/navbar.wxss";
+@import "../common/seachbar.wxss";
+.topics {
+    height: 100%;
+    overflow: hidden;
+}
+page { background-color: #f2f2f2; }
+/*列表 list*/
+
+.scroll-list {
+    overflow: hidden;
+    background-color: #ffffff;
+    margin-top: 73rpx;
+    margin-bottom: 90rpx;
+}
+
+.posts-list {
+    position: relative;
+    overflow: hidden;
+    padding: 5rpx 18rpx 10rpx 18rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.posts-list-info {
+    overflow: hidden;
+    display: flex;
+    margin-top: 30rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #eee;
+}
+
+.posts-list-info .userimg {
+    overflow: hidden;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.posts-list-info .item-box {
+    flex: 1;
+    margin-left: 30rpx;
+}
+
+.posts-list-info .item-box .userinfo {
+    display: flex;
+}
+
+.posts-list-info .item-box .userinfo .username, .posts-list-info .item-box .userinfo .time {
+    flex: 1;
+}
+
+.posts-list-info .item-box .userinfo .time {
+    text-align: right;
+    color: #555;
+}
+
+.posts-list-info .item-box .posts-title {
+    height: 80rpx;
+    margin: 20rpx 0;
+    font-size: 30rpx;
+    color: #35495e;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.posts-list-info .item-box .posts-tag {
+    display: inline-block;
+    width: 80rpx;
+    height: 38rpx;
+    text-align: center;
+    line-height: 38rpx;
+    margin-right: 10rpx;
+    font-size: 26rpx;
+    color: #80bd01;
+    border: 1rpx solid #80bd01;
+}
+
+.posts-list-info .item-box .hot {
+    color: red;
+    border: 1rpx solid red;
+}
+
+.posts-list .bar-info .bar-info-item {
+    display: inline-block;
+    margin-right: 50rpx;
+    line-height: 66rpx;
+}
+
+.posts-list .bar-info .bar-info-item-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.posts-list .bar-info .bar-info-item-number {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.posts-list .bar-info .bar-info-item2 {
+    display: inline-block;
+    float: right;
+    line-height: 66rpx;
+}
+
+.posts-list .bar-info .bar-info-item2 .bar-info-item-number {
+    color: #80bd01;
+}
+
+
+/*loading*/
+
+.loading-font {
+    font-size: 30rpx;
+}
+
+
+/* quantity */
+.quantity-wrapper {
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*width: 84px;*/
+    /*height: 24px;*/
+    /*background-color: inherit;*/
+}
+
+.quantity-wrapper .customize-qua {
+	/*width: 34px;
+    height: 24px;*/
+    box-sizing: border-box;
+}
+
+.quantity {
+	display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 100%;
+    border: 1px solid transparent;
+	border-radius: 2px;
+	border-color: #ccc;
+	box-sizing: border-box;
+}
+
+.quantity {
+	-webkit-appearance: none;
+    text-align: center;
+    width: 186rpx;
+    height: 68rpx;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 24px;
+    color: #232326;
+    min-height: 0;
+
+}
+
+.quantity {
+	border-radius: 0;
+	margin-left: -1px;
+}
+.icart-numsup{
+    top:-0rpx;
+    left:36rpx;
+
+    display: block;
+
+    height: 25rpx;
+    width: 25rpx;
+    /*padding-right: 5rpx;
+    padding-left: 4rpx;*/
+
+    color: #fff;
+    border-radius: 12rpx;
+    background-color: #ea0411;
+    text-align: center;
+    font: Arial;
+    font-size: 20rpx;
+}
+.icart-num{
+    top:-0rpx;
+    left:36rpx;
+
+    display: block;
+
+    height: 25rpx;
+    padding-right: 5rpx;
+    padding-left: 4rpx;
+
+    color: #fff;
+    border-radius: 10rpx;
+    background-color: #ea0411;
+
+    font: Arial;
+    font-size: 20rpx;
+}
+.icart-numsup>.icart-num-sup,
+.icart-num>.icart-num-sup{
+    position: relative;
+    top:-6rpx;
+    font-size: 16rpx;
+}
+
+.col-bar{
+    width: 100%;
+    height: 90rpx;
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+}
+.col-bar>view:first-child{
+    height:100%;
+    background-color: #494f4f;
+    color: #fff;
+    flex: 1 1 auto;
+    flex-basis: 500rpx;
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+}
+.col-bar>view:last-child{
+    height:100%;
+    background-color: #f9a400;
+    color: #fff;
+    flex: 1 1 auto;
+    flex-basis: 250rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-bar{
+    position: fixed;
+    top: -1rpx;
+    z-index: 99;
+    width: 100%;
+}
