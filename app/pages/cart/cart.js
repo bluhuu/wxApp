@@ -16,6 +16,7 @@ Page({
     onLoad() {
         // this.order = App.HttpResource('/order/:id', {id: '@id'})
         this.carts = App.HttpResource('/mPurchaseAction/query.do/:id', { id: '@id' });
+        this.updateCart = App.HttpResource('/mPurchaseAction/updateCart.do/:id', { id: '@id' });
         this.onPullDownRefresh()
     },
     initData() {
@@ -110,6 +111,20 @@ Page({
         this.setData({ 'carts.items':array })
         this.changeDataStatus()
     },
+    bindKeyInputConfirm(e){
+        const params = { S_Product_ID:e.currentTarget.dataset.s_product_id, qty:e.detail.value }
+        this.updateCart.getAsync(params)
+            .then(data => {
+                if(data.success){
+                    this.bindKeyInput(e)
+                    wx.showToast({ title: '修改成功', icon: 'success', duration: 2000 })
+                }else{
+                    wx.showModal({ content: '修改失败' })
+                }
+            },data =>{
+                wx.showModal({ content: '连接失败' })
+            })
+    },
     changeDataStatus(){
         const carts = this.data.carts
         carts.items = carts.items.map((value,index,array)=>{
@@ -121,15 +136,18 @@ Page({
 
         carts.allselected = true
         let totalAmt = 0;
+        let totalQty = 0;
         carts.items.forEach((value,index,array)=>{
             if(!value.selected){
                 carts.allselected = false
             }
             if(value.selected){
                 totalAmt +=value.totalPrice
+                totalQty +=value.qty
             }
         })
         carts.totalAmt=App.Tools.changeTwoDecimal(totalAmt)
+        carts.totalQty=totalQty
         this.setData({
             carts: carts,
         })

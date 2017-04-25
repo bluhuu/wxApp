@@ -2,12 +2,19 @@
 <view class="col-bar">
     <view>
         <view class="fdr faice" catchtap="allselected">
-            <image style="width:47rpx;height:45rpx; margin-left:18rpx; margin-right:5rpx;" src="{{carts.allselected ? '/assets/images/s-selected.png' : '/assets/images/s-noselected.png'}}" /><text style="margin-right:40rpx;">全选</text>
+            <image style="width:47rpx;height:45rpx; margin-left:18rpx; margin-right:5rpx;" src="{{carts.allselected ? '/assets/images/s-selected.png' : '/assets/images/s-noselected.png'}}" />
+            <text style="margin-right:40rpx;">全选</text>
         </view>
 
-        <text><text class="f30">合计：</text><text class="f34">¥{{carts.totalAmt}}</text></text>
+        <text>
+            <text class="f30">合计：</text>
+            <text class="f34">¥{{carts.totalAmt}}</text>
+        </text>
     </view>
-    <view><text class="f33">去结算</text></view>
+    <view>
+        <text class="f33">去结算</text>
+        <text wx:if="{{!!carts.totalQty}}">（{{carts.totalQty}}件）</text>
+    </view>
 </view>
 <template is="prompt" data="{{ prompt }}" />
 
@@ -35,7 +42,7 @@
                         <view>
                             <view class="customize-qua">
                                 <!-- <view class="quantity-decrease bg12" bindtap="decrease"></view> -->
-                                <input class="quantity f30" type="number" value="{{item.qty}}" data-cartId="{{item.cartId}}" bindinput="bindKeyInput" />
+                                <input class="quantity f30" type="number" value="{{item.qty}}" data-cartId="{{item.cartId}}" data-S_Product_ID="{{item.product.s_Product_ID}}" bindblur="bindKeyInputConfirm" bindconfirm="bindKeyInputConfirm"/>
                                 <!-- <view class="quantity-increase bg12" bindtap="increase"></view> -->
                             </view>
                         </view>
