@@ -11,7 +11,7 @@
             <text class="f34">¥{{carts.totalAmt}}</text>
         </text>
     </view>
-    <view>
+    <view catchtap="submitOrderAction">
         <text class="f33">去结算</text>
         <text wx:if="{{!!carts.totalQty}}">（{{carts.totalQty}}件）</text>
     </view>

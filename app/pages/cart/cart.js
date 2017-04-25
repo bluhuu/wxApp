@@ -17,6 +17,7 @@ Page({
         // this.order = App.HttpResource('/order/:id', {id: '@id'})
         this.carts = App.HttpResource('/mPurchaseAction/query.do/:id', { id: '@id' });
         this.updateCart = App.HttpResource('/mPurchaseAction/updateCart.do/:id', { id: '@id' });
+        this.submitOrder = App.HttpResource('/mPurchaseAction/submitOrder.do/:id', { id: '@id' });
         this.onPullDownRefresh()
     },
     initData() {
@@ -124,6 +125,24 @@ Page({
             },data =>{
                 wx.showModal({ content: '连接失败' })
             })
+    },
+    submitOrderAction(e){
+        let orderlist=[]
+        this.data.carts.items.forEach((val,idx,arr)=>{
+            if(val.selected){
+                orderlist.push(val.cartId)
+            }
+        })
+        if(orderlist.length>0){
+            console.log(orderlist);
+            const params = { cartIds:jsorderlist.join("\&cartIds\=") }
+            this.submitOrder.getAsync(params)
+                .then(data => {
+                    console.log(data);
+                },data=>{
+                    console.log(data);
+                })
+        }
     },
     changeDataStatus(){
         const carts = this.data.carts
