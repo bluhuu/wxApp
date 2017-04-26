@@ -133,7 +133,7 @@ Page({
             this.submitOrder.getAsync(params)
                 .then(data => {
                     if(data.success){
-                        App.WxService.showModal({ title: '提示', content: '订单提交失败', })
+                        App.WxService.showModal({ title: '提示', content: '订单提交成功', })
                             .then(data=>{
                                 App.WxService.switchTab({url:'/pages/index/index'})
                             })
