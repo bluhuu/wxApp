@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/order/confirm/index",
         "pages/cart/cart",
         "pages/search/search",
         "pages/order/list/index",
@@ -49,7 +50,7 @@
             "iconPath": "assets/images/help.png",
             "selectedIconPath": "assets/images/help-selected.png"
         }, {
-            "pagePath": "",
+            "pagePath": "pages/order/confirm/index",
             "text": "test",
             "iconPath": "assets/images/help.png",
             "selectedIconPath": "assets/images/help-selected.png"

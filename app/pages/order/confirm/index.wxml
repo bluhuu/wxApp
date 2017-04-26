@@ -1,4 +1,13 @@
-<view class="address">
+<view class="">
+  <view class="">诊所名称</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      {{array[index]}}
+    </view>
+  </picker>
+</view>
+
+<!-- <view class="address">
     <view class="weui-panel">
         <view class="weui-panel__bd">
             <view class="weui-media-box weui-media-box_text" bindtap="redirectTo">
@@ -11,7 +20,7 @@
             </view>
         </view>
     </view>
-</view>
+</view> -->
 
 <view class="weui-form-preview">
     <view class="weui-form-preview__hd">
@@ -27,6 +36,6 @@
         </view>
     </view>
     <view class="weui-form-preview__ft">
-        <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="addOrder">提交订单</navigator>
+        <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="addOrder">提交</navigator>
     </view>
 </view>
