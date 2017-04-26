@@ -15,6 +15,7 @@ class Service extends ServiceBase {
 			goods       : '/goods',
 			search      : '/goods/search/all',
 			cart        : '/mPurchaseAction/addCart.do',
+			deleteCart  : '/mPurchaseAction/deleteCart.do',
 			address     : '/address',
 			order       : '/order',
         }
@@ -66,6 +67,10 @@ class Service extends ServiceBase {
 
 	addCart(params) {
 		return this.getRequest(this.$$path.cart,params)
+	}
+
+	deleteCart(params) {
+		return this.getRequest(this.$$path.deleteCart,params)
 	}
 
 	putCartByUser(id, params) {

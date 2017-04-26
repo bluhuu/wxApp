@@ -152,6 +152,7 @@ Page({
     addCart(e){
         let that = this
         console.log(e);
+        console.log("add");
         App.HttpService.addCart({ S_Product_ID:e.currentTarget.dataset.s_product_id, qty:e.currentTarget.dataset.qty })
         .then(data=>{
             if(data.success){
@@ -169,5 +170,36 @@ Page({
                 wx.showModal({ title: '增加失败', content: data.msg, success: function(res) {} })
             }
         })
+    },
+    removeCart(e){
+        let that = this
+        if(!e.currentTarget.dataset.cartid)
+            return
+        App.HttpService.deleteCart({ cartId:e.currentTarget.dataset.cartid})
+            .then(data=>{
+                if(data.success){
+                    let array = that.data.productList.items.map((val,indx,arr)=>{
+                        if(val.s_Product_ID === e.currentTarget.dataset.s_product_id){
+                            val.cartQty=0
+                            val.cartId=0
+                            val.cartTotalPrice=0
+                        }
+                        return val
+                    })
+                    that.setData({ 'productList.items':array })
+                    wx.showToast({ title: '已删除', icon: 'success', duration: 2000 })
+                }
+            })
+    },
+    removeCarttouchstart(e){
+        console.log("---------------removeCarttouchstart-------start----------");
+        console.log(e);
+        this.removeCarttouch= e.changedTouches[0]
+    },
+    removeCarttouchend(e){
+        let move = Math.abs(this.removeCarttouch.pageX-e.changedTouches[0].pageX) + Math.abs(this.removeCarttouch.pageY-e.changedTouches[0].pageY)
+        if(move>60){
+            this.removeCart(e)
+        }
     }
 })
