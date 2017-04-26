@@ -1,8 +1,8 @@
 <view class="">
   <view class="">诊所名称</view>
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+  <picker bindchange="bindPickerChange" value="{{members.index}}" range="{{members.items}}" range-key="memberName" mode="selector">
     <view class="picker">
-      {{array[index]}}
+      {{members.items[members.index].memberName}}
     </view>
   </picker>
 </view>

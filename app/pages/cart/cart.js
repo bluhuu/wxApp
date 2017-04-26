@@ -133,36 +133,16 @@ Page({
                 orderlist.push(val.cartId)
             }
         })
-        wx.request({
-          method:"GET",
-          dataType:"json",
-          url: App.Config.basePath + '/mPurchaseAction/submitOrder.do',//?'+"cartIds=1001550&cartIds=1001553&cartIds=1001554", //仅为示例，并非真实的接口地址
-           data: {cartIds:1001550,cartIds:1001551,cartIds:1001552,cartIds:1001553},
-        //   data: "cartIds=1001550&cartIds=1001553&cartIds=1001554",
-          header: {
-              'content-type': 'application/json',
-              'Cookie' : 'JSESSIONID=' + wx.getStorageSync('token') + ";"
-          },
-          success: function(res) {
-            console.log(res)
-          }
-        })
-        // let orderlist=[]
-        // this.data.carts.items.forEach((val,idx,arr)=>{
-        //     if(val.selected){
-        //         orderlist.push(val.cartId)
-        //     }
-        // })
-        // if(orderlist.length>0){
-        //     console.log(orderlist);
-        //     const params = { cartIds:orderlist.join('&cartIds=') }
-        //     this.submitOrder.getAsync('cartIds=1001550&cartIds=1001553&cartIds=1001554')
-        //         .then(data => {
-        //             console.log(data);
-        //         },data=>{
-        //             console.log(data);
-        //         })
-        // }
+        if(orderlist.length>0){
+            console.log(orderlist);
+            const params = { cartIds:orderlist}
+            this.submitOrder.getAsync(params)
+                .then(data => {
+                    console.log(data);
+                },data=>{
+                    console.log(data);
+                })
+        }
     },
     changeDataStatus(){
         const carts = this.data.carts

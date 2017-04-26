@@ -4,23 +4,36 @@ Page({
     data: {
         hidden: !0,
         carts: {},
+        index: 0,
+        members: {
+            index: 1,
+            items: []
+        },
         address: {
             item: {},
         }
     },
     onLoad(option) {
         console.log(option)
+        App.HttpService.getMembers()
+            .then(data => {
+                if (data.rows.length > 0) {
+                    this.setData({
+                        'members.items': data.rows
+                    })
+                }
+            })
         this.setData({
             address_id: option.id
         })
 
         const carts = {
-            items: App.WxService.getStorageSync('confirmOrder'), 
-            totalAmount: 0, 
+            items: App.WxService.getStorageSync('confirmOrder'),
+            totalAmount: 0,
         }
 
-        carts.items.forEach(n => carts.totalAmount+=n.totalAmount)
-        
+        carts.items.forEach(n => carts.totalAmount += n.totalAmount)
+
         this.setData({
             carts: carts
         })
@@ -43,48 +56,48 @@ Page({
     },
     getDefalutAddress() {
         App.HttpService.getDefalutAddress()
-        .then(data => {
-            console.log(data)
-            if (data.meta.code == 0) {
-                this.setData({
-                    address_id: data.data._id, 
-                    'address.item': data.data, 
-                })
-            } else {
-                this.showModal()
-            }
-        })
+            .then(data => {
+                console.log(data)
+                if (data.meta.code == 0) {
+                    this.setData({
+                        address_id: data.data._id,
+                        'address.item': data.data,
+                    })
+                } else {
+                    this.showModal()
+                }
+            })
     },
     showModal() {
         App.WxService.showModal({
-            title: '友情提示', 
-            content: '没有收货地址，请先设置', 
-        })
-        .then(data => {
-            console.log(data)
-            if (data.confirm == 1) {
-                App.WxService.redirectTo('/pages/address/add/index')
-            } else {
-                App.WxService.navigateBack()
-            }
-        })
+                title: '友情提示',
+                content: '没有收货地址，请先设置',
+            })
+            .then(data => {
+                console.log(data)
+                if (data.confirm == 1) {
+                    App.WxService.redirectTo('/pages/address/add/index')
+                } else {
+                    App.WxService.navigateBack()
+                }
+            })
     },
     getAddressDetail(id) {
         App.HttpService.getAddressDetail(id)
-        .then(data => {
-            console.log(data)
-            if (data.meta.code == 0) {
-                this.setData({
-                    'address.item': data.data
-                })
-            }
-        })
+            .then(data => {
+                console.log(data)
+                if (data.meta.code == 0) {
+                    this.setData({
+                        'address.item': data.data
+                    })
+                }
+            })
     },
     addOrder() {
         const address_id = this.data.address_id
         const params = {
-            items: [], 
-            address_id: address_id, 
+            items: [],
+            address_id: address_id,
         }
         this.data.carts.items.forEach(n => {
             params.items.push({
@@ -94,19 +107,25 @@ Page({
         })
         console.log(params)
         App.HttpService.postOrder(params)
-        .then(data => {
-            console.log(data)
-            if (data.meta.code == 0) {
-                App.WxService.redirectTo('/pages/order/detail/index', {
-                    id: data.data._id
-                })
-            }
-        })
+            .then(data => {
+                console.log(data)
+                if (data.meta.code == 0) {
+                    App.WxService.redirectTo('/pages/order/detail/index', {
+                        id: data.data._id
+                    })
+                }
+            })
     },
     clear() {
         App.HttpService.clearCartByUser()
-        .then(data => {
-            console.log(data)
+            .then(data => {
+                console.log(data)
+            })
+    },
+    bindPickerChange: function(e) {
+        console.log('picker发送选择改变，携带值为', e)
+        this.setData({
+            'members.index': e.detail.value
         })
     },
 })
