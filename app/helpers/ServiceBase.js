@@ -183,7 +183,6 @@ class ServiceBase {
             },
             response: (response) => {
                 response.responseTimestamp = new Date().getTime()
-                console.log("response01:",response);
                 if(response.data.msg === "会话超时或未登录！") {
                     wx.removeStorageSync('token')
                     wx.redirectTo({ url: '/pages/login/index' })

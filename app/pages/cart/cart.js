@@ -84,6 +84,10 @@ Page({
                         'carts.total': data.total
                     })
                     this.changeDataStatus()
+                }else{
+                    this.setData({
+                        'prompt.hidden': carts.items.length,
+                    })
                 }
             })
     },

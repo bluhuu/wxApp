@@ -1,11 +1,11 @@
 {
     "pages": [
+        "pages/index/index",
         "pages/cart/cart",
         "pages/order/confirm/index",
         "pages/search/search",
         "pages/order/list/index",
         "pages/order/detail/index",
-        "pages/index/index",
         "pages/login/index",
         "pages/start/index",
         "pages/test/test",
@@ -50,7 +50,7 @@
             "iconPath": "assets/images/help.png",
             "selectedIconPath": "assets/images/help-selected.png"
         }, {
-            "pagePath": "pages/cart/cart",
+            "pagePath": "",
             "text": "test",
             "iconPath": "assets/images/help.png",
             "selectedIconPath": "assets/images/help-selected.png"

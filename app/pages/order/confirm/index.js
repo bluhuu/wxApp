@@ -8,14 +8,15 @@ Page({
         carts: { list:[], items: [], }
     },
     onLoad(option) {
-        console.log(option)
         let cartIdsList = JSON.parse(decodeURIComponent(option.cartIds))
+        this.submitOrder = App.HttpResource('/mPurchaseAction/submitOrder.do/:id', { id: '@id' });
+        //---temp
+        // let cartIdsList = [1001658, 1001659, 1001660, 1001661, 1001662];
+        //
         App.HttpService.getMembers()
             .then(data => {
                 if (data.rows.length > 0) {
-                    this.setData({
-                        'members.items': data.rows
-                    })
+                    this.setData({ 'members.items': data.rows })
                 }
             })
         this.setData({
@@ -23,22 +24,23 @@ Page({
         })
         App.HttpService.getCart({cartIds:cartIdsList})
             .then(data=>{
-                console.log(data);
                 if(data.rows.length>0){
+                    let totalQty = 0
+                    let totalAmt = 0
+                    data.rows.forEach((val,idx,arr)=>{
+                        totalQty += val.qty
+                        totalAmt += val.qty*val.product.memberPrice
+                    })
                     this.setData({
-                        'carts.items': data.rows
+                        'carts.items': data.rows,
+                        'carts.totalQty':totalQty,
+                        'carts.totalAmt':App.Tools.changeTwoDecimal(totalAmt)
                     })
                 }
             })
     },
     onShow() {
-        // const address_id = this.data.address_id
-        // if (address_id) {
-        //     this.getAddressDetail(address_id)
-        // } else {
-        //     this.getDefalutAddress()
-        // }
-        // this.showModal()
+
     },
     redirectTo(e) {
         console.log(e)
@@ -120,4 +122,33 @@ Page({
             'members.index': e.detail.value
         })
     },
+    submitOrderAction(e){
+        let orderlist=this.data.carts.list
+
+        if(orderlist.length>0 && this.data.members.items.length>0){
+            const params = {
+                cartIds:orderlist,
+                memberId:this.data.members.items[this.data.members.index].memberId
+            }
+            this.submitOrder.getAsync(params)
+                .then(data => {
+                    if(data.success){
+                        App.WxService.showModal({ title: '提示', content: '订单提交失败', })
+                            .then(data=>{
+                                App.WxService.switchTab({url:'/pages/index/index'})
+                            })
+                    }else{
+                        App.WxService.showModal({ title: '提示', content: '订单提交失败' })
+                            .then(data=>{
+                                App.WxService.switchTab({url:'/pages/index/index'})
+                            })
+                    }
+                },data=>{
+                    App.WxService.showModal({ title: '提示', content: '订单提交失败' })
+                        .then(data=>{
+                            App.WxService.switchTab({url:'/pages/index/index'})
+                        })
+                })
+        }
+    }
 })

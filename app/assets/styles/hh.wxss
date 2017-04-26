@@ -14,7 +14,7 @@ a{text-decoration:none;cursor: pointer;color: #333;} a:visited{color: #333} a:ho
 .w320{width:320px;} .w360{width:360px;} .w400{width:400px;} .w460{width:460px;} .w500{width:500px;} .w600{width:600px;} .w640{width:640px;} .w700{width:700px;}
 .pct10{width:10%;} .pct15{width:15%;} .pct20{width:20%;} .pct25{width:25%;} .pct30{width:30%;} .pct33{width:33.3%;} .pct40{width:40%;} .pct50{width:50%;} .pct60{width:60%;} .pct66{width:66.6%;} .pct70{width:70%;} .pct75{width:75%;} .pct80{width:80%;} .pct90{width:90%;} .pct100{width:100%;}
 .lh14{line-height:14px;} .lh16{line-height:16px;} .lh18{line-height:18px;} .lh20{line-height:20px;} .lh22{line-height:22px;} .lh24{line-height:24px;}.lh40{line-height:40px;}
-.m0{margin:0;}
+.m0{margin:0;}.m20{margin: 20rpx;}
 .ml1{margin-left:1rpx;} .ml2{margin-left:2rpx;} .ml5{margin-left:5rpx;} .ml10{margin-left:10rpx;} .ml15{margin-left:15rpx;} .ml20{margin-left:20rpx;} .ml30{margin-left:30rpx;}
 .mr1{margin-right:1rpx;} .mr2{margin-right:2rpx;} .mr5{margin-right:5rpx;} .mr10{margin-right:10rpx;} .mr15{margin-right:15rpx;} .mr20{margin-right:20rpx;} .mr30{margin-right:30rpx;}
 .mt1{margin-top:1rpx;} .mt2{margin-top:2rpx;} .mt5{margin-top:5rpx;} .mt10{margin-top:10rpx;} .mt15{margin-top:15rpx;} .mt20{margin-top:20rpx;} .mt30{margin-top:30rpx;}
@@ -104,7 +104,9 @@ table{table-layout:fixed; border-collapse:collapse; border-spacing:0; width:100%
 
 .bg11{background-color: #368fe1;}
 .bg12{background-color: #f5f5f5;}
+.bg18{background-color: #3cb9bb}
 
 .bb11{border-bottom: 1px solid #d4d4d4;}.bt11{border-top: 1px solid #d4d4d4;}
 .bb12{border-bottom: 1px solid #e8e8e8;}.bt12{border-top: 1px solid #e8e8e8;}
 .bb13{border-bottom: 1px solid #d8d8d8;}.bt13{border-top: 1px solid #d8d8d8;}
+.bbs12{border-bottom: 1px dashed #e8e8e8;}.bts12{border-top: 1px dashed #e8e8e8;}
