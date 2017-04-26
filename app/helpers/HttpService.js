@@ -13,6 +13,7 @@ class Service extends ServiceBase {
 			banner      : '/banner',
 			classify    : '/classify',
 			goods       : '/goods',
+			members     : '/mMemberAction/query.do',
 			search      : '/goods/search/all',
 			cart        : '/mPurchaseAction/addCart.do',
 			deleteCart  : '/mPurchaseAction/deleteCart.do',
@@ -52,6 +53,10 @@ class Service extends ServiceBase {
 	getGoods(params) {
 		return this.getRequest(this.$$path.goods, params)
 	}
+
+    getMembers(params) {
+        return this.getRequest(this.$$path.members, params)
+    }
 
 	getClassify(params) {
 		return this.getRequest(this.$$path.classify, params)

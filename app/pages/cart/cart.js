@@ -136,8 +136,8 @@ Page({
         wx.request({
           method:"GET",
           dataType:"json",
-          url: App.Config.basePath + '/mPurchaseAction/submitOrder.do?'+"cartIds=1001550&cartIds=1001553&cartIds=1001554", //仅为示例，并非真实的接口地址
-        //   data: {cartIds:orderlist},
+          url: App.Config.basePath + '/mPurchaseAction/submitOrder.do',//?'+"cartIds=1001550&cartIds=1001553&cartIds=1001554", //仅为示例，并非真实的接口地址
+           data: {cartIds:1001550,cartIds:1001551,cartIds:1001552,cartIds:1001553},
         //   data: "cartIds=1001550&cartIds=1001553&cartIds=1001554",
           header: {
               'content-type': 'application/json',

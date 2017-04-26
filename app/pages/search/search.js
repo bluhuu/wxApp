@@ -85,6 +85,7 @@ Page({
                         'prompt.hidden': productList.items.length,
                         'productList.total': data.total
                     })
+                    this.refreshStatus()
                 }
             })
     },
@@ -166,6 +167,7 @@ Page({
                 })
                 that.setData({ 'productList.items':array })
                 wx.showToast({ title: '添加成功', icon: 'success', duration: 2000 })
+                this.refreshStatus()
             }else{
                 wx.showModal({ title: '增加失败', content: data.msg, success: function(res) {} })
             }
@@ -188,12 +190,11 @@ Page({
                     })
                     that.setData({ 'productList.items':array })
                     wx.showToast({ title: '已删除', icon: 'success', duration: 2000 })
+                    this.refreshStatus()
                 }
             })
     },
     removeCarttouchstart(e){
-        console.log("---------------removeCarttouchstart-------start----------");
-        console.log(e);
         this.removeCarttouch= e.changedTouches[0]
     },
     removeCarttouchend(e){
@@ -201,5 +202,19 @@ Page({
         if(move>60){
             this.removeCart(e)
         }
+    },
+    refreshStatus(){
+        let totalClass = 0
+        let totalAmt = 0
+        this.data.productList.items.forEach((val,idx,arr)=>{
+            if(val.cartId && val.cartQty){
+                totalClass+=1
+                totalAmt+=val.memberPrice * val.cartQty
+            }
+        })
+        this.setData({
+            'productList.totalAmt': App.Tools.changeTwoDecimal(totalAmt),
+            'productList.totalClass': totalClass
+        })
     }
 })

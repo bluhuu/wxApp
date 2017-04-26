@@ -9,9 +9,10 @@
 <view class="col-bar">
     <view>
         <image style="width:47rpx;height:45rpx; margin-left:34rpx; margin-right:28rpx;" src="/assets/images/b-cart.png" />
-        <text><text class="f30">合计：</text><text class="f34">¥546.20</text></text>
+        <text><text class="f30">合计：</text><text class="f34">¥{{productList.totalAmt}}</text></text>
     </view>
-    <view><text class="f33">去购物车()</text></view>
+    <!-- <view><text class="f33">去购物车()</text></view> -->
+    <navigator url="/pages/cart/cart" open-type="navigate" hover-class="other-navigator-hover">去购物车</navigator>
 </view>
 <template is="prompt" data="{{ prompt }}" />
 
