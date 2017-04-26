@@ -135,13 +135,16 @@ Page({
         })
         if(orderlist.length>0){
             console.log(orderlist);
-            const params = { cartIds:orderlist}
-            this.submitOrder.getAsync(params)
-                .then(data => {
-                    console.log(data);
-                },data=>{
-                    console.log(data);
-                })
+            App.WxService.redirectTo('/pages/order/confirm/index', {
+                cartIds: JSON.stringify(orderlist)
+            })
+            // const params = { cartIds:orderlist}
+            // this.submitOrder.getAsync(params)
+            //     .then(data => {
+            //         console.log(data);
+            //     },data=>{
+            //         console.log(data);
+            //     })
         }
     },
     changeDataStatus(){

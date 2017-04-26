@@ -3,18 +3,13 @@ const App = getApp()
 Page({
     data: {
         hidden: !0,
-        carts: {},
         index: 0,
-        members: {
-            index: 1,
-            items: []
-        },
-        address: {
-            item: {},
-        }
+        members: { index: 1, items: [] },
+        carts: { list:[], items: [], }
     },
     onLoad(option) {
         console.log(option)
+        let cartIdsList = JSON.parse(decodeURIComponent(option.cartIds))
         App.HttpService.getMembers()
             .then(data => {
                 if (data.rows.length > 0) {
@@ -24,29 +19,26 @@ Page({
                 }
             })
         this.setData({
-            address_id: option.id
+            'carts.list': cartIdsList
         })
-
-        const carts = {
-            items: App.WxService.getStorageSync('confirmOrder'),
-            totalAmount: 0,
-        }
-
-        carts.items.forEach(n => carts.totalAmount += n.totalAmount)
-
-        this.setData({
-            carts: carts
-        })
-
-        console.log(this.data.carts)
+        App.HttpService.getCart({cartIds:cartIdsList})
+            .then(data=>{
+                console.log(data);
+                if(data.rows.length>0){
+                    this.setData({
+                        'carts.items': data.rows
+                    })
+                }
+            })
     },
     onShow() {
-        const address_id = this.data.address_id
-        if (address_id) {
-            this.getAddressDetail(address_id)
-        } else {
-            this.getDefalutAddress()
-        }
+        // const address_id = this.data.address_id
+        // if (address_id) {
+        //     this.getAddressDetail(address_id)
+        // } else {
+        //     this.getDefalutAddress()
+        // }
+        // this.showModal()
     },
     redirectTo(e) {
         console.log(e)
