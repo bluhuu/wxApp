@@ -74,6 +74,9 @@ Page({
                             value.qty=1
                             value.memberPriceStr=App.Tools.changeTwoDecimal(value.memberPrice)
                         }
+                        if(value.cartId && value.cartQty){
+                            value.cartTotalPrice=App.Tools.changeTwoDecimal(value.memberPrice * value.cartQty)
+                        }
                         return value
                     })//
                     this.setData({
