@@ -106,12 +106,13 @@ Page({
     formSubmit: function(e) {
         if (App.WxService.getStorageSync('token')) return
         App.HttpService.signIn(e.detail.value)
-        .then(data => {
-            console.log(data)
-            if (data.success) {
-                App.WxService.setStorageSync('token', data.sessionId)
-            }
-            wx.switchTab({url:"/pages/index/index"})
-        })
+            .then(data => {
+                if (data.success) {
+                    App.WxService.setStorageSync('token', data.sessionId)
+                    wx.switchTab({url:"/pages/index/index"})
+                }else{
+                    App.WxService.showModal({ title: '提示', content: data.msg })
+                }
+            })
     }
 })

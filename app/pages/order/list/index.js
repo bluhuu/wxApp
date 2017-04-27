@@ -4,12 +4,18 @@ Page({
     data: {
         activeIndex: 0,
         navList: [],
-        order: {},
+        order: {params:{}},
         prompt: { hidden: !0, icon: '../../../assets/images/iconfont-order-default.png', title: '您还没有相关的订单', text: '可以去看看有哪些想买的', },
     },
-    onLoad() {
+    onLoad(option) {
+        if(option.orderStatus){
+            this.setData({
+                'order.params.type':option.orderStatus,
+                activeIndex:1
+            })
+        }
         this.order = App.HttpResource('/mOrderAction/query.do/:id', { id: '@id' });
-        this.setData({ navList: [{ name: '全部订单', _id: '', }, { name: '待发货', _id: 'DFH', }, { name: '已完成', _id: 'YWC', }, ] })
+        this.setData({ navList: [{ name: '全部订单', _id: '', }, { name: '待处理', _id: 'DFH', }, { name: '已完成', _id: 'YWC', }, ] })
         this.onPullDownRefresh()
     },
     initData() {

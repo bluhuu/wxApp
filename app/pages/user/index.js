@@ -8,30 +8,15 @@ Page({
                  path: '/pages/order/list/index'
              },
              {
-                 icon: '../../assets/images/iconfont-addr.png',
-                 text: '收货地址',
-                 path: '/pages/address/list/index'
-             },
-             {
                  icon: '../../assets/images/iconfont-kefu.png',
                  text: '联系客服',
                  path: '18521708248',
-             },
-             {
-                 icon: '../../assets/images/iconfont-help.png',
-                 text: '常见问题',
-                 path: '/pages/help/list/index',
              },
          ],
          settings: [{
                  icon: '../../assets/images/iconfont-clear.png',
                  text: '清除缓存',
                  path: '0.0KB'
-             },
-             {
-                 icon: '../../assets/images/iconfont-about.png',
-                 text: '关于我们',
-                 path: '/pages/about/index'
              },
          ]
      },
@@ -47,7 +32,7 @@ Page({
          const path = e.currentTarget.dataset.path
 
          switch (index) {
-             case 2:
+             case 1:
                  App.WxService.makePhoneCall({
                      phoneNumber: path
                  })
@@ -107,13 +92,7 @@ Page({
              .then(data => data.confirm == 1 && this.signOut())
      },
      signOut() {
-         App.HttpService.signOut()
-             .then(data => {
-                 console.log(data)
-                 if (data.meta.code == 0) {
-                     App.WxService.removeStorageSync('token')
-                     App.WxService.redirectTo('/pages/login/index')
-                 }
-             })
+         App.WxService.removeStorageSync('token')
+         App.WxService.redirectTo('/pages/login/index')
      },
 })

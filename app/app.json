@@ -1,12 +1,12 @@
 {
     "pages": [
-        "pages/login/index",
-        "pages/message/message",
         "pages/index/index",
+        "pages/order/list/index",
+        "pages/message/save/save",
+        "pages/login/index",
         "pages/cart/cart",
         "pages/order/confirm/index",
         "pages/search/search",
-        "pages/order/list/index",
         "pages/order/detail/index",
         "pages/start/index",
         "pages/test/test",
@@ -20,7 +20,7 @@
     "window": {
         "navigationBarBackgroundColor": "#3cb9bb",
         "navigationBarTextStyle": "white",
-        "navigationBarTitleText": "智慧健康",
+        "navigationBarTitleText": "雨花代购",
         "backgroundColor": "#f2f2f2",
         "backgroundTextStyle": "light",
         "enablePullDownRefresh": true
@@ -36,8 +36,8 @@
             "iconPath": "assets/images/home.png",
             "selectedIconPath": "assets/images/home-selected.png"
         }, {
-            "pagePath": "pages/logs/logs",
-            "text": "咨询服务",
+            "pagePath": "pages/message/save/save",
+            "text": "问药",
             "iconPath": "assets/images/consultation.png",
             "selectedIconPath": "assets/images/consultation-selected.png"
         }, {
@@ -45,16 +45,6 @@
             "text": "个人中心",
             "iconPath": "assets/images/personal.png",
             "selectedIconPath": "assets/images/personal-selected.png"
-        }, {
-            "pagePath": "pages/help/index",
-            "text": "帮助中心",
-            "iconPath": "assets/images/help.png",
-            "selectedIconPath": "assets/images/help-selected.png"
-        }, {
-            "pagePath": "",
-            "text": "test",
-            "iconPath": "assets/images/help.png",
-            "selectedIconPath": "assets/images/help-selected.png"
         }],
         "position": "bottom"
     },

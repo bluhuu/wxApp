@@ -22,29 +22,31 @@
         </view>
     </view>
 
-    <view class="text">
-        <text class="b">待收货处方</text>
+    <view class="text" bindtap="DFHOrderAction">
+        <text class="b">待处理订单</text>
         <view>
             <text class="mr10">更多</text>
             <image class="widgets__info-img" src="/assets/images/arrowright.png"
                 mode="aspectFill" />
         </view>
     </view>
-
-    <view wx:for="{{items}}">
-        <view class="item f14 bgwh g11 bb11">
-            <view class="fx fdr fjcsb p10 bb12">
-                <view><text class="mr20">{{item.date}}</text><text>处方号: {{item.prescriptionId}}</text></view>
-                <text class="g12">{{item.prescriptionState}}</text>
+    <view class="scroll-list">
+        <view class="orderitems" wx:if="{{ !!order.total }}" wx:for="{{ order.items }}" wx:key="" bindtap="navigateTo" data-id="{{ item.orderId }}">
+            <view class="item_hd fdr fjcsb f28">
+                <text class="g19">订单号：{{item.orderId}}</text>
+                <text class="g16">{{item.docStatusName}}</text>
             </view>
-            <view class="fx fdc p10">
-                <view class="fx fdr fjcsb faice">
-                    <view><text class="mr20">医疗机构</text><text>{{item.orgName}}</text></view>
-                    <image src="{{item.image}}" class="QRC-image mr10" />
+            <view wx:for="{{item.lines}}" wx:for-item="i" class="item_bd fdr fjcsb">
+                <text class="pr30 f32">{{i.product.name}} {{i.product.productSpec}}</text>
+                <view style="min-width:110rpx;" class="fdr fjcfe">
+                    <!-- <text class="g19 nowrap f30">x {{i.qty}}</text> -->
+                    <text class="g19 nowrap f30">{{i.qty}} {{i.product.uomName}}</text>
                 </view>
             </view>
-            <view class="pl10"><text class="mr20">煎配方式</text><text>{{item.decoctType}}</text></view>
-            <view class="p10"><text class="mr20">处方类型</text><text>{{item.otcType}}</text></view>
+            <view class="item_ft fdr fjcfe faice f28">
+                <text class="">总价：</text>
+                <text class="g17 tr f30" style="min-width:4em;">￥{{item.orderAmtStr}}</text>
+            </view>
         </view>
     </view>
 </view>

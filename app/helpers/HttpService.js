@@ -17,6 +17,7 @@ class Service extends ServiceBase {
 			cart        : '/mPurchaseAction/addCart.do',
             getCart     : '/mPurchaseAction/query.do',
 			deleteCart  : '/mPurchaseAction/deleteCart.do',
+            submitOrder : '/mPurchaseAction/submitOrder.do',
 			address     : '/address',
 			order       : '/order',
         }
@@ -29,6 +30,10 @@ class Service extends ServiceBase {
 	wechatSignIn(params) {
 		return this.postRequest(this.$$path.wechatSignIn, params)
 	}
+
+    submitOrder(params){
+        return this.getRequest(this.$$path.submitOrder, params)
+    }
 
 	wechatDecryptData(params) {
 		return this.postRequest(this.$$path.decryptData, params)
