@@ -133,18 +133,18 @@ Page({
             this.submitOrder.getAsync(params)
                 .then(data => {
                     if(data.success){
-                        App.WxService.showModal({ title: '提示', content: '订单提交成功', })
+                        App.WxService.showModal({ title: '成功', content: '订单提交成功', })
                             .then(data=>{
                                 App.WxService.switchTab({url:'/pages/index/index'})
                             })
                     }else{
-                        App.WxService.showModal({ title: '提示', content: '订单提交失败' })
+                        App.WxService.showModal({ title: '失败', content: '订单提交失败' })
                             .then(data=>{
                                 App.WxService.switchTab({url:'/pages/index/index'})
                             })
                     }
                 },data=>{
-                    App.WxService.showModal({ title: '提示', content: '订单提交失败' })
+                    App.WxService.showModal({ title: '失败', content: '订单提交失败' })
                         .then(data=>{
                             App.WxService.switchTab({url:'/pages/index/index'})
                         })

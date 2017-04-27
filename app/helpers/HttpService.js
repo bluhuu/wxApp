@@ -10,7 +10,6 @@ class Service extends ServiceBase {
 			decryptData : '/user/wechat/decrypt/data',
 			signIn      : '/mCenterAction/webLogin.do',
 			signOut     : '/user/sign/out',
-			banner      : '/banner',
 			classify    : '/classify',
 			goods       : '/goods',
 			members     : '/mMemberAction/query.do',
@@ -41,10 +40,6 @@ class Service extends ServiceBase {
 
 	signOut() {
 		return this.postRequest(this.$$path.signOut)
-	}
-
-	getBanners(params) {
-		return this.getRequest(this.$$path.banner, params)
 	}
 
 	search(params) {

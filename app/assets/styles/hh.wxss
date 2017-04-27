@@ -8,7 +8,7 @@ a img{border:0;} img{border:0;}
 a,area{outline:none;blr:expression(this.onFocus=this.blur())}
 a{text-decoration:none;cursor: pointer;color: #333;} a:visited{color: #333} a:hover{text-decoration:underline;} a.ie6:hover{zoom:1}
 .dn{display:none!important;} .di{display:inline;} .db{display:block;} .dib{display:inline-block;}
-.h14{height:14px;} .h16{height:16px;} .h18{height:18px;} .h20{height:20px;} .h22{height:22px;} .h24{height:24px;}
+.h14{height:14rpx;} .h16{height:16rpx;} .h18{height:18rpx;} .h20{height:20rpx;} .h22{height:22rpx;} .h24{height:24rpx;} .h32{height: 32rpx;} .h40{height: 40rpx;} .h50{height: 50rpx;}
 .w20{width:20px;} .w50{width:50px;} .w60{width:60px;} .w65{width:65px;} .w70{width:70px;}.w75{width:75px;} .w80{width: 80px;} .w90{width:90px;} .w100{width:100px;} .w120{width:120px;} .w140{width:140px;}.w143{width:143px;}
 .w160{width:160px;} .w180{width:180px;}.w185{width:185px;} .w200{width:200px;} .w220{width:220px;} .w240{width:240px;} .w250{width:250px;} .w280{width:280px;} .w300{width:280px;}
 .w320{width:320px;} .w360{width:360px;} .w400{width:400px;} .w460{width:460px;} .w500{width:500px;} .w600{width:600px;} .w640{width:640px;} .w700{width:700px;}
@@ -29,7 +29,7 @@ a{text-decoration:none;cursor: pointer;color: #333;} a:visited{color: #333} a:ho
 .bdc{border:1px solid #ccc;} .blc{border-left:1px solid #ccc;} .brc{border-right:1px solid #ccc;} .btc{border-top:1px solid #ccc;} .bbc{border-bottom:1px solid #ccc;}
 .bdd{border:1px solid #ddd;} .bld{border-left:1px solid #ddd;} .brd{border-right:1px solid #ddd;} .btd{border-top:1px solid #ddd;} .bbd{border-bottom:1px solid #ddd;}
 .bde{border:1px solid #eee;} .ble{border-left:1px solid #eee;} .bre{border-right:1px solid #eee;} .bte{border-top:1px solid #eee;} .bbe{border-bottom:1px solid #eee;}
-.bdr2{border-radius: 2px;} .bdr5{border-radius: 5px;}
+.bdr2{border-radius: 2rpx;} .bdr5{border-radius: 5rpx;} .bdr10{border-radius: 10rpx;}
 .btlr2{border-top-left-radius: 2px;} .btrr2{border-top-right-radius: 2px;} .bblr2{border-bottom-left-radius: 2px;} .bbrr2{border-bottom-right-radius: 2px;}
 .bgwh{background-color:#fff;}
 .g0{color:#000;} .g3{color:#333;} .g6{color:#666;} .g9{color:#999;} .gc{color:#ccc;} .wh{color:white;}.g52a{color: #52a4c3;}

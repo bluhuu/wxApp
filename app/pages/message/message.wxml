@@ -1,0 +1,13 @@
+<form bindsubmit="messageAction">
+    <view class="main bgwh pl20 pr20">
+        <view class="f32">
+            <input class="bdc bdr10 pl10" name="title" placeholder="请输入您的标题" auto-focus/>
+        </view>
+        <view class="f28">
+            <textarea class="bdc db bdr10 p10" name="content" style="height:400rpx;width:100%" placeholder="请输入您的内容" />
+        </view>
+        <view class="btn-area">
+            <button formType="submit" class="weui-btn bg18 wh">提交</button>
+        </view>
+    </view>
+</form>

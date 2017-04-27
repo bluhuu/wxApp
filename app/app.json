@@ -1,12 +1,13 @@
 {
     "pages": [
+        "pages/login/index",
+        "pages/message/message",
         "pages/index/index",
         "pages/cart/cart",
         "pages/order/confirm/index",
         "pages/search/search",
         "pages/order/list/index",
         "pages/order/detail/index",
-        "pages/login/index",
         "pages/start/index",
         "pages/test/test",
         "pages/personal/index",
