@@ -65,7 +65,7 @@ view.text image { width: 12rpx; height: 21rpx; }
     line-height: 76rpx;
 }
 .item_bd{
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px dashed #f1f1f1;
     padding-top: 5rpx;
     padding-bottom: 5rpx;
 }

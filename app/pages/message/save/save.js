@@ -8,7 +8,7 @@ Page({
         msg: {
             title: "",
             content: "",
-            img:""
+            img: ""
         }
     },
     onLoad() {
@@ -23,31 +23,82 @@ Page({
             })
     },
     messageAction(e) {
-        let params = {
-            memberId:this.data.members.items[this.data.members.index].memberId,
-            productName:e.detail.value.title,
-            description:e.detail.value.content
-        }
         console.log(e);
-        App.HttpService.submitOrder(params)
-            .then(data => {
-                if(data.success){
-                    App.WxService.showModal({ title: '成功', content: '提交成功', })
-                        .then(data=>{
-                            App.WxService.switchTab({url:'/pages/index/index'})
+        let params = {
+            memberId: this.data.members.items[this.data.members.index].memberId,
+            productName: e.detail.value.title,
+            description: e.detail.value.content
+        }
+        if (!this.data.msg.img) {
+            App.HttpService.submitOrder(params)
+                .then(data => {
+                    if (data.success) {
+                        App.WxService.showModal({
+                                title: '成功',
+                                content: '提交成功',
+                            })
+                            .then(data => {
+                                App.WxService.switchTab({
+                                    url: '/pages/index/index'
+                                })
+                            })
+                    } else {
+                        App.WxService.showModal({
+                                title: '失败',
+                                content: '提交失败'
+                            })
+                            .then(data => {
+                                App.WxService.switchTab({
+                                    url: '/pages/index/index'
+                                })
+                            })
+                    }
+                }, data => {
+                    App.WxService.showModal({
+                            title: '失败',
+                            content: '提交失败'
                         })
-                }else{
-                    App.WxService.showModal({ title: '失败', content: '提交失败' })
-                        .then(data=>{
-                            App.WxService.switchTab({url:'/pages/index/index'})
+                        .then(data => {
+                            App.WxService.switchTab({
+                                url: '/pages/index/index'
+                            })
+                        })
+                })
+        } else {
+            wx.uploadFile({
+                url: App.Config.basePath + "/mPurchaseAction/submitOrder.do",
+                filePath: this.data.msg.img,
+                name: new Date().getTime() + "",
+                header: {
+                    Cookie: 'JSESSIONID=' + wx.getStorageSync('token') + ";"
+                },
+                formData: params,
+                success: function(e) {
+                    console.log(e);
+                    App.WxService.showModal({
+                            title: '成功',
+                            content: '提交成功',
+                        })
+                        .then(data => {
+                            App.WxService.switchTab({
+                                url: '/pages/index/index'
+                            })
+                        })
+                },
+                fail: function(e) {
+                    console.log(e);
+                    App.WxService.showModal({
+                            title: '失败',
+                            content: e.errMsg
+                        })
+                        .then(data => {
+                            App.WxService.switchTab({
+                                url: '/pages/index/index'
+                            })
                         })
                 }
-            },data=>{
-                App.WxService.showModal({ title: '失败', content: '提交失败' })
-                    .then(data=>{
-                        App.WxService.switchTab({url:'/pages/index/index'})
-                    })
             })
+        }
 
     },
     bindPickerChange: function(e) {
@@ -56,16 +107,22 @@ Page({
             'members.index': e.detail.value
         })
     },
-    chooseImage(e){
+    chooseImage(e) {
         let that = this
         wx.chooseImage({
-            count: 1,
+            count: 9,
             sizeType: ['original', 'compressed'],
             sourceType: ['album', 'camera'],
             success: function(res) {
                 var tempFilePaths = res.tempFilePaths
-                that.setData({ 'msg.img': tempFilePaths[0] })
+                that.setData({
+                    'msg.img': tempFilePaths[0]
+                })
             }
         })
+    },
+    onPullDownRefresh() {
+
+        wx.stopPullDownRefresh()
     }
 })
