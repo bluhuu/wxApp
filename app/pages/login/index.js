@@ -2,23 +2,27 @@ const App = getApp()
 
 Page({
 	data: {
-		logged: !1
+		logged: !1,
+        remember:!1,
+        name:""
 	},
     onLoad() {},
     onShow() {
     	const token = App.WxService.getStorageSync('token')
+        const remember = App.WxService.getStorageSync('remember')
+        const name = App.WxService.getStorageSync('name')
     	this.setData({
-    		logged: !!token
+    		logged: !!token,
+            remember: !!remember,
+            name:name
     	})
     	token && setTimeout(this.goIndex, 1500)
     },
-    login() {
-    	this.signIn(this.goIndex)
-    },
+    // login() {
+    // 	this.signIn(this.goIndex)
+    // },
     goIndex() {
-    	App.WxService.switchTab({
-    		url: '/pages/index/index'
-    	})
+    	App.WxService.switchTab({ url: '/pages/index/index' })
     },
 	showModal() {
 		App.WxService.showModal({
@@ -88,23 +92,30 @@ Page({
 			}
 		})
 	},
-	signIn(cb) {
-        console.log("cb",cb);
-		if (App.WxService.getStorageSync('token')) return
-		App.HttpService.signIn({
-			user: 'zxy',
-			password: '123',
-		})
-		.then(data => {
-			console.log(data)
-			if (data.success) {
-				App.WxService.setStorageSync('token', data.sessionId)
-				cb()
-			}
-		})
-	},
+	// signIn(cb) {
+    //     console.log("cb",cb);
+	// 	if (App.WxService.getStorageSync('token')) return
+	// 	App.HttpService.signIn({
+	// 		user: 'zxy',
+	// 		password: '123',
+	// 	})
+	// 	.then(data => {
+	// 		console.log(data)
+	// 		if (data.success) {
+	// 			App.WxService.setStorageSync('token', data.sessionId)
+	// 			cb()
+	// 		}
+	// 	})
+	// },
     formSubmit: function(e) {
         if (App.WxService.getStorageSync('token')) return
+
+        if(this.data.remember){
+            App.WxService.setStorageSync('name', e.detail.value.user)
+        }else{
+            wx.removeStorage({key:'name'})
+        }
+
         App.HttpService.signIn(e.detail.value)
             .then(data => {
                 if (data.success) {
@@ -114,5 +125,9 @@ Page({
                     App.WxService.showModal({ title: '提示', content: data.msg })
                 }
             })
+    },
+    rememberme(e){
+        App.WxService.setStorageSync('remember', !this.data.remember)
+        this.setData({remember:!this.data.remember})
     }
 })

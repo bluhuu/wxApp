@@ -1,36 +1,52 @@
 <view class="login-container">
 	<view class="login" wx:if="{{ !logged }}">
 		<view class="app-info">
-			<image class="app-logo" src="/assets/images/icon/type.png" />
-			<text class="app-name">智慧健康</text>
+			<image class="app-logo" src="/assets/images/login.png" />
+			<text class="app-name"></text>
 		</view>
         <form class="weui-cells weui-cells_form" bindsubmit="formSubmit" bindreset="formReset">
             <view class="weui-cell">
-                <view class="weui-cell__hd">
-                    <label class="weui-label">用户名</label>
+                <view class="weui-cell__hd" style="width:80rpx">
+                    <image src="/assets/images/login-input-name.png" style="height:39rpx;width:39rpx;"></image>
+                    <!-- <label class="weui-label">用户名</label> -->
                 </view>
                 <view class="weui-cell__hd">
-                    <input class="weui-input" name="user" type="text" placeholder="请输入用户名" auto-focus value="zxy"/>
+                    <input class="weui-input" name="user" type="text" placeholder="请输入用户名" auto-focus value="{{name}}"/>
                 </view>
             </view>
             <view class="weui-cell">
-                <view class="weui-cell__hd">
-                    <label class="weui-label">密码</label>
+                <view class="weui-cell__hd" style="width:80rpx">
+                    <image src="/assets/images/login-input-pwd.png" style="height:40rpx;width:30rpx;"></image>
+                    <!-- <label class="weui-label">密码</label> -->
                 </view>
                 <view class="weui-cell__hd">
-                    <input class="weui-input" name="password" type="text" placeholder="请输入密码" password value="123"/>
+                    <input class="weui-input" name="password" type="text" placeholder="请输入密码" password value=""/>
                     <!-- <input name="password" type="text" placeholder="请输入密码" password /> -->
                 </view>
             </view>
+            <view class="fdr pct100 fjcsb" style="margin-bottom:100rpx;">
+                <view class="fdr faice" catchtap="rememberme" wx:if="{{!remember}}">
+                    <image src="/assets/images/s-noselected.png" style="height:45rpx;width:45rpx; position:relative;top:-3rpx;" class="fx0"></image>
+                    <text class="g20 pl20 f28">记住用户名</text>
+                </view>
+                <view class="fdr faice" catchtap="rememberme" wx:else>
+                    <image src="/assets/images/s-selected.png" style="height:45rpx;width:45rpx; position:relative;top:-3rpx;" class="fx0"></image>
+                    <text class="g18 pl20 f28">记住用户名</text>
+                </view>
+                <view class="fdr faice">
+                    <text class="f28 g18">还不是会员，立即注册</text>
+                    <image style="height:26rpx;width:15rpx;" class="ml10" src="/assets/images/login-arrowright.png"></image>
+                </view>
+            </view>
           <view class="btn-area">
-            <button formType="submit" type="primary" class="weui-btn">确认登录</button>
+            <button formType="submit" type="" class="weui-btn bg18 wh">登 录</button>
             <!-- <button formType="reset">Reset</button> -->
           </view>
         </form>
 	</view>
 	<view class="logged" wx:else>
-		<image class="logged-icon" src="../../assets/images/iconfont-weixin.png" />
-		<view class="logged-text">近期你已经授权过登陆智慧健康测试</view>
+		<image class="logged-icon" src="/assets/images/login.png" />
+		<view class="logged-text">近期你已经授权过登陆</view>
 		<view class="logged-text">自动登录中</view>
 	</view>
 </view>

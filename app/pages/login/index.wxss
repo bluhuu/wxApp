@@ -1,89 +1,72 @@
 .login-container {
-	height: 100%;
-	padding: 10px 30px;
-	background: #fff;
+    height: 100%;
+    padding: 18rpx;
+    background: #fff;
 }
 
 .app-info {
-	position: relative;
-	padding: 20px;
-	text-align: center;
-}
-
-.app-info:after {
-	content: " ";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 1px;
-    border-bottom: 1px solid #E5E5E5;
-    color: #E5E5E5;
-    -webkit-transform-origin: 0 100%;
-    transform-origin: 0 100%;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
+    position: relative;
+    padding: 30rpx;
+    text-align: center;
 }
 
 .app-info .app-logo {
-	display: block;
-	width: 64px;
-	height: 64px;
-	margin: 10px auto;
-	border-radius: 4px;
+    display: block;
+    width: 236rpx;
+    height: 236rpx;
+    margin: 10px auto;
+    border-radius: 4px;
 }
 
 .app-info .app-name {
-	font-weight: bold;
-	font-size: 18px;
-	color: #000;
-}
-
-.alert {
-	margin: 20px 0 30px;
-}
-
-.alert .alert-title {
-	font-weight: 400;
-	font-size: 16px;
-	color: #000;
-	margin-bottom: 10px;
-}
-
-.alert-desc {
-	display: block;
-    list-style: disc inside none;
-}
-
-.alert .alert-text {
-	display: list-item;
-    text-align: -webkit-match-parent;
-	font-size: 14px;
-	color: #999;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
 }
 
 .logged {
-	margin-top: 100px;
+    margin-top: 100px;
 }
 
 .logged .logged-icon {
-	display: block;
-	width: 64px;
-	height: 64px;
-	margin: 20px auto;
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 20px auto;
 }
 
 .logged .logged-text {
-	font-size: 14px;
-	color: #000;
-	text-align: center;
-	margin: 10px 0;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    margin: 10px 0;
 }
 
-.weui-label{
+.weui-label {
     display: block;
-    text-align:justify; text-justify:distribute-all-lines; text-align-last:justify;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    text-align-last: justify;
     width: 100rpx;
     margin-right: 20rpx;
     font-size: 32rpx;
+}
+
+.weui-cell:before {
+    display: none;
+}
+
+.weui-cell {
+    border-bottom: 1px solid #d7d7d7;
+    padding-bottom: 0;
+    margin-bottom: 50rpx;
+}
+
+.weui-input {
+    height: 1.8em;
+    min-height: 1.8em;
+    line-height: 1.8em;
+}
+.weui-btn{
+    border-radius: 1.25em;
 }
