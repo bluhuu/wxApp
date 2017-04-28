@@ -15,7 +15,9 @@
     width: 236rpx;
     height: 236rpx;
     margin: 10px auto;
-    border-radius: 4px;
+    border-radius: 118px;
+    border: 8rpx solid #ccc;
+    overflow: hidden;
 }
 
 .app-info .app-name {

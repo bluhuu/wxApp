@@ -1,0 +1,72 @@
+.signup-container {
+    height: 100%;
+    padding: 18rpx;
+    background: #fff;
+}
+
+.app-info {
+    position: relative;
+    padding: 30rpx;
+    text-align: center;
+}
+
+.app-info .app-logo {
+    display: block;
+    width: 236rpx;
+    height: 236rpx;
+    margin: 10px auto;
+    border-radius: 4px;
+}
+
+.app-info .app-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+}
+
+.logged {
+    margin-top: 100px;
+}
+
+.logged .logged-icon {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 20px auto;
+}
+
+.logged .logged-text {
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.weui-label {
+    display: block;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    text-align-last: justify;
+    width: 100rpx;
+    margin-right: 20rpx;
+    font-size: 32rpx;
+}
+
+.weui-cell:before {
+    display: none;
+}
+
+.weui-cell {
+    border-bottom: 1px solid #d7d7d7;
+    padding-bottom: 0;
+    margin-bottom: 20rpx;
+}
+
+.weui-input {
+    height: 1.8em;
+    min-height: 1.8em;
+    line-height: 1.8em;
+}
+.weui-btn{
+    border-radius: 1.25em;
+}

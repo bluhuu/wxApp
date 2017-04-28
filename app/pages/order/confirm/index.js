@@ -135,19 +135,21 @@ Page({
                     if(data.success){
                         App.WxService.showModal({ title: '成功', content: '订单提交成功', })
                             .then(data=>{
-                                App.WxService.switchTab({url:'/pages/index/index'})
+                                App.WxService.navigateTo("../order/list/index", {
+                                    orderStatus: "DFH"
+                                })
                             })
                     }else{
                         App.WxService.showModal({ title: '失败', content: '订单提交失败' })
-                            .then(data=>{
-                                App.WxService.switchTab({url:'/pages/index/index'})
-                            })
+                            // .then(data=>{
+                            //     App.WxService.switchTab({url:'/pages/index/index'})
+                            // })
                     }
                 },data=>{
                     App.WxService.showModal({ title: '失败', content: '订单提交失败' })
-                        .then(data=>{
-                            App.WxService.switchTab({url:'/pages/index/index'})
-                        })
+                        // .then(data=>{
+                        //     App.WxService.switchTab({url:'/pages/index/index'})
+                        // })
                 })
         }
     }

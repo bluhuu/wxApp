@@ -1,0 +1,45 @@
+<view class="signup-container">
+	<view class="signup">
+        <form class="weui-cells weui-cells_form" bindsubmit="formSubmit" bindreset="formReset">
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="width:80rpx">
+                    <image src="/assets/images/login-input-name.png" style="height:39rpx;width:39rpx;"></image>
+                </view>
+                <view class="weui-cell__hd">
+                    <input class="weui-input" name="userName" type="text" confirm-type="next" placeholder="用户名" auto-focus value="{{name}}"/>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="width:80rpx">
+                    <image src="/assets/images/login-input-pwd.png" style="height:40rpx;width:30rpx;"></image>
+                </view>
+                <view class="weui-cell__hd">
+                    <input class="weui-input"  name="password" type="text" confirm-type="next" placeholder="登录密码" maxlength="16" password value=""/>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="width:80rpx">
+                    <image src="/assets/images/login-input-pwd.png" style="height:40rpx;width:30rpx;"></image>
+                </view>
+                <view class="weui-cell__hd">
+                    <input class="weui-input" name="confirmPasd" confirm-type="next" type="text" placeholder="确认密码" password value=""/>
+                </view>
+            </view>
+          <view class="btn-area" style="margin-top:150rpx;margin-bottom:50rpx;">
+            <button formType="submit" type="" class="weui-btn bg18 wh">立即注册</button>
+          </view>
+          <view class="fdr pct100 fjcce" style="margin-bottom:100rpx;" hidden>
+              <view class="fdr faice" catchtap="assent" wx:if="{{!assent}}">
+                  <image src="/assets/images/s-noselected.png" style="height:45rpx;width:45rpx; position:relative;top:-3rpx;" class="fx0"></image>
+                  <text class="g20 pl20 f28">注册代表您同意</text>
+                  <text class="g18 pl20 f28">《代购用户协议》</text>
+              </view>
+              <view class="fdr faice" catchtap="assent" wx:else>
+                  <image src="/assets/images/s-selected.png" style="height:45rpx;width:45rpx; position:relative;top:-3rpx;" class="fx0"></image>
+                  <text class="g20 pl20 f28">注册代表您同意</text>
+                  <text class="g18 pl20 f28">《代购用户协议》</text>
+              </view>
+          </view>
+        </form>
+	</view>
+</view>

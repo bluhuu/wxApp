@@ -168,8 +168,8 @@ Page({
                 carts.allselected = false
             }
             if(value.selected){
-                totalAmt +=value.totalPrice
-                totalQty +=value.qty
+                totalAmt =totalAmt + value.totalPrice
+                totalQty =totalQty + (+value.qty)
             }
         })
         carts.totalAmt=App.Tools.changeTwoDecimal(totalAmt)

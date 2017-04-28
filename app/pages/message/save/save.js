@@ -8,7 +8,7 @@ Page({
         msg: {
             title: "",
             content: "",
-            img: ""
+            img: " "
         }
     },
     onLoad() {
@@ -24,17 +24,18 @@ Page({
     },
     onShow(){
         this.setData({
-            msg: { title: "", content: "", img: "" }
+            // msg: { title: "", content: "", img: " " }
         })
     },
     messageAction(e) {
+        let that = this
         console.log(e);
         let params = {
             memberId: this.data.members.items[this.data.members.index].memberId,
             productName: e.detail.value.title,
             description: e.detail.value.content
         }
-        if (!this.data.msg.img) {
+        if (this.data.msg.img === " ") {
             App.HttpService.submitOrder(params)
                 .then(data => {
                     if (data.success) {
@@ -101,6 +102,12 @@ Page({
                                 url: '/pages/index/index'
                             })
                         })
+                },
+                complete: function(e) {
+                    console.log("图片上传：",e);
+                    that.setData({
+                        msg: { title: "", content: "", img: " " }
+                    })
                 }
             })
         }
@@ -128,7 +135,7 @@ Page({
     },
     onPullDownRefresh() {
         this.setData({
-            msg: { title: "", content: "", img: "" }
+            msg: { title: "", content: "", img: " " }
         })
         wx.stopPullDownRefresh()
     },

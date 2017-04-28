@@ -20,7 +20,7 @@
                 <text>上传图片 </text>
                 <image style="width: 50rpx; height: 35rpx; opacity:.7" mode="scaleToFill" src="/assets/images/icon-share.png"></image>
             </view>
-            <view><image wx:if="{{msg.img}}" mode="aspectFit" src="{{msg.img}}"></image></view>
+            <view><image mode="aspectFit" src="{{msg.img}}"></image></view>
         </view>
         <view class="btn-area mb30">
             <button formType="submit" class="weui-btn bg18 wh">提交</button>

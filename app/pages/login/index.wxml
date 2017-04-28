@@ -1,7 +1,7 @@
 <view class="login-container">
 	<view class="login" wx:if="{{ !logged }}">
 		<view class="app-info">
-			<image class="app-logo" src="/assets/images/login.png" />
+			<image class="app-logo" src="{{userInfo.avatarUrl}}" />
 			<text class="app-name"></text>
 		</view>
         <form class="weui-cells weui-cells_form" bindsubmit="formSubmit" bindreset="formReset">
@@ -33,7 +33,7 @@
                     <image src="/assets/images/s-selected.png" style="height:45rpx;width:45rpx; position:relative;top:-3rpx;" class="fx0"></image>
                     <text class="g18 pl20 f28">记住用户名</text>
                 </view>
-                <view class="fdr faice">
+                <view class="fdr faice" catchtap="signupAction">
                     <text class="f28 g18">还不是会员，立即注册</text>
                     <image style="height:26rpx;width:15rpx;" class="ml10" src="/assets/images/login-arrowright.png"></image>
                 </view>

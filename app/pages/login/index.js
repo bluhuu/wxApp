@@ -6,7 +6,9 @@ Page({
         remember:!1,
         name:""
 	},
-    onLoad() {},
+    onLoad() {
+        this.getUserInfo()
+    },
     onShow() {
     	const token = App.WxService.getStorageSync('token')
         const remember = App.WxService.getStorageSync('remember')
@@ -126,8 +128,29 @@ Page({
                 }
             })
     },
+    getUserInfo() {
+        const userInfo = App.globalData.userInfo
+        console.log(userInfo);
+        if (userInfo) {
+            this.setData({
+                userInfo: userInfo
+            })
+            return
+        }
+
+        App.getUserInfo()
+            .then(data => {
+                console.log(data)
+                this.setData({
+                    userInfo: data
+                })
+            })
+    },
     rememberme(e){
         App.WxService.setStorageSync('remember', !this.data.remember)
         this.setData({remember:!this.data.remember})
+    },
+    signupAction(e){
+        App.WxService.navigateTo('/pages/signup/index')
     }
 })
