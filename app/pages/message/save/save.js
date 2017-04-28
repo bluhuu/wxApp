@@ -24,7 +24,7 @@ Page({
     },
     onShow(){
         this.setData({
-            // msg: { title: "", content: "", img: " " }
+            msg: { title: "", content: "", img: " " }
         })
     },
     messageAction(e) {
