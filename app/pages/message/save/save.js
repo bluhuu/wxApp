@@ -22,6 +22,11 @@ Page({
                 }
             })
     },
+    onShow(){
+        this.setData({
+            msg: { title: "", content: "", img: "" }
+        })
+    },
     messageAction(e) {
         console.log(e);
         let params = {
@@ -110,7 +115,7 @@ Page({
     chooseImage(e) {
         let that = this
         wx.chooseImage({
-            count: 9,
+            count: 1,
             sizeType: ['original', 'compressed'],
             sourceType: ['album', 'camera'],
             success: function(res) {
@@ -122,7 +127,11 @@ Page({
         })
     },
     onPullDownRefresh() {
-
+        this.setData({
+            msg: { title: "", content: "", img: "" }
+        })
         wx.stopPullDownRefresh()
+    },
+    formReset(e) {
     }
 })
