@@ -12,6 +12,9 @@ Page({
         }
     },
     onLoad() {
+        this.getMembers()
+    },
+    getMembers(){
         App.HttpService.getMembers()
             .then(data => {
                 console.log(data);
@@ -19,7 +22,17 @@ Page({
                     this.setData({
                         'members.items': data.rows
                     })
+                }else{
+                    App.WxService.showModal({
+                            title: '失败',
+                            content: '请稍后再试',
+                        })
                 }
+            },data=>{
+                App.WxService.showModal({
+                        title: '失败',
+                        content: '请稍后再试',
+                    })
             })
     },
     messageAction(e) {
@@ -132,6 +145,7 @@ Page({
         this.setData({
             msg: { title: "", content: "", img: " " }
         })
+        this.getMembers()
         wx.stopPullDownRefresh()
     },
     formReset(e) {

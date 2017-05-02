@@ -2,10 +2,10 @@ const App = getApp()
 Page({
     data: {
         info: {
-            realName: "zxy",
-            mobile: "15821600339",
-            email: "zxy@163.com",
-            shortMsg: "zxy123"
+            realName: "",
+            mobile: "",
+            email: "",
+            shortMsg: ""
         }
     },
     onLoad() {
