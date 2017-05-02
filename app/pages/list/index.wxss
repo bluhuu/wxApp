@@ -1,3 +1,4 @@
+@import "/assets/styles/hh.wxss";
 .container {
   padding: 8px 0;
 }

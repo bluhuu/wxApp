@@ -1,3 +1,5 @@
+@import "/assets/styles/hh.wxss";
+
 page { background-color: #fff; }
 input{
     height: 60rpx;

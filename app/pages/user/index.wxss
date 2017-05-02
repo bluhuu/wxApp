@@ -1,3 +1,4 @@
+@import "/assets/styles/hh.wxss";
 .userinfo {
 	display: flex;
 	flex-direction: column;
