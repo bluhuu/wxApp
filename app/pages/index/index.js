@@ -4,11 +4,7 @@ var App = getApp();
 Page({
     data: {
         // 轮播
-        images: [
-            '../../assets/images/slibe01.png',
-            '../../assets/images/slibe01.png',
-            '../../assets/images/slibe01.png',
-        ],
+        images: [],
         indicatorDots: true, //是否显示面板指示点
         vertical: false, //是否可以纵向滑动
         autoplay: true, //是否自动切换
@@ -51,13 +47,53 @@ Page({
         //console.log(e.detail.current)
     },
     initData() {
+        let that =this
         const order = this.data.order
         const params = order && order.params
         const type = params && params.type || 'DFH'
-        this.setData({ order: { items: [], params: { start : 0, limit: 5, orderStatus : type, }, paginate: {} } })
+        this.swipers.queryAsync()
+            .then(data=>{
+                let images=[]
+                if(data.rows.length>0){
+                    data.rows.forEach((val,idx,arr)=>{
+                        for (const k of Object.keys(val)){
+                            images.push(App.renderImage(val[k]))
+                        }
+                    })
+                    if(images.length>0){
+                        that.setData({
+                            images:images
+                        })
+                    }
+                }else{
+                    App.WxService.showModal({
+                        title: '提示',
+                        content: "请稍后再试",
+                        showCancel: !1,
+                    })
+                }
+            },data=>{
+                App.WxService.showModal({
+                    title: '提示',
+                    content: "请稍后再试",
+                    showCancel: !1,
+                })
+            })
+        this.setData({
+            order: {
+                items: [],
+                params: {
+                    start: 0,
+                    limit: 5,
+                    orderStatus: type,
+                },
+                paginate: {}
+            }
+        })
     },
     onLoad: function() {
         this.order = App.HttpResource('/mOrderAction/query.do/:id', { id: '@id' });
+        this.swipers = App.HttpResource('/mIndexAction/query.do');
         console.log('onLoad');
         var that = this;
         //调用应用实例的方法获取全局数据
@@ -73,10 +109,14 @@ Page({
         console.log(event);
         wx.navigateTo({
             url: event.currentTarget.dataset.path,
-            fail:()=>{ wx.switchTab({url: event.currentTarget.dataset.path,}) }
+            fail: () => {
+                wx.switchTab({
+                    url: event.currentTarget.dataset.path,
+                })
+            }
         });
     },
-    DFHOrderAction(e){
+    DFHOrderAction(e) {
         App.WxService.navigateTo("../order/list/index", {
             orderStatus: "DFH"
         })
@@ -86,25 +126,25 @@ Page({
         const params = order.params
         // App.HttpService.getOrderList(params)
         this.order.queryAsync(params)
-        .then(data => {
-            console.log(data)
-            if (data.rows && data.rows.length > 0) {
-                order.items = [...order.items, ...data.rows]
-                //在product的绑定页面表格中的数量
-                order.items = order.items.map((value,index,array)=>{
-                    if(!!value.orderAmt){
-                        value.orderAmtStr=App.Tools.changeTwoDecimal(value.orderAmt)
-                    }
-                    return value
-                })//
-                this.setData({
-                    order: order,
-                    'prompt.hidden': order.items.length,
-                    'order.params.start': this.data.order.params.start + this.data.order.params.limit,
-                    'order.total': data.total
-                })
-            }
-        })
+            .then(data => {
+                console.log(data)
+                if (data.rows && data.rows.length > 0) {
+                    order.items = [...order.items, ...data.rows]
+                    //在product的绑定页面表格中的数量
+                    order.items = order.items.map((value, index, array) => {
+                        if (!!value.orderAmt) {
+                            value.orderAmtStr = App.Tools.changeTwoDecimal(value.orderAmt)
+                        }
+                        return value
+                    }) //
+                    this.setData({
+                        order: order,
+                        'prompt.hidden': order.items.length,
+                        'order.params.start': this.data.order.params.start + this.data.order.params.limit,
+                        'order.total': data.total
+                    })
+                }
+            })
     },
     onPullDownRefresh() {
         console.info('onPullDownRefresh')
@@ -114,8 +154,12 @@ Page({
     },
     onReachBottom() {
         console.info('onReachBottom')
-        if(this.data.order.total && this.data.order.params.start>this.data.order.total){
-            wx.showToast({ title: '已到底部', icon: 'success', duration: 2000 })
+        if (this.data.order.total && this.data.order.params.start > this.data.order.total) {
+            wx.showToast({
+                title: '已到底部',
+                icon: 'success',
+                duration: 2000
+            })
             return
         }
         this.getList()
