@@ -12,6 +12,11 @@ Page({
                  text: '联系客服',
                  path: '18521708248',
              },
+             {
+                 icon: '../../assets/images/iconfont-help.png',
+                 text: '完善信息',
+                 path: '/pages/user/personal/index',
+             },
          ],
          settings: [{
                  icon: '../../assets/images/iconfont-clear.png',

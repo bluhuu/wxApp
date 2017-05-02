@@ -1,0 +1,29 @@
+page{
+    background-color: #fff;
+}
+.title{
+    width: 140rpx;
+}
+view>text{color: #6e6e6e;}
+input{
+    box-sizing: border-box;
+    position: relative;
+    top:-3rpx;
+}
+.item {
+    margin-top: 40rpx;
+}
+button{
+    border-radius: 1.27em;
+}
+.btn-txt{
+    white-space: nowrap;
+    border-style: none;
+    background-color: inherit;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+.btn-txt::after{
+    content: "";
+    border-style: none;
+}

@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/user/personal/index",
         "pages/index/index",
         "pages/signup/index",
         "pages/login/index",
@@ -44,6 +45,11 @@
         }, {
             "pagePath": "pages/user/index",
             "text": "个人中心",
+            "iconPath": "assets/images/personal.png",
+            "selectedIconPath": "assets/images/personal-selected.png"
+        }, {
+            "pagePath": "pages/user/personal/index",
+            "text": "test",
             "iconPath": "assets/images/personal.png",
             "selectedIconPath": "assets/images/personal-selected.png"
         }],
