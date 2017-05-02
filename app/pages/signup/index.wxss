@@ -1,4 +1,3 @@
-@import "/assets/styles/hh.wxss";
 .signup-container {
     height: 100%;
     padding: 18rpx;

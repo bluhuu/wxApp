@@ -1,5 +1,3 @@
-@import "/assets/styles/hh.wxss";
-
 .scroll-list {
     overflow: hidden;
     margin-top: 96rpx;

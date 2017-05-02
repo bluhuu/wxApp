@@ -1,4 +1,3 @@
-@import "/assets/styles/hh.wxss";
 @import "../common/navbar.wxss";
 @import "../common/seachbar.wxss";
 .topics {
