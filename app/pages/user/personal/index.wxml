@@ -14,7 +14,7 @@
         </view>
         <view class="item bb11 fdr f32 fjcsb">
             <view class="fdr">
-                <text class="title pl15 distribute_Col dib">验证码</text><text>：</text>
+                <text class="title pl15 distribute_Col dib fx0">验证码</text><text>：</text>
                 <input class="dib ml20" type="text" name="shortMsg" value="{{info.shortMsg}}"/>
             </view>
             <!-- <text class="mr10 nowrap b g18" data-shortMsg="{{true}}" catchtap="formSubmit">发送验证码</text> -->

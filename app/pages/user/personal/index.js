@@ -2,10 +2,10 @@ const App = getApp()
 Page({
     data: {
         info: {
-            realName: "",
+            realName: "zxy",
             mobile: "15821600339",
-            email: "",
-            shortMsg: ""
+            email: "zxy@163.com",
+            shortMsg: "zxy123"
         }
     },
     onLoad() {
@@ -53,6 +53,7 @@ Page({
         })
     },
     formSubmit(e) {
+        let that = this;
         if (e.detail.target.dataset.shortmsg) { // 获取验证码
             if (!this.WxValidateMobile.checkForm(e)) {
                 const error = this.WxValidateMobile.errorList[0]
@@ -65,6 +66,19 @@ Page({
             }
             console.log(e);
             App.HttpService.getTelAuthenticode({mobile:e.detail.value.mobile})
+            .then(data=>{
+                wx.showToast({
+                  title: '短信接收中',
+                  icon: 'success',
+                  duration: 2000
+                })
+            },data=>{
+                App.WxService.showModal({
+                    title: '提示',
+                    content: "请稍后再试",
+                    showCancel: !1,
+                })
+            })
 
         } else { //提交用户信息
             if (!this.WxValidate.checkForm(e)) {
@@ -76,6 +90,25 @@ Page({
                 })
                 return false
             }
+            App.HttpService.setUserInfo(e.detail.value)
+                .then(data=>{
+                    if(data.success){
+                        wx.showToast({ title: '成功', icon: 'success', duration: 2000 })
+                        that.setData({ info: { realName: "", mobile: "", email: "", shortMsg: "" } })
+                    }else{
+                        App.WxService.showModal({
+                            title: '提示',
+                            content: "请稍后再试",
+                            showCancel: !1,
+                        })
+                    }
+                },data=>{
+                    App.WxService.showModal({
+                        title: '提示',
+                        content: "请稍后再试",
+                        showCancel: !1,
+                    })
+                })
         }
     }
 

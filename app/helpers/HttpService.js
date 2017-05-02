@@ -20,7 +20,8 @@ class Service extends ServiceBase {
             submitOrder : '/mPurchaseAction/submitOrder.do',
 			address     : '/address',
 			order       : '/order',
-			sendMsg       : '/mSmsAction/sendMsg.do',
+			sendMsg     : '/mSmsAction/sendMsg.do',
+            editInfo    : '/mMemberAction/editInfo.do',
         }
 	}
 
@@ -62,6 +63,10 @@ class Service extends ServiceBase {
 
     getTelAuthenticode (params) {
         return this.getRequest(this.$$path.sendMsg, params)
+    }
+
+    setUserInfo(params) {
+        return this.getRequest(this.$$path.editInfo, params)
     }
 
 	getClassify(params) {
