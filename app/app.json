@@ -1,6 +1,8 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/test/test",
+        "pages/start/index",
         "pages/user/personal/index",
         "pages/signup/index",
         "pages/login/index",
@@ -10,13 +12,6 @@
         "pages/order/confirm/index",
         "pages/search/search",
         "pages/order/detail/index",
-        "pages/start/index",
-        "pages/test/test",
-        "pages/personal/index",
-        "pages/list/index",
-        "pages/help/index",
-        "pages/logs/logs",
-        "pages/navigator/navigator",
         "pages/user/index"
     ],
     "window": {
