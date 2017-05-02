@@ -1,30 +1,28 @@
 <form bindsubmit="messageAction" catchreset="formReset">
-    <view class="main bgwh pl20 pr20 fdc " style="height:100%">
-        <view class="fdr faice mt30">
-            <view class="f28" style="width:110rpx;">诊所：</view>
-            <picker class="" style="width:100%" bindchange="bindPickerChange" value="{{members.index}}" range="{{members.items}}" range-key="memberName" mode="selector">
+    <view class="main bgwh pl20 pr20 fdc">
+        <view class="fdr faice">
+            <view class="f28 dib" style="width:110rpx;">诊所：</view>
+            <picker class="dib" style="width:100%" bindchange="bindPickerChange" value="{{members.index}}" range="{{members.items}}" range-key="memberName" mode="selector">
                 <view class="picker f28 fdr fjcsb">
                     <text>{{members.items[members.index].memberName}}</text>
                     <image src="/assets/images/chevron-down.png" mode="aspectFit" style="width:30rpx;height:30rpx;opacity:.4;align-self:center" class="mr30"></image>
                 </view>
             </picker>
         </view>
-        <view class="f32 fdr faice mt30">
-            <input class="bdc bdr10 pl10 fx1" name="title" placeholder="请输入您的商品名称" auto-focus value="{{msg.title}}" /><text class="g17 pl10"> * </text>
+        <view class="f32 fdr faice">
+            <input class="bdc bdr10 pl10 fx1" name="title" placeholder="请输入您的商品名称" auto-focus value="{{msg.title}}"/><text class="g17 pl10"> * </text>
         </view>
-        <view class="f28 mt30">
+        <view class="f28">
             <textarea class="bdc db bdr10 p10" name="content" style="height:250rpx;width:100%" placeholder="请输入您的商品详情：规格、厂家、数量 . . ." value="{{msg.content}}" />
         </view>
-        <view bindtap="chooseImage" class="mt30">
-            <view class="fdr faice">
+        <view bindtap="chooseImage" class="fx1" style="">
+            <view class="fdr faice" >
                 <text>上传图片 </text>
                 <image style="width: 50rpx; height: 35rpx; opacity:.7" mode="scaleToFill" src="/assets/images/icon-share.png"></image>
             </view>
-            <!-- <view> -->
-                <image mode="aspectFit" style="width: 700rpx; height: 400rpx;" src="{{msg.img}}"></image>
-            <!-- </view> -->
+            <view><image mode="aspectFit" src="{{msg.img}}"></image></view>
         </view>
-        <view class="btn-area mb30 mt30">
+        <view class="btn-area mb30">
             <button formType="submit" class="weui-btn bg18 wh">提交</button>
         </view>
     </view>

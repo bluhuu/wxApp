@@ -22,11 +22,6 @@ Page({
                 }
             })
     },
-    onShow(){
-        this.setData({
-            msg: { title: "", content: "", img: " " }
-        })
-    },
     messageAction(e) {
         let that = this
         console.log(e);
