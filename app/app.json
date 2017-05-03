@@ -7,7 +7,7 @@
         "pages/signup/index",
         "pages/login/index",
         "pages/order/list/index",
-        "pages/message/save/save",
+        "pages/message/message",
         "pages/cart/cart",
         "pages/order/confirm/index",
         "pages/search/search",
@@ -33,7 +33,7 @@
             "iconPath": "assets/images/home.png",
             "selectedIconPath": "assets/images/home-selected.png"
         }, {
-            "pagePath": "pages/message/save/save",
+            "pagePath": "pages/message/message",
             "text": "问药",
             "iconPath": "assets/images/consultation.png",
             "selectedIconPath": "assets/images/consultation-selected.png"
