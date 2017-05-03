@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/cart/cart",
         "pages/index/index",
         "pages/test/test",
         "pages/start/index",
@@ -8,7 +9,6 @@
         "pages/login/index",
         "pages/order/list/index",
         "pages/message/message",
-        "pages/cart/cart",
         "pages/order/confirm/index",
         "pages/search/search",
         "pages/order/detail/index",

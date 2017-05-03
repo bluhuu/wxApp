@@ -2,6 +2,8 @@ const App = getApp()
 
 Page({
     data: {
+        lastX: 0,
+        lastY: 0,
         activeIndex: 0,
         carts: {
             items: []
@@ -15,9 +17,15 @@ Page({
     },
     onLoad() {
         // this.order = App.HttpResource('/order/:id', {id: '@id'})
-        this.carts = App.HttpResource('/mPurchaseAction/query.do/:id', { id: '@id' });
-        this.updateCart = App.HttpResource('/mPurchaseAction/updateCart.do/:id', { id: '@id' });
-        this.submitOrder = App.HttpResource('/mPurchaseAction/submitOrder.do/:id', { id: '@id' });
+        this.carts = App.HttpResource('/mPurchaseAction/query.do/:id', {
+            id: '@id'
+        });
+        this.updateCart = App.HttpResource('/mPurchaseAction/updateCart.do/:id', {
+            id: '@id'
+        });
+        this.submitOrder = App.HttpResource('/mPurchaseAction/submitOrder.do/:id', {
+            id: '@id'
+        });
         this.onPullDownRefresh()
     },
     initData() {
@@ -27,7 +35,12 @@ Page({
         this.setData({
             carts: {
                 items: [],
-                params: { start: 0, limit: 10, type: type, name:""},
+                params: {
+                    start: 0,
+                    limit: 10,
+                    type: type,
+                    name: ""
+                },
                 paginate: {}
             }
         })
@@ -38,24 +51,29 @@ Page({
         //     id: e.currentTarget.dataset.id
         // })
     },
-    selected(e){
+    selected(e) {
         console.log(e.currentTarget.dataset.cartid);
         const cartid = e.currentTarget.dataset.cartid
-        let items = this.data.carts.items.map((value,index,array)=>{
-            if (cartid === value.cartId){
+        let items = this.data.carts.items.map((value, index, array) => {
+            if (cartid === value.cartId) {
                 value.selected = !value.selected
             }
             return value
         })
-        this.setData({'carts.items': items })
+        this.setData({
+            'carts.items': items
+        })
         this.changeDataStatus()
     },
-    allselected(e){
-        let items = this.data.carts.items.map((value,index,array)=>{
+    allselected(e) {
+        let items = this.data.carts.items.map((value, index, array) => {
             value.selected = !this.data.carts.allselected
             return value
         })
-        this.setData({'carts.items': items,'carts.allselected':!this.data.carts.allselected })
+        this.setData({
+            'carts.items': items,
+            'carts.allselected': !this.data.carts.allselected
+        })
         this.changeDataStatus()
     },
     getList() {
@@ -69,13 +87,13 @@ Page({
                 if (data.rows && data.rows.length > 0) {
                     carts.items = [...carts.items, ...data.rows]
                     //在product的绑定页面表格中的数量
-                    carts.items = carts.items.map((value,index,array)=>{
+                    carts.items = carts.items.map((value, index, array) => {
                         // value.product.memberPriceStr=App.Tools.changeTwoDecimal(value.product.memberPrice)
                         // value.totalPrice = +value.product.memberPrice * value.qty
                         // value.totalPriceStr=App.Tools.changeTwoDecimal(value.totalPrice)
                         // value.selected=true
                         return value
-                    })//
+                    }) //
 
                     this.setData({
                         carts: carts,
@@ -84,12 +102,82 @@ Page({
                         'carts.total': data.total
                     })
                     this.changeDataStatus()
-                }else{
+                } else {
                     this.setData({
                         'prompt.hidden': carts.items.length,
                     })
                 }
             })
+    },
+    removeCart(e) {
+        let that = this
+        if (!e.currentTarget.dataset.cartid)
+            return
+        App.HttpService.deleteCart({
+                cartId: e.currentTarget.dataset.cartid
+            })
+            .then(data => {
+                if (data.success) {
+                    App.WxService.showToast({
+                            title: '已删除',
+                            icon: 'success',
+                            duration: 2000
+                        })
+                        .then(data => {
+                            that.initData()
+                            that.getList()
+                        })
+                }
+            })
+    },
+    handletouchmove: function(event) {
+        const carts = this.data.carts
+        console.log(event)
+        let currentX = event.touches[0].pageX
+        let currentY = event.touches[0].pageY
+
+        console.log(currentX)
+        console.log(this.data.lastX)
+        let text = ""
+        if ((currentX - this.data.lastX) < 0) {
+            text = "向左滑动"
+
+            console.log(text)
+            carts.items = carts.items.map((val, idx, arr) => {
+                if (val.cartId == event.currentTarget.dataset.cartid){
+                    val.hidden=true
+                }else{
+                    val.hidden=false
+                }
+                return val
+            })
+
+        } else if (((currentX - this.data.lastX) > 0)) {
+            text = "向右滑动"
+
+            console.log(text)
+            carts.items = carts.items.map((val, idx, arr) => {
+                if (val.cartId == event.currentTarget.dataset.cartid){
+                    val.hidden=false
+                }else{
+                    val.hidden=false
+                }
+                return val
+            })
+        }
+
+        //将当前坐标进行保存以进行下一次计算
+        this.data.lastX = currentX
+        this.data.lastY = currentY
+        this.setData({
+            carts: carts
+        })
+    },
+
+    handletouchtart: function(event) {
+        console.log(event)
+        this.data.lastX = event.touches[0].pageX
+        this.data.lastY = event.touches[0].pageY
     },
     onPullDownRefresh() {
         console.info('onPullDownRefresh')
@@ -99,45 +187,62 @@ Page({
     },
     onReachBottom() {
         console.info('onReachBottom')
-        if(this.data.carts.total && this.data.carts.params.start>=this.data.carts.total){
-            wx.showToast({ title: '已到底部', icon: 'success', duration: 2000 })
+        if (this.data.carts.total && this.data.carts.params.start >= this.data.carts.total) {
+            wx.showToast({
+                title: '已到底部',
+                icon: 'success',
+                duration: 2000
+            })
             return
         }
         this.getList()
     },
-    bindKeyInput(e){
+    bindKeyInput(e) {
         console.log(e);
-        let array = this.data.carts.items.map((val,indx,arr)=>{
-            if(val.cartId === e.currentTarget.dataset.cartid){
-                val.qty=e.detail.value
+        let array = this.data.carts.items.map((val, indx, arr) => {
+            if (val.cartId === e.currentTarget.dataset.cartid) {
+                val.qty = e.detail.value
             }
             return val
         })
-        this.setData({ 'carts.items':array })
+        this.setData({
+            'carts.items': array
+        })
         this.changeDataStatus()
     },
-    bindKeyInputConfirm(e){
-        const params = { S_Product_ID:e.currentTarget.dataset.s_product_id, qty:e.detail.value }
+    bindKeyInputConfirm(e) {
+        const params = {
+            S_Product_ID: e.currentTarget.dataset.s_product_id,
+            qty: e.detail.value
+        }
         this.updateCart.getAsync(params)
             .then(data => {
-                if(data.success){
+                if (data.success) {
                     this.bindKeyInput(e)
-                    wx.showToast({ title: '修改成功', icon: 'success', duration: 2000 })
-                }else{
-                    wx.showModal({ content: '修改失败' })
+                    wx.showToast({
+                        title: '修改成功',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                } else {
+                    wx.showModal({
+                        content: '修改失败'
+                    })
                 }
-            },data =>{
-                wx.showModal({ content: '连接失败' })
+            }, data => {
+                wx.showModal({
+                    content: '连接失败'
+                })
             })
     },
-    submitOrderAction(e){
-        let orderlist=[]
-        this.data.carts.items.forEach((val,idx,arr)=>{
-            if(val.selected){
+    submitOrderAction(e) {
+        let orderlist = []
+        this.data.carts.items.forEach((val, idx, arr) => {
+            if (val.selected) {
                 orderlist.push(val.cartId)
             }
         })
-        if(orderlist.length>0){
+        if (orderlist.length > 0) {
             console.log(orderlist);
             App.WxService.redirectTo('/pages/order/confirm/index', {
                 cartIds: JSON.stringify(orderlist)
@@ -151,89 +256,113 @@ Page({
             //     })
         }
     },
-    changeDataStatus(){
+    changeDataStatus() {
         const carts = this.data.carts
-        carts.items = carts.items.map((value,index,array)=>{
-            value.product.memberPriceStr=App.Tools.changeTwoDecimal(value.product.memberPrice)
+        carts.items = carts.items.map((value, index, array) => {
+            value.product.memberPriceStr = App.Tools.changeTwoDecimal(value.product.memberPrice)
             value.totalPrice = +value.product.memberPrice * value.qty
-            value.totalPriceStr=App.Tools.changeTwoDecimal(value.totalPrice)
+            value.totalPriceStr = App.Tools.changeTwoDecimal(value.totalPrice)
             return value
         })
 
         carts.allselected = true
         let totalAmt = 0;
         let totalQty = 0;
-        carts.items.forEach((value,index,array)=>{
-            if(!value.selected){
+        carts.items.forEach((value, index, array) => {
+            if (!value.selected) {
                 carts.allselected = false
             }
-            if(value.selected){
-                totalAmt =totalAmt + value.totalPrice
-                totalQty =totalQty + (+value.qty)
+            if (value.selected) {
+                totalAmt = totalAmt + value.totalPrice
+                totalQty = totalQty + (+value.qty)
             }
         })
-        carts.totalAmt=App.Tools.changeTwoDecimal(totalAmt)
-        carts.totalQty=totalQty
+        carts.totalAmt = App.Tools.changeTwoDecimal(totalAmt)
+        carts.totalQty = totalQty
         this.setData({
             carts: carts,
         })
     },
-    searchinput(e){
-        this.setData({ 'carts.params.name':e.detail.value, })
+    searchinput(e) {
+        this.setData({
+            'carts.params.name': e.detail.value,
+        })
     },
     onTapTag(e) {
         const type = e.currentTarget.dataset.type
         const index = e.currentTarget.dataset.index
         this.initData()
-        this.setData({ activeIndex: index, 'carts.params.type': type, })
+        this.setData({
+            activeIndex: index,
+            'carts.params.type': type,
+        })
         this.getList()
     },
-    searchfocus(e){
+    searchfocus(e) {
         console.log(e);
     },
-    searchconfirm(e){
-        if(e.detail.value){
+    searchconfirm(e) {
+        if (e.detail.value) {
             this.initData()
-            this.setData({ 'carts.params.name':e.detail.value, })
+            this.setData({
+                'carts.params.name': e.detail.value,
+            })
             this.getList()
-        }else{
+        } else {
             this.initData()
             this.getList()
         }
     },
-    formSubmit(e){
+    formSubmit(e) {
         console.log(e);
-        if(e.detail.value.searchvalue){
+        if (e.detail.value.searchvalue) {
             this.initData()
-            this.setData({ 'carts.params.name':e.detail.value.searchvalue, })
+            this.setData({
+                'carts.params.name': e.detail.value.searchvalue,
+            })
             this.getList()
-        }else{
+        } else {
             this.initData()
             this.getList()
         }
     },
-    searchclose(e){
-        this.setData({ 'carts.params.name':"", })
+    searchclose(e) {
+        this.setData({
+            'carts.params.name': "",
+        })
     },
-    addCart(e){
+    addCart(e) {
         let that = this
         console.log(e);
-        App.HttpService.addCart({ S_Product_ID:e.currentTarget.dataset.s_product_id, qty:e.currentTarget.dataset.qty })
-        .then(data=>{
-            if(data.success){
-                let array = that.data.carts.items.map((val,indx,arr)=>{
-                    if(val.s_Product_ID === e.currentTarget.dataset.s_product_id){
-                        val.cartQty=data.data.qty
-                        val.cartId=data.data.cartId
-                        val.cartTotalPrice=App.Tools.changeTwoDecimal(data.data.qty*val.memberPrice)
-                    }
-                    return val
-                })
-                that.setData({ 'carts.items':array })
-                wx.showToast({ title: '添加成功', icon: 'success', duration: 2000 })
-            }else{
-                wx.showModal({ title: '增加失败', content: data.msg, success: function(res) {} })
-            }
-        })
+        App.HttpService.addCart({
+                S_Product_ID: e.currentTarget.dataset.s_product_id,
+                qty: e.currentTarget.dataset.qty
+            })
+            .then(data => {
+                if (data.success) {
+                    let array = that.data.carts.items.map((val, indx, arr) => {
+                        if (val.s_Product_ID === e.currentTarget.dataset.s_product_id) {
+                            val.cartQty = data.data.qty
+                            val.cartId = data.data.cartId
+                            val.cartTotalPrice = App.Tools.changeTwoDecimal(data.data.qty * val.memberPrice)
+                        }
+                        return val
+                    })
+                    that.setData({
+                        'carts.items': array
+                    })
+                    wx.showToast({
+                        title: '添加成功',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                } else {
+                    wx.showModal({
+                        title: '增加失败',
+                        content: data.msg,
+                        success: function(res) {}
+                    })
+                }
+            })
     }
 })

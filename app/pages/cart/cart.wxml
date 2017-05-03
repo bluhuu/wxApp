@@ -8,7 +8,7 @@
 
         <text>
             <text class="f30">合计：</text>
-            <text class="f34">¥{{carts.totalAmt}}</text>
+        <text class="f34">¥{{carts.totalAmt}}</text>
         </text>
     </view>
     <view catchtap="submitOrderAction" class="fdr fjcsb pct100">
@@ -20,46 +20,49 @@
 
 <view class="scroll-list">
     <block wx:for="{{carts.items}}" wx:key="eai_Product_ID">
-        <view class="posts-list fx fdr f28" style="padding-top:10rpx;padding-bottom:20rpx;">
+        <view class="fdr fjcsb" data-cartId="{{item.cartId}}" bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" >
+            <view class="posts-list fx1 fdr f28" style="padding-top:10rpx;padding-bottom:20rpx;">
 
-            <view style="align-self:flex-start; width:53rpx;height:53rpx; margin-right:25rpx;" class="{{item.selected ? 'selected' : 'unselected'}}" data-cartId="{{item.cartId}}" catchtap="selected">
-                                <image style="width:53rpx;height:53rpx; margin-right:10rpx;" src="{{item.selected ? '/assets/images/s-selected.png' : '/assets/images/s-noselected.png'}}" />
-            </view>
+                <view style="align-self:flex-start; width:53rpx;height:53rpx; margin-right:25rpx;" class="{{item.selected ? 'selected' : 'unselected'}}" data-cartId="{{item.cartId}}" catchtap="selected">
+                    <image style="width:53rpx;height:53rpx; margin-right:10rpx;" src="{{item.selected ? '/assets/images/s-selected.png' : '/assets/images/s-noselected.png'}}" />
+                </view>
 
-            <view style="flex:1" class="g14">
-                <view style="margin-bottom:.5em;align-self: flex-start;" class="rel">
-                    <text class="b g13 f38" style="line-height:46rpx;">{{item.product.name}}</text>
-                </view>
-                <view> <text>生产厂家</text><text>：{{item.product.manufacturer}}</text> </view>
-                <view class="fx fdr fjcsb">
-                    <view> <text>商品规格</text><text>：{{item.product.productSpec}}</text> </view>
-                </view>
-                <view class="fx fdr fjcsb">
-                    <view> <text>采购价格：</text><text>￥{{item.product.memberPriceStr}}</text> </view>
-                </view>
-                <view class="quantity-wrapper fx fjcsb faice">
-                    <view class="fx q-unit faice">
-                        <view>
-                            <view class="customize-qua">
-                                <!-- <view class="quantity-decrease bg12" bindtap="decrease"></view> -->
-                                <input class="quantity f30" type="number" value="{{item.qty}}" data-cartId="{{item.cartId}}" data-S_Product_ID="{{item.product.s_Product_ID}}" bindblur="bindKeyInputConfirm" bindconfirm="bindKeyInputConfirm"/>
-                                <!-- <view class="quantity-increase bg12" bindtap="increase"></view> -->
+                <view style="flex:1" class="g14">
+                    <view style="margin-bottom:.5em;align-self: flex-start;" class="rel">
+                        <text class="b g13 f38" style="line-height:46rpx;">{{item.product.name}}</text>
+                    </view>
+                    <view> <text>生产厂家</text><text>：{{item.product.manufacturer}}</text> </view>
+                    <view class="fx fdr fjcsb">
+                        <view> <text>商品规格</text><text>：{{item.product.productSpec}}</text> </view>
+                    </view>
+                    <view class="fx fdr fjcsb">
+                        <view> <text>采购价格：</text><text>￥{{item.product.memberPriceStr}}</text> </view>
+                    </view>
+                    <view class="quantity-wrapper fx fjcsb faice">
+                        <view class="fx q-unit faice">
+                            <view>
+                                <view class="customize-qua">
+                                    <!-- <view class="quantity-decrease bg12" bindtap="decrease"></view> -->
+                                    <input class="quantity f30" type="number" value="{{item.qty}}" data-cartId="{{item.cartId}}" data-S_Product_ID="{{item.product.s_Product_ID}}" bindblur="bindKeyInputConfirm" bindconfirm="bindKeyInputConfirm" />
+                                    <!-- <view class="quantity-increase bg12" bindtap="increase"></view> -->
+                                </view>
+                            </view>
+                            <view class="ml30 f23">
+                                <text></text>
+                                <text>{{item.product.uomName}}</text>
                             </view>
                         </view>
-                        <view class="ml30 f23">
-                            <text></text>
-                            <text>{{item.product.uomName}}</text>
+                        <view class="g17">
+                            <text class="f23">小计：</text>
+                            <text class="f35">￥{{item.totalPriceStr}}</text>
                         </view>
-                    </view>
-                    <view class="g17">
-                        <text class="f23">小计：</text>
-                        <text class="f35">￥{{item.totalPriceStr}}</text>
-                    </view>
-                    <!-- <view class="fx faice">
+                        <!-- <view class="fx faice">
                         <button size="mini" class="b wh bg11">加入进货单</button>
                     </view> -->
+                    </view>
                 </view>
             </view>
+            <view class="del bg17 fx0 fx faice fjcce wh b f28 {{item.hidden?'':'dn'}}" data-cartId="{{item.cartId}}" catchtap="removeCart"> 删 除 </view>
         </view>
     </block>
 </view>
