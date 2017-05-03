@@ -52,6 +52,10 @@ Page({
                     'order.params.start': this.data.order.params.start + this.data.order.params.limit,
                     'order.total': data.total
                 })
+            }else{
+                this.setData({
+                    'prompt.hidden': order.items.length,
+                })
             }
         })
     },
