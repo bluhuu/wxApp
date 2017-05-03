@@ -135,7 +135,7 @@ Page({
                     if(data.success){
                         App.WxService.showModal({ title: '成功', content: '订单提交成功', })
                             .then(data=>{
-                                App.WxService.navigateTo("../order/list/index", {
+                                App.WxService.navigateTo("../list/index", {
                                     orderStatus: "DFH"
                                 })
                             })
