@@ -22,7 +22,7 @@ Page({
         }, {
             image: '../../assets/images/nav-03.png',
             text: '问药',
-            path: '../message/save/save'
+            path: '../message/message'
         }, {
             image: '../../assets/images/nav-04.png',
             text: '购物车',
@@ -154,7 +154,7 @@ Page({
     },
     onReachBottom() {
         console.info('onReachBottom')
-        if (this.data.order.total && this.data.order.params.start > this.data.order.total) {
+        if (this.data.order.total && this.data.order.params.start >= this.data.order.total) {
             wx.showToast({
                 title: '已到底部',
                 icon: 'success',

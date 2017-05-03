@@ -99,7 +99,7 @@ Page({
     },
     onReachBottom() {
         console.info('onReachBottom')
-        if(this.data.carts.total && this.data.carts.params.start>this.data.carts.total){
+        if(this.data.carts.total && this.data.carts.params.start>=this.data.carts.total){
             wx.showToast({ title: '已到底部', icon: 'success', duration: 2000 })
             return
         }

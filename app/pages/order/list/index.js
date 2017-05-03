@@ -63,7 +63,7 @@ Page({
     },
     onReachBottom() {
         console.info('onReachBottom')
-        if(this.data.order.total && this.data.order.params.start>this.data.order.total){
+        if(this.data.order.total && this.data.order.params.start>=this.data.order.total){
             wx.showToast({ title: '已到底部', icon: 'success', duration: 2000 })
             return
         }
