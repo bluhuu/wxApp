@@ -2,20 +2,20 @@
     <form bindsubmit="formSubmit" bindreset="formReset">
         <view class="item bb11 fdr f32">
             <text class="title pl15 distribute_Col dib">姓名</text><text>：</text>
-            <input class="dib ml20" name="realName" type="text" value="{{info.realName}}"/>
+            <input class="dib ml20 fx1" name="realName" type="text" value="{{info.realName}}"/>
         </view>
         <view class="item bb11 fdr f32">
             <text class="title pl15 distribute_Col dib">手机号码</text><text>：</text>
-            <input class="dib ml20" name="mobile" type="text"  value="{{info.mobile}}"/>
+            <input class="dib ml20 fx1" name="mobile" type="text"  value="{{info.mobile}}"/>
         </view>
         <view class="item bb11 fdr f32">
             <text class="title pl15 distribute_Col dib">邮箱</text><text>：</text>
-            <input class="dib ml20" name="email" type="text" value="{{info.email}}"/>
+            <input class="dib ml20 fx1" name="email" type="text" value="{{info.email}}"/>
         </view>
         <view class="item bb11 fdr f32 fjcsb">
             <view class="fdr">
                 <text class="title pl15 distribute_Col dib fx0">验证码</text><text>：</text>
-                <input class="dib ml20" type="text" name="shortMsg" value="{{info.shortMsg}}"/>
+                <input class="dib ml20 fx1" type="text" name="shortMsg" value="{{info.shortMsg}}"/>
             </view>
             <!-- <text class="mr10 nowrap b g18" data-shortMsg="{{true}}" catchtap="formSubmit">发送验证码</text> -->
             <button class="btn-txt f32 g18 b" data-shortMsg="{{true}}" formType="submit">发送验证码</button>
