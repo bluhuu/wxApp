@@ -28,6 +28,12 @@ Page({
             text: '购物车',
             path: '../cart/cart'
         }],
+        prompt: {
+            hidden: !0,
+            icon: '/assets/images/iconfont-order-default.png',
+            title: '您还没有相关的订单',
+            text: '可以去看看有哪些想买的',
+        },
     },
 
     //事件处理函数
@@ -47,32 +53,32 @@ Page({
         //console.log(e.detail.current)
     },
     initData() {
-        let that =this
+        let that = this
         const order = this.data.order
         const params = order && order.params
         const type = params && params.type || 'DFH'
         this.swipers.queryAsync()
-            .then(data=>{
-                let images=[]
-                if(data.rows.length>0){
-                    data.rows.forEach((val,idx,arr)=>{
-                        for (const k of Object.keys(val)){
+            .then(data => {
+                let images = []
+                if (data.rows.length > 0) {
+                    data.rows.forEach((val, idx, arr) => {
+                        for (const k of Object.keys(val)) {
                             images.push(App.renderImage(val[k]))
                         }
                     })
-                    if(images.length>0){
+                    if (images.length > 0) {
                         that.setData({
-                            images:images
+                            images: images
                         })
                     }
-                }else{
+                } else {
                     App.WxService.showModal({
                         title: '提示',
                         content: "请稍后再试",
                         showCancel: !1,
                     })
                 }
-            },data=>{
+            }, data => {
                 App.WxService.showModal({
                     title: '提示',
                     content: "请稍后再试",
@@ -92,7 +98,9 @@ Page({
         })
     },
     onLoad: function() {
-        this.order = App.HttpResource('/mOrderAction/query.do/:id', { id: '@id' });
+        this.order = App.HttpResource('/mOrderAction/query.do/:id', {
+            id: '@id'
+        });
         this.swipers = App.HttpResource('/mIndexAction/query.do');
         console.log('onLoad');
         var that = this;
@@ -142,6 +150,10 @@ Page({
                         'prompt.hidden': order.items.length,
                         'order.params.start': this.data.order.params.start + this.data.order.params.limit,
                         'order.total': data.total
+                    })
+                }else{
+                    this.setData({
+                        'prompt.hidden': order.items.length,
                     })
                 }
             })
