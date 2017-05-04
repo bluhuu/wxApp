@@ -21,7 +21,7 @@
 <view class="scroll-list">
     <block wx:for="{{carts.items}}" wx:key="eai_Product_ID">
         <view class="fdr fjcsb" data-cartId="{{item.cartId}}" bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" >
-            <view class="posts-list fx1 fdr f28" style="padding-top:10rpx;padding-bottom:20rpx;">
+            <view class="posts-list fx1 fdr f28 {{item.hidden?'ml-del':''}}" style="padding-top:10rpx;padding-bottom:20rpx;">
 
                 <view style="align-self:flex-start; width:53rpx;height:53rpx; margin-right:25rpx;" class="{{item.selected ? 'selected' : 'unselected'}}" data-cartId="{{item.cartId}}" catchtap="selected">
                     <image style="width:53rpx;height:53rpx; margin-right:10rpx;" src="{{item.selected ? '/assets/images/s-selected.png' : '/assets/images/s-noselected.png'}}" />

@@ -5,9 +5,7 @@ Page({
         lastX: 0,
         lastY: 0,
         activeIndex: 0,
-        carts: {
-            items: []
-        },
+        carts: { items: [] },
         prompt: {
             hidden: !0,
             icon: '../../assets/images/iconfont-cart-empty.png',
@@ -113,36 +111,25 @@ Page({
         let that = this
         if (!e.currentTarget.dataset.cartid)
             return
-        App.HttpService.deleteCart({
-                cartId: e.currentTarget.dataset.cartid
-            })
+        App.HttpService.deleteCart({ cartId: e.currentTarget.dataset.cartid })
             .then(data => {
                 if (data.success) {
-                    App.WxService.showToast({
-                            title: '已删除',
-                            icon: 'success',
-                            duration: 2000
-                        })
-                        .then(data => {
-                            that.initData()
-                            that.getList()
+                    App.WxService.showToast({ title: '已删除', icon: 'success', duration: 2000 })
+                        .then(() => {
+                            let list = that.data.carts.items.filter(val=>{
+                                if(val.cartId != e.currentTarget.dataset.cartid)
+                                    return true
+                            })
+                            that.setData({ 'carts.items':list })
                         })
                 }
             })
     },
     handletouchmove: function(event) {
         const carts = this.data.carts
-        console.log(event)
         let currentX = event.touches[0].pageX
         let currentY = event.touches[0].pageY
-
-        console.log(currentX)
-        console.log(this.data.lastX)
-        let text = ""
         if ((currentX - this.data.lastX) < 0) {
-            text = "向左滑动"
-
-            console.log(text)
             carts.items = carts.items.map((val, idx, arr) => {
                 if (val.cartId == event.currentTarget.dataset.cartid){
                     val.hidden=true
@@ -151,11 +138,7 @@ Page({
                 }
                 return val
             })
-
         } else if (((currentX - this.data.lastX) > 0)) {
-            text = "向右滑动"
-
-            console.log(text)
             carts.items = carts.items.map((val, idx, arr) => {
                 if (val.cartId == event.currentTarget.dataset.cartid){
                     val.hidden=false
@@ -165,13 +148,10 @@ Page({
                 return val
             })
         }
-
         //将当前坐标进行保存以进行下一次计算
         this.data.lastX = currentX
         this.data.lastY = currentY
-        this.setData({
-            carts: carts
-        })
+        this.setData({ carts: carts })
     },
 
     handletouchtart: function(event) {
@@ -188,11 +168,8 @@ Page({
     onReachBottom() {
         console.info('onReachBottom')
         if (this.data.carts.total && this.data.carts.params.start >= this.data.carts.total) {
-            wx.showToast({
-                title: '已到底部',
-                icon: 'success',
-                duration: 2000
-            })
+            if(this.data.carts.total>=this.data.carts.params.limit)
+                wx.showToast({ title: '已到底部', icon: 'success', duration: 2000 })
             return
         }
         this.getList()

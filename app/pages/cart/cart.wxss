@@ -254,3 +254,6 @@ page { background-color: #f2f2f2; }
 .del{
     width: 120rpx;
 }
+.ml-del{
+    margin-left: -120rpx;
+}
