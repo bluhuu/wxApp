@@ -1,4 +1,4 @@
-<import src="../common/prompt.wxml"/>
+<!-- <import src="../common/prompt.wxml"/> -->
 <view class="container">
     <view class="section section_gap swiper_box">
         <swiper class="swiper" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
@@ -30,7 +30,7 @@
                 mode="aspectFill" />
         </view>
     </view>
-    <template is="prompt" data="{{ prompt }}"/>
+    <!-- <template is="prompt" data="{{ prompt }}"/> -->
     <view class="scroll-list">
         <view class="orderitems" wx:if="{{ !!order.total }}" wx:for="{{ order.items }}" wx:key="" bindtap="navigateTo" data-id="{{ item.orderId }}">
             <view class="item_hd fdr fjcsb f28">
