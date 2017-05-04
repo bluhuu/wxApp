@@ -129,7 +129,7 @@ Page({
         const carts = this.data.carts
         let currentX = event.touches[0].pageX
         let currentY = event.touches[0].pageY
-        if ((currentX - this.data.lastX) < 0) {
+        if ((currentX - this.data.lastX) < 0 && Math.abs(currentX - this.data.lastX)/Math.abs(currentY - this.data.lastY)>4) {
             carts.items = carts.items.map((val, idx, arr) => {
                 if (val.cartId == event.currentTarget.dataset.cartid){
                     val.hidden=true
@@ -138,7 +138,7 @@ Page({
                 }
                 return val
             })
-        } else if (((currentX - this.data.lastX) > 0)) {
+        } else if (((currentX - this.data.lastX) > 0 && Math.abs(currentX - this.data.lastX)/Math.abs(currentY - this.data.lastY)>4)) {
             carts.items = carts.items.map((val, idx, arr) => {
                 if (val.cartId == event.currentTarget.dataset.cartid){
                     val.hidden=false
