@@ -164,4 +164,10 @@ Page({
         }
         this.getList()
     },
+    navigateTo(e) {
+        console.log(e)
+        App.WxService.navigateTo('/pages/order/detail/index', {
+            id: e.currentTarget.dataset.id
+        })
+    },
 });

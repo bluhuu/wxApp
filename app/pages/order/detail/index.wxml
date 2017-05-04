@@ -7,7 +7,7 @@
     <view class="item-line bb12" wx:for="{{order.item.lines}}">
         <view><text>{{item.product.name}}</text></view>
         <view class="fdr fjcsb mt10">
-            <text class="g17 f32"><text class="f25">￥</text>{{item.priceStr}}</text>
+            <text class="g17 f32"><text class="f25" wx:if="{{item.priceStr}}">￥</text>{{item.priceStr}}</text>
             <view style="min-width:110rpx;" class="fdr fjcfe g14">
                 <!-- <text>{{item.qty}} </text> -->
                 <text>{{item.qty}} {{item.product.uomName}}</text>
@@ -17,7 +17,7 @@
     <view class="tr g14 pt20"><text>共计 <text class="f32 g33">{{order.item.qty}}</text> 件商品</text></view>
 </view>
 <view class="bgwh p20 mb20 f28">
-    <view><tex class="g20 dib" style="width:168rpx;"t>订单总额：</tex><text class="f32 g17">￥{{order.item.orderAmtStr}}</text></view>
+    <view><tex class="g20 dib" style="width:168rpx;"t>订单总额：</tex><text class="f32 g17" wx:if="{{order.item.orderAmtStr}}">￥{{order.item.orderAmtStr}}</text></view>
     <view><text class="g20 dib" style="width:168rpx;">收货人：</text><text>{{order.item.receivePerson}}</text></view>
     <view><text class="g20 dib" style="width:168rpx;">收货地址：</text><text>{{order.item.receiveAddr}}</text></view>
 </view>
