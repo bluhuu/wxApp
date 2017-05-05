@@ -1,33 +1,20 @@
 import __config from '../etc/config'
 import es6 from '../assets/plugins/es6-promise'
-
 class ServiceBase {
     constructor() {
         Object.assign(this, { $$basePath: __config.basePath })
         this.__init()
     }
-
-    /**
-     * __init
-     */
     __init() {
         this.__initDefaults()
         this.__initMethods()
     }
-
-    /**
-     * __initDefaults
-     */
     __initDefaults() {
         // 方法名后缀字符串
         this.suffix = 'Request'
-
         // 发起请求所支持的方法
-        this.instanceSource = {
-            method: [ 'OPTIONS', 'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'CONNECT', ]
-        }
+        this.instanceSource = { method: [ 'OPTIONS', 'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'CONNECT', ] }
     }
-
     /**
      * 遍历对象构造方法，方法名以小写字母+后缀名
      */
@@ -38,7 +25,6 @@ class ServiceBase {
             })
         }
     }
-
     /**
      * 以wx.request作为底层方法
      * @param {String} method 请求方法
@@ -50,7 +36,6 @@ class ServiceBase {
     __defaultRequest(method = '', url = '', params = {}, header = {}, dataType = 'json') {
         const $$header = Object.assign({}, this.setHeaders(), header)
         const $$url = this.setUrl(url)
-
         // 注入拦截器
         const chainInterceptors = (promise, interceptors) => {
             for (let i = 0, ii = interceptors.length; i < ii;) {
@@ -60,15 +45,12 @@ class ServiceBase {
             }
             return promise
         }
-
         // 请求参数配置
         const $$config = { url: $$url, data: params, header: $$header, method: method, dataType: dataType, }
-
         let requestInterceptors = []
         let responseInterceptors = []
         let reversedInterceptors = this.setInterceptors()
         let promise = this.__resolve($$config)
-
         // 缓存拦截器
         reversedInterceptors.forEach((n, i) => {
             if (n.request || n.requestError) {
@@ -78,7 +60,6 @@ class ServiceBase {
                 responseInterceptors.unshift(n.response, n.responseError)
             }
         })
-
         // 注入请求拦截器
         promise = chainInterceptors(promise, requestInterceptors)
         // 发起HTTPS请求
@@ -87,13 +68,8 @@ class ServiceBase {
         promise = chainInterceptors(promise, responseInterceptors)
         // 接口调用成功，res = {data: '开发者服务器返回的内容'}
         promise = promise.then(res => res.data, err => err)
-
         return promise
     }
-
-    /**
-     * __http - wx.request
-     */
     __http(obj) {
         return new es6.Promise((resolve, reject) => {
             obj.success = (res) => resolve(res)
@@ -101,43 +77,13 @@ class ServiceBase {
             wx.request(obj)
         })
     }
-
-    /**
-     * __resolve
-     */
-    __resolve(res) {
-        return new es6.Promise((resolve, reject) => {
-            resolve(res)
-        })
-    }
-
-    /**
-     * __reject
-     */
-    __reject(res) {
-        return new es6.Promise((resolve, reject) => {
-            reject(res)
-        })
-    }
-
-    /**
-     * 设置请求路径
-     */
-    setUrl(url) {
-        return `${this.$$basePath}${this.$$prefix}${url}`
-    }
-
+    __resolve(res) { return new es6.Promise((resolve, reject) => { resolve(res) }) }
+    __reject(res) { return new es6.Promise((resolve, reject) => { reject(res) }) }
+    setUrl(url) { return `${this.$$basePath}${this.$$prefix}${url}` }
     /**
      * 设置请求的 header , header 中不能设置 Referer
      */
-    setHeaders() {
-        return {
-        	// 'Accept': 'application/json',
-        	// 'Content-type': 'application/json',
-            'Cookie': 'JSESSIONID=' + wx.getStorageSync('token') + ';',
-        }
-    }
-
+    setHeaders() { return { 'Cookie': 'JSESSIONID=' + wx.getStorageSync('token') + ';', } }
     /**
      * 设置request拦截器
      */
@@ -172,5 +118,4 @@ class ServiceBase {
         }]
     }
 }
-
 export default ServiceBase
