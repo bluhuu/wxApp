@@ -3,12 +3,7 @@ import WxResource from 'WxResource'
 
 class HttpResource {
 	constructor(url, paramDefaults, actions, options) {
-		Object.assign(this, {
-			url,
-			paramDefaults,
-			actions,
-			options,
-		})
+		Object.assign(this, { url, paramDefaults, actions, options, })
 	}
 
 	/**
@@ -16,18 +11,14 @@ class HttpResource {
 	 */
 	init() {
 		const resource = new WxResource(this.setUrl(this.url), this.paramDefaults, this.actions, this.options)
-		resource.setDefaults({
-			interceptors: this.setInterceptors()
-		})
+		resource.setDefaults({ interceptors: this.setInterceptors() })
 		return resource
 	}
 
 	/**
 	 * 设置请求路径
 	 */
-	setUrl(url) {
-		return `${__config.basePath}${url}`
-	}
+	setUrl(url) { return `${__config.basePath}${url}` }
 
 	/**
 	 * 拦截器
@@ -40,12 +31,7 @@ class HttpResource {
                 if (request.url.indexOf('/elink_scm_purchase') !== -1 && wx.getStorageSync('token')) {
                     request.header.Cookie = 'JSESSIONID=' + wx.getStorageSync('token') + ";"
                 }
-                wx.showToast({
-                    title: '加载中',
-                    icon: 'loading',
-                    duration: 10000,
-                    mask: !0,
-                })
+                wx.showToast({ title: '加载中', icon: 'loading', duration: 10000, mask: !0, })
                 return request
             },
             requestError: (requestError) => {

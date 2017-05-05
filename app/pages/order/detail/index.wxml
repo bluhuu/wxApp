@@ -16,8 +16,16 @@
     </view>
     <view class="tr g14 pt20"><text>共计 <text class="f32 g33">{{order.item.qty}}</text> 件商品</text></view>
 </view>
-<view class="bgwh p20 mb20 f28">
+<view class="bgwh p20 mb20 f28" wx:if="{{!order.item.lines[0].images}}">
     <view><tex class="g20 dib" style="width:168rpx;"t>订单总额：</tex><text class="f32 g17" wx:if="{{order.item.orderAmtStr}}">￥{{order.item.orderAmtStr}}</text></view>
     <view><text class="g20 dib" style="width:168rpx;">收货人：</text><text>{{order.item.receivePerson}}</text></view>
     <view><text class="g20 dib" style="width:168rpx;">收货地址：</text><text>{{order.item.receiveAddr}}</text></view>
+</view>
+<view class="bgwh pl20 pt20 mb20 f28" wx:else>
+    <view class="bb12 g11 pb10"><text class="f28">上传的图片</text></view>
+    <view class="tc p20" wx:for="{{order.item.lines}}">
+        <view wx:for="{{item.images}}">
+            <image src="{{item}}" class="image" mode="aspectFill" />
+        </view>
+    </view>
 </view>

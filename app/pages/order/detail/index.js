@@ -31,6 +31,12 @@ Page({
                     if(!!value.price){
                         value.priceStr=App.Tools.changeTwoDecimal(value.price)
                     }
+                    if(!!value.product.images){
+                        value.images=[]
+                        JSON.parse(value.product.images).forEach((val,idx,arr)=>{
+                            value.images.push(App.renderImage("/" + val.image))
+                        })
+                    }
                     return value
                 })//
                 let total = 0;

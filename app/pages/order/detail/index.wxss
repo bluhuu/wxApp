@@ -4,3 +4,7 @@
 .item-line + .item-line {
     padding-top: 20rpx;
 }
+.image{
+    width: 500rpx;
+    height: 500rpx;
+}
