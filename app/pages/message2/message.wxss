@@ -1,0 +1,8 @@
+page { background-color: #fff; }
+input{
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.main>view{
+    margin-top: 30rpx;
+}

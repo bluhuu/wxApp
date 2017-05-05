@@ -24,7 +24,7 @@
         <view class="fdr fjcsb p10 pl20 pr20 bbs12 f28">
             <text>总量：</text><text class="g14">{{carts.totalQty}} 件</text>
         </view>
-        <view class="fdr fjcsb p10 pl20 pr20 f28">
+        <view class="fdr fjcsb p10 pl20 pr20 f28" hidden>
             <text>总价：</text><text class="f30 g17">{{carts.totalAmt}} 元</text>
         </view>
     </view>

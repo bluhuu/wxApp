@@ -9,6 +9,7 @@
         "pages/login/index",
         "pages/order/list/index",
         "pages/message/message",
+        "pages/message2/message",
         "pages/order/confirm/index",
         "pages/search/search",
         "pages/order/detail/index",

@@ -6,13 +6,13 @@
             <text style="margin-right:40rpx;">全选</text>
         </view>
 
-        <text>
+        <text hidden>
             <text class="f30">合计：</text>
-        <text class="f34">¥{{carts.totalAmt}}</text>
+            <text class="f34">¥{{carts.totalAmt}}</text>
         </text>
     </view>
     <view catchtap="submitOrderAction" class="fdr fjcsb pct100">
-        <text class="f33">去结算</text>
+        <text class="f33">去提交</text>
         <text wx:if="{{!!carts.totalQty}}">({{carts.totalQty}})件</text>
     </view>
 </view>
@@ -52,7 +52,7 @@
                                 <text>{{item.product.uomName}}</text>
                             </view>
                         </view>
-                        <view class="g17">
+                        <view class="g17" hidden>
                             <text class="f23">小计：</text>
                             <text class="f35">￥{{item.totalPriceStr}}</text>
                         </view>

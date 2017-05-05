@@ -22,7 +22,7 @@ Page({
         }, {
             image: '../../assets/images/nav-03.png',
             text: '问药',
-            path: '../message/message'
+            path: '../message2/message'
         }, {
             image: '../../assets/images/nav-04.png',
             text: '购物车',
