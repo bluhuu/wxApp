@@ -3,9 +3,7 @@ import es6 from '../assets/plugins/es6-promise'
 
 class ServiceBase {
     constructor() {
-        Object.assign(this, {
-            $$basePath: __config.basePath
-        })
+        Object.assign(this, { $$basePath: __config.basePath })
         this.__init()
     }
 
@@ -64,13 +62,7 @@ class ServiceBase {
         }
 
         // 请求参数配置
-        const $$config = {
-            url: $$url,
-            data: params,
-            header: $$header,
-            method: method,
-            dataType: dataType,
-        }
+        const $$config = { url: $$url, data: params, header: $$header, method: method, dataType: dataType, }
 
         let requestInterceptors = []
         let responseInterceptors = []
@@ -89,13 +81,10 @@ class ServiceBase {
 
         // 注入请求拦截器
         promise = chainInterceptors(promise, requestInterceptors)
-
         // 发起HTTPS请求
         promise = promise.then(this.__http)
-
         // 注入响应拦截器
         promise = chainInterceptors(promise, responseInterceptors)
-
         // 接口调用成功，res = {data: '开发者服务器返回的内容'}
         promise = promise.then(res => res.data, err => err)
 
@@ -160,12 +149,7 @@ class ServiceBase {
                 if (request.url.indexOf('/elink_scm_purchase') !== -1 && wx.getStorageSync('token')) {
                     request.header.Cookie = 'JSESSIONID=' + wx.getStorageSync('token') + ";"
                 }
-                wx.showToast({
-                    title: '加载中',
-                    icon: 'loading',
-                    duration: 10000,
-                    mask: !0,
-                })
+                wx.showToast({ title: '加载中', icon: 'loading', duration: 10000, mask: !0, })
                 return request
             },
             requestError: (requestError) => {
