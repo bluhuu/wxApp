@@ -52,8 +52,8 @@ Page({
                                 content: '提交成功',
                             })
                             .then(data => {
-                                App.WxService.switchTab({
-                                    url: '/pages/index/index'
+                                App.WxService.navigateTo("/pages/order/list/index", {
+                                    orderStatus: "DFH"
                                 })
                             })
                     } else {
@@ -94,8 +94,8 @@ Page({
                             content: '提交成功',
                         })
                         .then(data => {
-                            App.WxService.switchTab({
-                                url: '/pages/index/index'
+                            App.WxService.navigateTo("/pages/order/list/index", {
+                                orderStatus: "DFH"
                             })
                         })
                 },

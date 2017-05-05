@@ -165,6 +165,9 @@ Page({
         this.getList()
         wx.stopPullDownRefresh()
     },
+    onShow(){
+        // this.onPullDownRefresh()
+    },
     onReachBottom() {
         console.info('onReachBottom')
         if (this.data.order.total && this.data.order.params.start >= this.data.order.total) {
