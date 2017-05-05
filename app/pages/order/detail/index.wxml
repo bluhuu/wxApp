@@ -25,7 +25,7 @@
     <view class="bb12 g11 pb10"><text class="f28">上传的图片</text></view>
     <view class="tc p20" wx:for="{{order.item.lines}}">
         <view wx:for="{{item.images}}">
-            <image src="{{item}}" class="image" mode="aspectFill" />
+            <image src="{{item}}" class="image" mode="aspectFit" />
         </view>
     </view>
 </view>
