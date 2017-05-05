@@ -26,16 +26,7 @@ class ServiceBase {
 
         // 发起请求所支持的方法
         this.instanceSource = {
-            method: [
-                'OPTIONS',
-                'GET',
-                'HEAD',
-                'POST',
-                'PUT',
-                'DELETE',
-                'TRACE',
-                'CONNECT',
-            ]
+            method: [ 'OPTIONS', 'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'CONNECT', ]
         }
     }
 

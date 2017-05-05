@@ -15,7 +15,7 @@
         "pages/user/index"
     ],
     "window": {
-        "navigationBarBackgroundColor": "#3cb9bb",
+        "navigationBarBackgroundColor": "#27b1b4",
         "navigationBarTextStyle": "white",
         "navigationBarTitleText": "雨花代购",
         "backgroundColor": "#f2f2f2",

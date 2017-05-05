@@ -1,6 +1,6 @@
 .container { background-color: #f2f2f2; }
 /*轮播*/
-.swiper_box { height: 187.5px; }
+.swiper_box { height: 293rpx; }
 swiper.swiper { height: 100%; }
 .swiper-item { display: block; height: 100%; }
 .slide-image { height: 100%; width: 100%; display: inline-block; overflow: hidden; }

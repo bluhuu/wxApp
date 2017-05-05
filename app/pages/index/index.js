@@ -66,6 +66,7 @@ Page({
                             images.push(App.renderImage(val[k]))
                         }
                     })
+                    // images.push("/assets/images/4.jpg")
                     if (images.length > 0) {
                         that.setData({
                             images: images
