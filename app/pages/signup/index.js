@@ -54,7 +54,7 @@ Page({
             data: e.detail.value,
             header: { 'content-type': 'application/json' },
             success: function(res) {
-                if(res.success){
+                if(res.data && res.data.success){
                     App.WxService.showModal({
                         title:'提示',
                         content: "注册成功",
