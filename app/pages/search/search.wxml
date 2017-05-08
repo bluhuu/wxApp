@@ -47,7 +47,7 @@
                         <text>单位：</text><text>{{item.uomName}}</text>
                     </view> -->
                 </view>
-                <view class="fx fdr fjcsb">
+                <view class="fx fdr fjcsb" hidden>
                     <!-- <view>
                         <text>参考零售价：</text><text class="g15">{{item.salePrice}}</text><text>元</text>
                     </view> -->
