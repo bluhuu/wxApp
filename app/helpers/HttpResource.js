@@ -2,29 +2,17 @@ import __config from '../etc/config'
 import WxResource from 'WxResource'
 
 class HttpResource {
-	constructor(url, paramDefaults, actions, options) {
-		Object.assign(this, { url, paramDefaults, actions, options, })
-	}
-
-	/**
-	 * 返回实例对象
-	 */
-	init() {
-		const resource = new WxResource(this.setUrl(this.url), this.paramDefaults, this.actions, this.options)
-		resource.setDefaults({ interceptors: this.setInterceptors() })
-		return resource
-	}
-
-	/**
-	 * 设置请求路径
-	 */
-	setUrl(url) { return `${__config.basePath}${url}` }
-
-	/**
-	 * 拦截器
-	 */
-	setInterceptors() {
-		return [{
+    constructor(url, paramDefaults, actions, options) {
+        Object.assign(this, { url, paramDefaults, actions, options, })
+    }
+    init() {
+        const resource = new WxResource(this.setUrl(this.url), this.paramDefaults, this.actions, this.options)
+        resource.setDefaults({ interceptors: this.setInterceptors() })
+        return resource
+    }
+    setUrl(url) { return `${__config.basePath}${url}` }
+    setInterceptors() {
+        return [{
             request: (request) => {
                 request.header = request.header || {}
                 request.requestTimestamp = new Date().getTime()
@@ -52,7 +40,7 @@ class HttpResource {
                 return responseError
             },
         }]
-	}
+    }
 }
 
 export default HttpResource
